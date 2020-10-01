@@ -27,61 +27,61 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Party | Must contain agency ID as sender | Mandatory |
-| PayloadAttributes | Description | Mandatory |
-| Request | Description | Mandatory |
+| PayloadAttributes | Version + CorrelationID (to group log messages) | Optional |
+| Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| CreateOrder | Description | Mandatory |
-| DataLists | Description | Mandatory |
+| CreateOrder | The order to create detailed [below](#createorder) | Mandatory |
+| DataLists | The request data lists detailed [below](#datalists) | Mandatory |
 
 ### CreateOrder
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| SelectedOffer | Description | Mandatory |
+| SelectedOffer | The selected offer previously priced with offerPrice operation | Mandatory |
 
 ### DataLists
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| ContactInfoList | Description | Mandatory |
-| PaxList | Description | Mandatory |
+| ContactInfoList | Must contains the client contact | Mandatory |
+| PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc) + client contact reference | Mandatory |
 
 # OrderCreate - OrderViewRS
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| PayloadAttributes | Description | Mandatory |
-| Response | Description | Mandatory |
+| PayloadAttributes | Same as requested + timestamp | Mandatory |
+| Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Warnings | Description | Mandatory |
-| DataLists | Description | Mandatory |
-| Order | Description | Mandatory |
+| Warnings | List of warnings returned by provider | Optional |
+| DataLists | The response data lists (journeys, segments, service definitions, etc) | Mandatory |
+| Order | The order element detailed [below](#order) | Mandatory |
 
 ### Order
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OrderID | Description | Mandatory |
-| BookingRef | Description | Mandatory |
-| TotalPrice | Description | Mandatory |
-| OrderItems | Description | Mandatory |
+| OrderID | The order ID (to use for servicing) | Mandatory |
+| BookingRefs | List of booking references | Mandatory |
+| TotalPrice | The total price of the whole order | Mandatory |
+| OrderItems | List of order items detailed [below](#orderitem) | Mandatory |
 
 #### OrderItem
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OrderItemID | Description | Mandatory |
-| FareDetail | Description | Mandatory |
-| Price | Description | Mandatory |
-| Services | Description | Mandatory |
+| OrderItemID | ID of the order item | Mandatory |
+| FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
+| Price | The total price of this offer item | Mandatory |
+| Services | List of flight/serviceDefinition associations with PAX | Mandatory |
 
 # Samples
 

@@ -27,56 +27,56 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Party | Must contain agency ID as sender | Mandatory |
-| PayloadAttributes | Description | Mandatory |
-| Request | Description | Mandatory |
+| PayloadAttributes | Version + CorrelationID (to group log messages) | Optional |
+| Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| DataLists | Description | Mandatory |
-| PricedOffer | Description | Mandatory |
+| DataLists | The request data lists detailed [below](#datalists) | Mandatory |
+| PricedOffer | List of selected offers to price with Shopping session ID | Mandatory |
 
 ## DataLists
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Paxs | Description | Mandatory |
+| Paxs | List of passengers (same as AirShoppingRQ) | Mandatory |
 
 # OfferPriceRS
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| PayloadAttributes | Description | Mandatory |
-| Response | Description | Mandatory |
+| PayloadAttributes | Same as requested + timestamp | Mandatory |
+| Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Warnings | Description | Mandatory |
-| ShoppingResponse | Description | Mandatory |
-| DataLists | Description | Mandatory |
-| PricedOffer | Description | Mandatory |
+| Warnings | List of warnings returned by provider | Optional |
+| ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
+| DataLists | The response data lists (journeys, segments, service definitions, etc) | Mandatory |
+| PricedOffer | The priced offer element detailed [below](#pricedoffer) | Mandatory |
 
 ## PricedOffer
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferID | Description | Mandatory |
-| JourneyOverview | Description | Mandatory |
-| BaggageAllowance | Description | Mandatory |
-| TotalPrice | Description | Mandatory |
-| OfferItems | Description | Mandatory |
+| OfferID | ID of the offer priced | Mandatory |
+| JourneyOverview | Overview of contained journeys with price class links | Mandatory |
+| BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
+| TotalPrice | The total price of this offer | Mandatory |
+| OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
 
 ### OfferItem
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferItemID | Description | Mandatory |
-| FareDetail | Description | Mandatory |
-| Price | Description | Mandatory |
-| Services | Description | Mandatory |
+| OfferItemID | The offer item ID | Mandatory |
+| FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
+| Price | The total price of this offer item | Mandatory |
+| Services | List of flight/serviceDefinition associations with PAX | Mandatory |
 
 # Samples
 

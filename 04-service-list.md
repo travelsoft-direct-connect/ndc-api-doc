@@ -27,48 +27,48 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Party | Must contain agency ID as sender | Mandatory |
-| PayloadAttributes | Description | Mandatory |
-| Request | Description | Mandatory |
+| PayloadAttributes | Version + CorrelationID (to group log messages) | Optional |
+| Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| CoreRequest | Description | Mandatory |
-| Paxs | Description | Mandatory |
-| ShoppingResponse | Description | Mandatory |
+| CoreRequest | Must contain the flight offer selected | Mandatory |
+| Paxs | List of passengers (same as AirShoppingRQ) | Mandatory |
+| ShoppingResponse | The Shopping session ID from previous request | Mandatory |
 
 # ServiceListRS
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| PayloadAttributes | Description | Mandatory |
-| Response | Description | Mandatory |
+| PayloadAttributes | Same as requested + timestamp | Mandatory |
+| Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Warnings | Description | Mandatory |
-| ShoppingResponse | Description | Mandatory |
-| DataLists | Description | Mandatory |
-| ALaCarteOffer | Description | Mandatory |
+| Warnings | List of warnings returned by provider | Optional |
+| ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
+| DataLists | The response data lists (service definitions, etc) | Mandatory |
+| ALaCarteOffer | The offer element detailed [below](#alacarteoffer) | Mandatory |
 
 ### ALaCarteOffer
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferID | Description | Mandatory |
-| ALaCarteOfferItems | Description | Mandatory |
+| OfferID | The offer ID | Mandatory |
+| ALaCarteOfferItems | List of offer items detailed [below](#alacarteofferitem) | Mandatory |
 
 #### ALaCarteOfferItem
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferItemID | Description | Mandatory |
-| Eligibility | Description | Mandatory |
-| Service | Description | Mandatory |
-| UnitPrice | Description | Mandatory |
+| OfferItemID | The offer item ID | Mandatory |
+| Eligibility | Eligibility of this offer item (can be flight/PAX association) | Mandatory |
+| Service | The service definition reference (contained id DataLists) | Mandatory |
+| UnitPrice | Price of this offer item | Mandatory |
 
 # Samples
 

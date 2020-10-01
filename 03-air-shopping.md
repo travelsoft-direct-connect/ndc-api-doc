@@ -27,53 +27,54 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Party | Must contain agency ID as sender | Mandatory |
-| PayloadAttributes | Description | Mandatory |
-| Request | Description | Mandatory |
+| PayloadAttributes | Version + CorrelationID (to group log messages) | Optional |
+| Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| FlightCriteria | Description | Mandatory |
-| Paxs | Description | Mandatory |
-| ResponseParameters | Description | Mandatory |
-| ShoppingCriteria | Description | Mandatory |
+| FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
+| Paxs | List of passengers with type (PTC): <ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul> | Mandatory |
+| ResponseParameters | <ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul> | Optional |
+| ShoppingCriteria | The shopping criteria containing at least the preferred transport class (ECONOMY, BUSINESS, etc) | Mandatory |
 
 
 # AirShoppingRS
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| PayloadAttributes | Description | Mandatory |
-| Response | Description | Mandatory |
+| PayloadAttributes | Same as requested + timestamp | Mandatory |
+| Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Warnings | Description | Mandatory |
-| ShoppingResponse | Description | Mandatory |
-| DataLists | Description | Mandatory |
-| Offers | Description | Mandatory |
+| Warnings | List of warnings returned by provider | Optional |
+| ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
+| DataLists | The response data lists (journeys, segments, etc) | Mandatory |
+| Offers | List of flight offers detailed [below](#offer) | Mandatory |
 
 ### Offer
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferID, OwnerCode | Description | Mandatory |
-| JourneyOverview | Description | Mandatory |
-| BaggageAllowance | Description | Mandatory |
-| TotalPrice | Description | Mandatory |
-| OfferItems | Description | Mandatory |
+| OfferID | The offer ID | Mandatory |
+| OwnerCode | The airline owner code | Mandatory |
+| JourneyOverview | Overview of contained journeys with price class links | Mandatory |
+| BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
+| TotalPrice | The total price of this offer | Mandatory |
+| OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
 
 #### OfferItem
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| OfferItemID | Description | Mandatory |
-| FareDetail | Description | Mandatory |
-| Price | Description | Mandatory |
-| Services | Description | Mandatory |
+| OfferItemID | The offer item ID | Mandatory |
+| FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
+| Price | The total price of this offer item | Mandatory |
+| Services | List of flight associations with PAX | Mandatory |
 
 
 # Samples

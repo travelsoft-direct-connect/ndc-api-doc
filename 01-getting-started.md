@@ -13,10 +13,10 @@ WSDL and XSD files can be downloaded directly <a href="orchestraNDCService-20192
 - *login* &rarr; get an access token
 - *airShopping* &rarr; search flights
 - *serviceList* &rarr; get ancillaries
-- *offerPrice* &rarr; quote an offer
+- *offerPrice* &rarr; quote an offer selection
 - *orderCreate* &rarr; make a booking
 - *orderRetrieve* &rarr; get a booking
-- *orderChange* &rarr; ticket issue
+- *orderChange* &rarr; issue tickets
 - *orderReshop* &rarr; get cancel fee
 - *orderCancel* &rarr; cancel a booking
 
