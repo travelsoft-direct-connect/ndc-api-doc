@@ -44,6 +44,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Request
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | CoreRequest | Must contain the flight offer selected | Mandatory |
@@ -59,6 +60,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Response
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -68,6 +70,7 @@ The provider to request must be sent in the control header. For example:
 
 ### ALaCarteOffer
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | The offer ID | Mandatory |
@@ -75,6 +78,7 @@ The provider to request must be sent in the control header. For example:
 
 #### ALaCarteOfferItem
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

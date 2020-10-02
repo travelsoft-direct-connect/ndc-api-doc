@@ -45,6 +45,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Request
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
@@ -62,6 +63,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Response
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -71,6 +73,7 @@ The provider to request must be sent in the control header. For example:
 
 ### Offer
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | The offer ID | Mandatory |
@@ -82,6 +85,7 @@ The provider to request must be sent in the control header. For example:
 
 #### OfferItem
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

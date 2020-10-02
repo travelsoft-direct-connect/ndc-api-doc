@@ -44,6 +44,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Request
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | DataLists | The request data lists detailed [below](#datalists) | Mandatory |
@@ -51,6 +52,7 @@ The provider to request must be sent in the control header. For example:
 
 ## DataLists
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Paxs | List of passengers (same as AirShoppingRQ) | Mandatory |
@@ -64,6 +66,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Response
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -73,6 +76,7 @@ The provider to request must be sent in the control header. For example:
 
 ## PricedOffer
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | ID of the offer priced | Mandatory |
@@ -83,6 +87,7 @@ The provider to request must be sent in the control header. For example:
 
 ### OfferItem
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

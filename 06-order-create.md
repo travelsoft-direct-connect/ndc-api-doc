@@ -44,6 +44,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Request
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | CreateOrder | The order to create detailed [below](#createorder) | Mandatory |
@@ -52,12 +53,14 @@ The provider to request must be sent in the control header. For example:
 
 ### CreateOrder
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | SelectedOffer | The selected offer previously priced with offerPrice operation | Mandatory |
 
 ### DataLists
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | ContactInfoList | Must contains the client contact | Mandatory |
