@@ -54,7 +54,7 @@ The provider to request must be sent in the control header. For example:
 | Warnings | List of warnings returned by provider | Optional |
 | ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
 | DataLists | The response data lists (journeys, segments, etc) | Mandatory |
-| Offers | List of flight offers detailed [below](#offer) | Mandatory |
+| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as <ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li>| Mandatory |
 
 ### Offer
 
