@@ -1,14 +1,30 @@
 # Belongs at: /_data/navigation.yml
 
-- title: Home
-  url: /
+- title: Getting Started
+  url: /01-getting-started
 
-- title: Group of Things
-  url: /group/
-  sublinks:
-    - title: Sub-item 1
-      url: /group/si1
-    - title: Sub-item 2
-      url: /group/si2
-    - title: Sub-item 3
-      url: /group/si3
+- title: Login
+  url: /02-login
+
+- title: Air Shopping
+  url: /03-air-shopping
+
+- title: Service List
+  url: /04-service-list
+
+- title: Offer Price
+  url: /05-offer-price
+
+- title: Order Create
+  url: /06-order-create
+
+
+# - title: Group of Things
+#   url: /group/
+#   sublinks:
+#     - title: Sub-item 1
+#       url: /group/si1
+#     - title: Sub-item 2
+#       url: /group/si2
+#     - title: Sub-item 3
+#       url: /group/si3
