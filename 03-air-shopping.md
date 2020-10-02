@@ -49,8 +49,8 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
-| Paxs | List of passengers with type (PTC): <ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul> | Mandatory |
-| ResponseParameters | <ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul> | Optional |
+| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} | Mandatory |
+| ResponseParameters | {::nomarkdown}<ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul>{:/} | Optional |
 | ShoppingCriteria | The shopping criteria containing at least the preferred transport class (ECONOMY, BUSINESS, etc) | Mandatory |
 
 
@@ -69,7 +69,7 @@ The provider to request must be sent in the control header. For example:
 | Warnings | List of warnings returned by provider | Optional |
 | ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
 | DataLists | The response data lists (journeys, segments, etc) | Mandatory |
-| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as <ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li>| Mandatory |
+| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as {::nomarkdown}<ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li></ul>{:/}| Mandatory |
 
 ### Offer
 {: .no_toc }
