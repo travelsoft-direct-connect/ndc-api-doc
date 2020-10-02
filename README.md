@@ -1,9 +1,3 @@
----
-layout: page
-title:  "Getting Started"
-nav_order: 1
----
-
 # Getting Started
 
 This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology. The current NDC version exposed is 19.2.
