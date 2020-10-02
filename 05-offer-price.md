@@ -1,4 +1,10 @@
-# AirShopping operation
+---
+layout: page
+title:  "Offer Price"
+nav_order: 5
+---
+
+# OfferPrice operation
 
 The offer price method is used to confirm price and availability of selected offers (flight + ancillaries) and returns one packaged priced offer.
 
@@ -18,9 +24,9 @@ The offer price method is used to confirm price and availability of selected off
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # OfferPriceRQ
 
@@ -83,7 +89,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>OfferPriceRQ</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OfferPriceRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRQ">
     <PayloadAttributes>
@@ -126,14 +132,14 @@ The provider to request must be sent in the control header. For example:
         </PricedOffer>
     </Request>
 </IATA_OfferPriceRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>OfferPriceRS</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OfferPriceRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRS">
     <Response>
@@ -459,6 +465,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_OfferPriceRS>
-```
+{% endhighlight %}
 
 </details>

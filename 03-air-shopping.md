@@ -1,3 +1,9 @@
+---
+layout: page
+title:  "Air Shopping"
+nav_order: 3
+---
+
 # AirShopping operation
 
 The air shopping operation allows to initiate a shopping session and returns a list of flight offers depending on criteria given in request.
@@ -18,9 +24,9 @@ The air shopping operation allows to initiate a shopping session and returns a l
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # AirShoppingRQ
 
@@ -82,7 +88,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>AirShoppingRQ - OneWay</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
     <Party>
@@ -135,14 +141,14 @@ The provider to request must be sent in the control header. For example:
         </ShoppingCriteria>
     </Request>
 </IATA_AirShoppingRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShoppingRQ - RoundTrip</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
     <Party>
@@ -204,14 +210,14 @@ The provider to request must be sent in the control header. For example:
         </ShoppingCriteria>
     </Request>
 </IATA_AirShoppingRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - Error</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Error>
@@ -225,14 +231,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - OneWay</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -1672,14 +1678,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - RoundTrip (mode combination)</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -2765,14 +2771,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - RoundTrip (mode flat)</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -4055,6 +4061,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>

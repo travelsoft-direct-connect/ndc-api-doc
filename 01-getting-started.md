@@ -1,3 +1,9 @@
+---
+layout: page
+title:  "Getting Started"
+nav_order: 1
+---
+
 # Getting Started
 
 This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology. The current NDC version exposed is 19.2.
@@ -33,9 +39,9 @@ A control node can be added in the SOAP header of each NDC request. This node co
 <details>
   <summary><b>Control Header Sample</b></summary>
 
-```xml
+{% highlight xml %}
 <Control Provider="AIRFRANCE" ApiVersion="1.0" />
- ```
+{% endhighlight %}
 
 </details>
 
@@ -66,22 +72,21 @@ Always in NDC responses (see an example below), except if the request is malform
 <details>
   <summary><b>AirShoppingRS - Error Example</b></summary>
 
-```xml
-<IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
-  <Error>
-    <Code>911</Code>
-    <DescText>Unable to process - system error</DescText>
-    <LangCode>en</LangCode>
-    <OwnerName>ORCHESTRA</OwnerName>
-  </Error>
-  <PayloadAttributes>
-    <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>
-    <Timestamp>2020-10-01T10:51:29.072</Timestamp>
-    <VersionNumber>19.2</VersionNumber>
-  </PayloadAttributes>
-</IATA_AirShoppingRS>
-```
-
+  {% highlight xml %}
+  <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
+    <Error>
+      <Code>911</Code>
+      <DescText>Unable to process - system error</DescText>
+      <LangCode>en</LangCode>
+      <OwnerName>ORCHESTRA</OwnerName>
+    </Error>
+    <PayloadAttributes>
+      <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>
+      <Timestamp>2020-10-01T10:51:29.072</Timestamp>
+      <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+  </IATA_AirShoppingRS>
+  {% endhighlight %}
 </details>
 
 ## Steps for Orchestra NDC API Integration
