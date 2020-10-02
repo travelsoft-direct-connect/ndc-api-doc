@@ -18,8 +18,8 @@ This documentation is designed to be used as a base to integrate the Orchestra N
 
 There are two environments:
 
-- Test: <https://<TEST_URL>/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
-- Production: <https://<PROD_URL>/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
+- Test: <https://TEST_URL/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
+- Production: <https://PROD_URL/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
 
 WSDL and XSD files can be downloaded directly [here](orchestraNDCService-20192.zip).
 
