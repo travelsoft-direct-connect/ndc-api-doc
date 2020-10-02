@@ -37,7 +37,7 @@ The provider to request must be sent in the control header. For example:
 | DataLists | The request data lists detailed [below](#datalists) | Mandatory |
 | PricedOffer | List of selected offers to price with Shopping session ID | Mandatory |
 
-## DataLists
+### DataLists
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -59,7 +59,7 @@ The provider to request must be sent in the control header. For example:
 | DataLists | The response data lists (journeys, segments, service definitions, etc) | Mandatory |
 | PricedOffer | The priced offer element detailed [below](#pricedoffer) | Mandatory |
 
-## PricedOffer
+### PricedOffer
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -69,7 +69,7 @@ The provider to request must be sent in the control header. For example:
 | TotalPrice | The total price of this offer | Mandatory |
 | OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
 
-### OfferItem
+#### OfferItem
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
