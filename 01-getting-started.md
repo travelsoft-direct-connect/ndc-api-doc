@@ -6,7 +6,7 @@ There are two environments:
 - Test: <https://apgairlines-resa.recette.orchestra-platform.com/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
 - Production: <https://apgairlines-resa.orchestra-platform.com/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
 
-WSDL and XSD files can be downloaded directly <a href="orchestraNDCService-20192.zip">here</a>.
+WSDL and XSD files can be downloaded directly [here](orchestraNDCService-20192.zip).
 
 ## Current available web operations
 
@@ -93,4 +93,4 @@ Always in NDC responses (see an example below), except if the request is malform
 
 ## All samples
 
-Download all message samples <a href="samples.zip">here</a>.
+Download all message samples [here](samples.zip).
