@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Login"
-nav_order: 2
+nav_order: 1
 ---
 
 # Login operation

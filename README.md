@@ -1,8 +1,10 @@
+
 # Getting Started
 
 This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology. The current NDC version exposed is 19.2.
 
 There are two environments:
+
 - Test: <https://apgairlines-resa.recette.orchestra-platform.com/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
 - Production: <https://apgairlines-resa.orchestra-platform.com/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
 
@@ -27,6 +29,7 @@ To avoid to send username/password for each NDC request, a login method allows t
 ## Control header
 
 A control node can be added in the SOAP header of each NDC request. This node contains extra data to control request:
+
 - *Provider*: code of provider to request
 - *ApiVersion*: version of Orchestra NDC API to use (allows to maintain backward compatibility if necessary)
 
