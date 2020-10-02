@@ -5,10 +5,16 @@ nav_order: 5
 ---
 
 # OfferPrice operation
-
+{: .no_toc }
 The offer price method is used to confirm price and availability of selected offers (flight + ancillaries) and returns one packaged priced offer.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -37,14 +43,14 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | DataLists | The request data lists detailed [below](#datalists) | Mandatory |
 | PricedOffer | List of selected offers to price with Shopping session ID | Mandatory |
 
 ## DataLists
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Paxs | List of passengers (same as AirShoppingRQ) | Mandatory |
@@ -57,7 +63,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -66,7 +72,7 @@ The provider to request must be sent in the control header. For example:
 | PricedOffer | The priced offer element detailed [below](#pricedoffer) | Mandatory |
 
 ## PricedOffer
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | ID of the offer priced | Mandatory |
@@ -76,7 +82,7 @@ The provider to request must be sent in the control header. For example:
 | OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
 
 ### OfferItem
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

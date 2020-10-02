@@ -5,10 +5,16 @@ nav_order: 4
 ---
 
 # ServiceList operation
-
+{: .no_toc }
 The service list method returns a list of available ancillaries for the selected flight offer in request.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -37,7 +43,7 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | CoreRequest | Must contain the flight offer selected | Mandatory |
@@ -52,7 +58,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -61,14 +67,14 @@ The provider to request must be sent in the control header. For example:
 | ALaCarteOffer | The offer element detailed [below](#alacarteoffer) | Mandatory |
 
 ### ALaCarteOffer
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | The offer ID | Mandatory |
 | ALaCarteOfferItems | List of offer items detailed [below](#alacarteofferitem) | Mandatory |
 
 #### ALaCarteOfferItem
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

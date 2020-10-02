@@ -5,10 +5,17 @@ nav_order: 3
 ---
 
 # AirShopping operation
+{: .no_toc }
 
 The air shopping operation allows to initiate a shopping session and returns a list of flight offers depending on criteria given in request.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -37,7 +44,7 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
@@ -54,7 +61,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -63,7 +70,7 @@ The provider to request must be sent in the control header. For example:
 | Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as <ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li>| Mandatory |
 
 ### Offer
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferID | The offer ID | Mandatory |
@@ -74,7 +81,7 @@ The provider to request must be sent in the control header. For example:
 | OfferItems | List of offer items detailed [below](#offeritem). For a round-trip offer, offer items can be divided by journey (if prices are detailed by journey) or not (when prices are for the whole round-trip). | Mandatory |
 
 #### OfferItem
-
+{: .no_toc }
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |

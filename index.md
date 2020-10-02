@@ -5,8 +5,16 @@ nav_order: 1
 ---
 
 # Getting Started
-
+{: .no_toc }
 This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology. The current NDC version exposed is 19.2.
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+## Environments
 
 There are two environments:
 

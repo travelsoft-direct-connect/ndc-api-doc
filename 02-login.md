@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 # Login operation
-
+{: .no_toc }
 The login operation authenticates a user and returns a token to access all others methods. A token has an expiration date and can be used for all requests of the user (agency/agent) until it expires. Usually a token is valid during 24h after its creation.
 
 __Important__:
@@ -13,6 +13,12 @@ __Important__:
 It could occur that tokens are removed because of a server restart, so it's important to check all NDC error responses to detect this case of token lost. If NDC error code is `368` (description: "`Not authorized`", owner: "`ORCHESTRA`"), that means token is expired or lost, so a login request must be executed again to get a new token.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Request Sample
 
