@@ -65,7 +65,7 @@ The provider to request must be sent in the control header. For example:
 | JourneyOverview | Overview of contained journeys with price class links | Mandatory |
 | BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
 | TotalPrice | The total price of this offer | Mandatory |
-| OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
+| OfferItems | List of offer items detailed [below](#offeritem). For a round-trip offer, offer items can be divided by journey (if prices are detailed by journey) or not (when prices are for the whole round-trip). | Mandatory |
 
 #### OfferItem
 
