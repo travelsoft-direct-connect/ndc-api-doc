@@ -75,6 +75,7 @@ The provider to request must be sent in the control header. For example:
 
 ## Response
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
@@ -83,6 +84,7 @@ The provider to request must be sent in the control header. For example:
 
 ### Order
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OrderID | The order ID (to use for servicing) | Mandatory |
@@ -92,6 +94,7 @@ The provider to request must be sent in the control header. For example:
 
 #### OrderItem
 {: .no_toc }
+
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OrderItemID | ID of the order item | Mandatory |
