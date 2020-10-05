@@ -1,8 +1,20 @@
-# ServiceList operation
+---
+layout: page
+title:  "Service List"
+nav_order: 4
+---
 
+# ServiceList operation
+{: .no_toc }
 The service list method returns a list of available ancillaries for the selected flight offer in request.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -18,9 +30,9 @@ The service list method returns a list of available ancillaries for the selected
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # ServiceListRQ
 
@@ -31,6 +43,7 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -46,6 +59,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -55,6 +69,7 @@ The provider to request must be sent in the control header. For example:
 | ALaCarteOffer | The offer element detailed [below](#alacarteoffer) | Mandatory |
 
 ### ALaCarteOffer
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -62,6 +77,7 @@ The provider to request must be sent in the control header. For example:
 | ALaCarteOfferItems | List of offer items detailed [below](#alacarteofferitem) | Mandatory |
 
 #### ALaCarteOfferItem
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -75,7 +91,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>ServiceListRQ</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_ServiceListRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_ServiceListRQ">
     <PayloadAttributes>
@@ -105,14 +121,14 @@ The provider to request must be sent in the control header. For example:
         </ShoppingResponse>
     </Request>
 </IATA_ServiceListRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>ServiceListRS</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_ServiceListRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_ServiceListRS">
     <Response>
@@ -1470,6 +1486,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_ServiceListRS>
-```
+{% endhighlight %}
 
 </details>

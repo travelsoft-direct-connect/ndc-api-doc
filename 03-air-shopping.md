@@ -1,8 +1,21 @@
+---
+layout: page
+title:  "Air Shopping"
+nav_order: 3
+---
+
 # AirShopping operation
+{: .no_toc }
 
 The air shopping operation allows to initiate a shopping session and returns a list of flight offers depending on criteria given in request.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -18,9 +31,9 @@ The air shopping operation allows to initiate a shopping session and returns a l
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # AirShoppingRQ
 
@@ -31,12 +44,13 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
-| Paxs | List of passengers with type (PTC): <ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul> | Mandatory |
-| ResponseParameters | <ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul> | Optional |
+| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} | Mandatory |
+| ResponseParameters | {::nomarkdown}<ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul>{:/} | Optional |
 | ShoppingCriteria | The shopping criteria containing at least the preferred transport class (ECONOMY, BUSINESS, etc) | Mandatory |
 
 
@@ -48,15 +62,17 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
 | ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
 | DataLists | The response data lists (journeys, segments, etc) | Mandatory |
-| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as <ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li>| Mandatory |
+| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as {::nomarkdown}<ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li></ul>{:/}| Mandatory |
 
 ### Offer
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -68,6 +84,7 @@ The provider to request must be sent in the control header. For example:
 | OfferItems | List of offer items detailed [below](#offeritem). For a round-trip offer, offer items can be divided by journey (if prices are detailed by journey) or not (when prices are for the whole round-trip). | Mandatory |
 
 #### OfferItem
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -82,7 +99,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>AirShoppingRQ - OneWay</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
     <Party>
@@ -135,14 +152,14 @@ The provider to request must be sent in the control header. For example:
         </ShoppingCriteria>
     </Request>
 </IATA_AirShoppingRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShoppingRQ - RoundTrip</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
     <Party>
@@ -204,14 +221,14 @@ The provider to request must be sent in the control header. For example:
         </ShoppingCriteria>
     </Request>
 </IATA_AirShoppingRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - Error</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Error>
@@ -225,14 +242,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - OneWay</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -1672,14 +1689,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - RoundTrip (mode combination)</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -2765,14 +2782,14 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>AirShopping RS - RoundTrip (mode flat)</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_AirShoppingRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
     <Response>
@@ -4055,6 +4072,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_AirShoppingRS>
-```
+{% endhighlight %}
 
 </details>

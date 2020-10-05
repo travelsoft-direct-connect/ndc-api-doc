@@ -1,8 +1,20 @@
-# OrderCreate operation
+---
+layout: page
+title:  "Order Create"
+nav_order: 6
+---
 
+# OrderCreate operation
+{: .no_toc }
 The order create method allows to create an order from an offer selection. The passenger information must be sent in request to be able to create order in the airline system. If the order creation succeeds, the response contains an order ID that can be used for servicing flows.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -18,9 +30,9 @@ The order create method allows to create an order from an offer selection. The p
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # OrderCreateRQ
 
@@ -31,6 +43,7 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -39,12 +52,14 @@ The provider to request must be sent in the control header. For example:
 | PaymentFunctions | Only if direct ticket issue has to be forced at order creation. If so, an element 'PaymentProcessingDetails' has to be set with Cash method. | Optional |
 
 ### CreateOrder
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | SelectedOffer | The selected offer previously priced with offerPrice operation | Mandatory |
 
 ### DataLists
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -59,6 +74,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -67,6 +83,7 @@ The provider to request must be sent in the control header. For example:
 | Order | The order element detailed [below](#order) | Mandatory |
 
 ### Order
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -76,6 +93,7 @@ The provider to request must be sent in the control header. For example:
 | OrderItems | List of order items detailed [below](#orderitem) | Mandatory |
 
 #### OrderItem
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -89,7 +107,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>OrderCreateRQ</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
     <PayloadAttributes>
@@ -161,14 +179,14 @@ The provider to request must be sent in the control header. For example:
         </DataLists>
     </Request>
 </IATA_OrderCreateRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>OrderViewRS</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OrderViewRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderViewRS">
     <Response>
@@ -536,6 +554,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_OrderViewRS>
-```
+{% endhighlight %}
 
 </details>

@@ -1,8 +1,20 @@
-# AirShopping operation
+---
+layout: page
+title:  "Offer Price"
+nav_order: 5
+---
 
+# OfferPrice operation
+{: .no_toc }
 The offer price method is used to confirm price and availability of selected offers (flight + ancillaries) and returns one packaged priced offer.
 
 ---------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Release notes
 
@@ -18,9 +30,9 @@ The offer price method is used to confirm price and availability of selected off
 
 The provider to request must be sent in the control header. For example:
 
-```xml
+{% highlight xml %}
 <Control Provider="VUELING" />
-```
+{% endhighlight %}
 
 # OfferPriceRQ
 
@@ -31,6 +43,7 @@ The provider to request must be sent in the control header. For example:
 | Request | The request element detailed [below](#request) | Mandatory |
 
 ## Request
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -38,6 +51,7 @@ The provider to request must be sent in the control header. For example:
 | PricedOffer | List of selected offers to price with Shopping session ID | Mandatory |
 
 ### DataLists
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -51,6 +65,7 @@ The provider to request must be sent in the control header. For example:
 | Response | The response element detailed [below](#response) | Mandatory |
 
 ## Response
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -60,6 +75,7 @@ The provider to request must be sent in the control header. For example:
 | PricedOffer | The priced offer element detailed [below](#pricedoffer) | Mandatory |
 
 ### PricedOffer
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -70,6 +86,7 @@ The provider to request must be sent in the control header. For example:
 | OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
 
 #### OfferItem
+{: .no_toc }
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
@@ -83,7 +100,7 @@ The provider to request must be sent in the control header. For example:
 <details>
   <summary><b>OfferPriceRQ</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OfferPriceRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRQ">
     <PayloadAttributes>
@@ -126,14 +143,14 @@ The provider to request must be sent in the control header. For example:
         </PricedOffer>
     </Request>
 </IATA_OfferPriceRQ>
-```
+{% endhighlight %}
 
 </details>
 
 <details>
   <summary><b>OfferPriceRS</b></summary>
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OfferPriceRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRS">
     <Response>
@@ -459,6 +476,6 @@ The provider to request must be sent in the control header. For example:
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
 </IATA_OfferPriceRS>
-```
+{% endhighlight %}
 
 </details>
