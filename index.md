@@ -14,12 +14,19 @@ This documentation is designed to be used as a base to integrate the Orchestra N
 1. TOC
 {:toc}
 
+## Steps for Orchestra NDC API Integration
+
+- give IP addresses of your system to Orchestra to update firewall of WS server
+- build a WS client by using provided WSDL + XSD files
+- get a test user from Orchestra to make test calls
+- integrate WS operations in your system (by following recommended flows)
+
 ## Environments
 
 There are two environments:
 
-- Test: <https://TEST_URL/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
-- Production: <https://PROD_URL/ndc/ws/soap/19.2/OrchestraNDCService?wsdl>
+- Test: (contact us)
+- Production: (contact us)
 
 WSDL and XSD files can be downloaded directly [here](orchestraNDCService-20192.zip).
 
@@ -98,13 +105,6 @@ Always in NDC responses (see an example below), except if the request is malform
   </IATA_AirShoppingRS>
   {% endhighlight %}
 </details>
-
-## Steps for Orchestra NDC API Integration
-
-- give IP addresses of your system to Orchestra to update firewall of WS server
-- build a WS client by using provided WSDL + XSD files
-- get a test user from Orchestra to make test calls
-- integrate WS operations in your system (by following recommended flows)
 
 ## All samples
 
