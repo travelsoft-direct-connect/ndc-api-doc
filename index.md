@@ -21,6 +21,8 @@ This documentation is designed to be used as a base to integrate the Orchestra N
 - get a test user from Orchestra to make test calls
 - integrate WS operations in your system (by following recommended flows)
 
+If you have any questions, ask your contact at Orchestra or contact@orchestra.eu if you don't yet have a referent contact.
+
 ## Environments
 
 There are two environments:
