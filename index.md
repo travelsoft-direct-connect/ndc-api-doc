@@ -55,6 +55,8 @@ A control node can be added in the SOAP header of each NDC request. This node co
 - *Provider*: code of provider to request
 - *ApiVersion*: version of Orchestra NDC API to use (allows to maintain backward compatibility if necessary)
 
+:information_source: The Orchestra NDC API is designed as a gateway, so a provider code is mandatory in request by using control header to indicate the provider to request. The provider can be an airline system, an aggregator, another gateway API, etc. Only one provider code can be set for each request.
+
 <details>
   <summary><b>Control Header Sample</b></summary>
 
