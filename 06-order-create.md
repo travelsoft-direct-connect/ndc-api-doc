@@ -47,7 +47,7 @@ The provider to request must be sent in the control header. For example:
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| CreateOrder | The order to create detailed [below](#createorder) | Mandatory |
+| CreateOrder | The order to create, detailed [below](#createorder) | Mandatory |
 | DataLists | The request data lists detailed [below](#datalists) | Mandatory |
 | PaymentFunctions | Only if direct ticket issue has to be forced at order creation. If so, an element 'PaymentProcessingDetails' has to be set with Cash method. | Optional |
 
