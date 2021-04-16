@@ -68,7 +68,7 @@ A control node can be added in the SOAP header of each NDC request. This node co
 
 ## Shopping flow
 
->airShopping &rarr; serviceList &rarr; offerPrice &rarr; orderCreate
+>airShopping (&rarr; offerPrice) &rarr; serviceList &rarr; offerPrice &rarr; orderCreate
 
 Note: the airShopping transaction initiates a session which is maintained on Orchestra side by using the ShoppingResponseID as session ID.
 
