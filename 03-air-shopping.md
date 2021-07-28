@@ -49,10 +49,25 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
-| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} | Mandatory |
+| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} Note that loyalty program account can be set if given as input with passenger name, see [below](#loyaltyprogramaccount) | Mandatory |
 | ResponseParameters | {::nomarkdown}<ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul>{:/} | Optional |
 | ShoppingCriteria | The shopping criteria containing at least the preferred transport class (ECONOMY, BUSINESS, etc) | Mandatory |
 
+### LoyaltyProgramAccount
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| AccountNumber | FQTV account number | Mandatory |
+| LoyaltyProgram | FQTV program detailed [below](#loyaltyprogram) | Mandatory |
+
+#### LoyaltyProgram
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| ProgramCode | FQTV program code | Mandatory |
+| ProgramName | FQTV program name | Optional |
 
 # AirShoppingRS
 
