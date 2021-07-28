@@ -22,6 +22,7 @@ The air shopping operation allows to initiate a shopping session and returns a l
 | Version | Notes |
 | --- | --- |
 | 1.0 | Initial version. |
+| 1.1 | Add loyalty program information. |
 
 ## Mandatory HTTP header
 
