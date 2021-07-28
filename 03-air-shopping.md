@@ -241,6 +241,67 @@ The provider to request must be sent in the control header. For example:
 </details>
 
 <details>
+  <summary><b>AirShoppingRQ - LoyaltyProgram</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+    <Party>
+        <Sender>
+            <TravelAgency>
+                <AgencyID>1234</AgencyID>
+            </TravelAgency>
+        </Sender>
+    </Party>
+    <PayloadAttributes>
+        <CorrelationID>ded13b93-d2ef-3c3b-8ea8-0bb7f4c1a4fd</CorrelationID>
+        <PrimaryLangID>EN</PrimaryLangID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <FlightCriteria>
+            <OriginDestCriteria>
+                <DestArrivalCriteria>
+                    <IATA_LocationCode>ROM</IATA_LocationCode>
+                </DestArrivalCriteria>
+                <OriginDepCriteria>
+                    <Date>2021-11-25</Date>
+                    <IATA_LocationCode>CDG</IATA_LocationCode>
+                </OriginDepCriteria>
+                <OriginDestID>OD1</OriginDestID>
+            </OriginDestCriteria>
+        </FlightCriteria>
+        <Paxs>
+            <Pax>
+                <Individual>
+                    <GenderCode>M</GenderCode>
+                    <GivenName>EXPLORER</GivenName>
+                    <IndividualID>IND1</IndividualID>
+                    <Surname>FLYINGBLUE</Surname>
+                    <TitleName>MR</TitleName>
+                </Individual>
+                <LoyaltyProgramAccount>
+                    <AccountNumber>2083488723</AccountNumber>
+                    <LoyaltyProgram>
+                        <ProgramCode>FB</ProgramCode>
+                    </LoyaltyProgram>
+                </LoyaltyProgramAccount>
+                <PaxID>PAX1</PaxID>
+                <PTC>ADT</PTC>
+            </Pax>
+        </Paxs>
+        <ShoppingCriteria>
+            <CabinTypeCriteria>
+                <CabinTypeName>ECONOMY</CabinTypeName>
+            </CabinTypeCriteria>
+        </ShoppingCriteria>
+    </Request>
+</IATA_AirShoppingRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
   <summary><b>AirShopping RS - Error</b></summary>
 
 {% highlight xml %}
