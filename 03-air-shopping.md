@@ -274,9 +274,7 @@ The provider to request must be sent in the control header. For example:
         <Paxs>
             <Pax>
                 <Individual>
-                    <GenderCode>M</GenderCode>
                     <GivenName>EXPLORER</GivenName>
-                    <IndividualID>IND1</IndividualID>
                     <Surname>FLYINGBLUE</Surname>
                     <TitleName>MR</TitleName>
                 </Individual>
