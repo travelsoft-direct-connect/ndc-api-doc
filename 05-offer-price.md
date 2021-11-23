@@ -92,6 +92,7 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | OfferItemID | The offer item ID | Mandatory |
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
+| PaymentTimeLimit | Contains zero duration (PT0S) if instant payment is required, otherwise duration is not provided | Optional |
 | Price | The total price of this offer item | Mandatory |
 | Services | List of flight/serviceDefinition associations with PAX | Mandatory |
 
