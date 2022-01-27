@@ -95,7 +95,7 @@ The provider to request must be sent in the control header. For example:
 | OfferID | The offer ID | Mandatory |
 | OwnerCode | The airline owner code | Mandatory |
 | JourneyOverview | Overview of contained journeys with price class links | Mandatory |
-| MatchTypeCode | "Full" if combination mode (or oneway search), "Partial" if flat mode | Mandatory |
+| MatchTypeCode | "Full" if combination mode (or oneway search), "Partial" if flat mode (outbound offers + inbound offers) | Mandatory |
 | BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
 | TotalPrice | The total price of this offer | Mandatory |
 | OfferItems | List of offer items detailed [below](#offeritem). For a round-trip offer, offer items can be divided by journey (if prices are detailed by journey) or not (when prices are for the whole round-trip). | Mandatory |
@@ -668,6 +668,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>96296fe2-542d-430e-950e-4ddcf18e97cb</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -723,6 +724,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>f3b25cb6-6b55-4e2e-9d5b-c51ad071ef39</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -778,6 +780,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>551cd0bb-bde1-4cd3-9b8c-44665ba67631</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -833,6 +836,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>bc6bf9cb-7c7b-4ce1-8461-0f7441b7b047</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -888,6 +892,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>ddcda207-fec4-4560-9dbe-0f3da725d847</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -943,6 +948,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>1f49fb80-84db-423d-ba78-875420f5e6e7</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -998,6 +1004,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>caf1b3aa-96ce-4cf6-8354-8e973af31037</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1053,6 +1060,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>cf061175-82e7-4a61-8596-fd316d1cb85d</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1108,6 +1116,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>5c29f12c-af6b-417b-8066-a23c8e1553fa</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1163,6 +1172,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>a3e2d66a-7228-433b-aec0-e5d35ff164b0</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1218,6 +1228,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>e9a86ad4-32e7-4154-b7a3-8c08635caf6d</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1273,6 +1284,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>7a8f3cf5-f237-4442-9502-cfb80b043430</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1328,6 +1340,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>6d683d27-391f-445f-96ab-46cba4cdf1f2</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1383,6 +1396,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>460105fe-8434-4d56-b095-12c6548367f5</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1438,6 +1452,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>398aa06b-1233-460a-9071-f4797c7f8d46</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1493,6 +1508,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>08caa10d-25bc-4c3f-94c3-3332abe5d506</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1548,6 +1564,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>c2ae01ca-95b8-4d41-8bab-c1ce330cb6b6</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1603,6 +1620,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>01808d0e-2ff2-48c3-ab88-d3e9c3579a14</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1658,6 +1676,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>766b1b68-ce3d-4724-87d7-86319879f2e5</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -1713,6 +1732,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC2</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>48e036b6-9b15-4d79-b550-bfa9bc53ef1c</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -2497,6 +2517,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>3845f6dd-6c84-442e-bc06-4432f92f89b6</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -2568,6 +2589,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>92bed895-a4c7-48c7-b8b4-fad2d5372ea5</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -2639,6 +2661,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>afff8ccc-85c6-4e24-aedd-2d0a33d3ab71</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -2710,6 +2733,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>23bedc85-dd6a-482b-ac29-2f0c608ed478</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -2788,6 +2812,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Full</MatchTypeCode>
                     <OfferID>b697e85f-93d3-4953-ba1d-5a54d4525e38</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3283,6 +3308,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>1d6f03a6-3568-487d-a603-8a26fc69ddf2</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3345,6 +3371,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>eedef893-2755-444d-8306-64508ebc0cf6</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3407,6 +3434,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>edd88984-9beb-4912-a91c-096efc8ce241</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3469,6 +3497,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>a0a443bb-16ea-4e03-8e83-a0e687e503a1</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3531,6 +3560,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>ab0a3725-2e9e-4ae4-9fcf-5ff4dd786eb1</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3593,6 +3623,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>75c6f2fb-69f1-4b37-a22c-e71de9b22a00</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3655,6 +3686,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>f6c6df39-126d-441a-b7ea-0f581e6a8acd</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3717,6 +3749,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>8203e42a-fbab-4a42-9b69-78adb1d67e86</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3779,6 +3812,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>8feb63a6-4072-4c77-9023-d84bdfeda6e6</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3841,6 +3875,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>de99749d-bd46-4d4f-918e-21f76c6f98e2</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3903,6 +3938,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>5dfac5fb-a4e9-4710-a21c-b0e72e02ea14</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -3965,6 +4001,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>0c301349-93a5-4521-a618-d074c75f2420</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -4027,6 +4064,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>c5f3730e-5c0a-4806-bfd5-4687773fdf3a</OfferID>
                     <OfferItem>
                         <FareDetail>
@@ -4089,6 +4127,7 @@ The provider to request must be sent in the control header. For example:
                             <PriceClassRefID>PC1</PriceClassRefID>
                         </JourneyPriceClass>
                     </JourneyOverview>
+                    <MatchTypeCode>Partial</MatchTypeCode>
                     <OfferID>0471c8e3-1593-40a9-8d54-d3a9059de19e</OfferID>
                     <OfferItem>
                         <FareDetail>
