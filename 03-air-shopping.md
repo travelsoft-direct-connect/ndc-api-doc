@@ -85,7 +85,7 @@ The provider to request must be sent in the control header. For example:
 | Warnings | List of warnings returned by provider | Optional |
 | ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
 | DataLists | The response data lists (journeys, segments, etc) | Mandatory |
-| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as {::nomarkdown}<ul><li>combination mode (round-trip offers => only one offer to select)</li><li>flat mode (outbound offers + inbound offers => two offers to select)</li></ul>{:/}| Mandatory |
+| Offers | List of flight offers detailed [below](#offer). For a round-trip search, offers can be returned as {::nomarkdown}<ul><li>combination mode (round-trip offers => only one offer to select), Offer/MatchTypeCode="Full"</li><li>flat mode (outbound offers + inbound offers => two offers to select), Offer/MatchTypeCode="Partial"</li></ul>{:/}| Mandatory |
 
 ### Offer
 {: .no_toc }
@@ -95,6 +95,7 @@ The provider to request must be sent in the control header. For example:
 | OfferID | The offer ID | Mandatory |
 | OwnerCode | The airline owner code | Mandatory |
 | JourneyOverview | Overview of contained journeys with price class links | Mandatory |
+| MatchTypeCode | "Full" if combination mode (or oneway search), "Partial" if flat mode | Mandatory |
 | BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
 | TotalPrice | The total price of this offer | Mandatory |
 | OfferItems | List of offer items detailed [below](#offeritem). For a round-trip offer, offer items can be divided by journey (if prices are detailed by journey) or not (when prices are for the whole round-trip). | Mandatory |
