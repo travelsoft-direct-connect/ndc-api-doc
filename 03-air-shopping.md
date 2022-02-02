@@ -52,7 +52,7 @@ The provider to request must be sent in the control header. For example:
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
 | Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} Note that loyalty program account can be set if given as input with passenger name, see [below](#loyaltyprogramaccount) | Mandatory |
 | ResponseParameters | {::nomarkdown}<ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul>{:/} | Optional |
-| ShoppingCriteria | The shopping criteria containing at least the preferred transport class (ECONOMY, BUSINESS, etc) | Mandatory |
+| ShoppingCriteria | The shopping criteria containing flight criteria, as preferred transport class (ECONOMY, BUSINESS, etc), see [below](#shoppingcriteria) | Mandatory |
 
 ### LoyaltyProgramAccount
 {: .no_toc }
@@ -69,6 +69,21 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | ProgramCode | FQTV program code | Mandatory |
 | ProgramName | FQTV program name | Optional |
+
+### ShoppingCriteria
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| FlightCriteria | The flight criteria detailed [below](#flightcriteria) | Mandatory |
+
+#### FlightCriteria
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| CabinType | Indicates the preferred transport class to request by setting CabinTypeName with: {::nomarkdown}<ul><li>ECONOMY</li><li>PREMIUM_ECONOMY</li><li>BUSINESS</li><li>FIRST</li></ul> {:/} Note: CabinType can be omitted to request all classes | Optional |
+| FlightCharacteristicsCriteria | Allows to request non-stop flights by setting NonStop in CharacteristicsCode with PrefLevelCode=Preferred (or PrefLevelCode=Exclude to request flights with stops only) | Optional |
 
 # AirShoppingRS
 
