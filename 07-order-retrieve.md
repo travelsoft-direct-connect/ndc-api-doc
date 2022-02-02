@@ -80,6 +80,7 @@ The order retrieve method allows to get booking information after order creation
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | OrderItemID | ID of the order item | Mandatory |
+| PaymentTimeLimitDateTime | The ticketing time limit (only if payment must be done) | Optional |
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
 | Price | The total price of this offer item | Mandatory |
 | Services | List of flight/serviceDefinition associations with PAX | Mandatory |
