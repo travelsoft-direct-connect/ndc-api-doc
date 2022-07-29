@@ -78,14 +78,15 @@ Note: NDC messages are contained in SOAP envelope for request and response. Cont
 
 <details>
   <summary><b>SOAP request sample</b></summary>
-
+<pre>
 POST https://.../ndc/ws/soap/19.2/OrchestraNDCService HTTP/1.1
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "http://www.travelsoft.fr/orchestra/ndc/19.2/airShopping"
 AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</pre>
 {% highlight xml %}
 <?xml version='1.0' encoding='UTF-8'?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iata="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header xmlns:head="http://www.travelsoft.fr/orchestra/ndc/headers">
       <head:Control Provider="AIRFRANCE" />
    </soapenv:Header>
@@ -132,11 +133,12 @@ Note: NDC messages can be sent directly (without envelope, not like SOAP endpoin
 
 <details>
   <summary><b>REST request sample</b></summary>
-
+<pre>
 POST https://.../ndc/ws/rest/19.2/AirShopping HTTP/1.1
 Content-Type: text/xml;charset=UTF-8
 Orx-Control-Provider: AIRFRANCE
 AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</pre>
 {% highlight xml %}
 <?xml version='1.0' encoding='UTF-8'?>
 <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
