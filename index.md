@@ -6,7 +6,7 @@ nav_order: 0
 
 # Getting Started
 {: .no_toc }
-This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology. The current NDC version exposed is 19.2.
+This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology, but it's also available as REST Web Services. The current NDC version exposed is 19.2.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -62,6 +62,98 @@ A control node can be added in the SOAP header of each NDC request. This node co
 
 {% highlight xml %}
 <Control Provider="AIRFRANCE" ApiVersion="1.0" />
+{% endhighlight %}
+
+</details>
+
+## Endpoints
+
+Depending on your preferences, the NDC API can be consumed as SOAP WS or REST WS. In both cases, the *Content-Type* header must be *text/xml;charset=UTF-8*
+
+### SOAP endpoint
+
+Note: NDC messages are contained in SOAP envelope for request and response. Control header must be defined in the SOAP header as XML element.
+
+- https://\_\_\_\_\_\_\_\_/ndc/ws/soap/19.2/OrchestraNDCService
+
+<details>
+  <summary><b>SOAP request sample</b></summary>
+
+POST https://.../ndc/ws/soap/19.2/OrchestraNDCService HTTP/1.1
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "http://www.travelsoft.fr/orchestra/ndc/19.2/airShopping"
+AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{% highlight xml %}
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iata="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+   <soapenv:Header xmlns:head="http://www.travelsoft.fr/orchestra/ndc/headers">
+      <head:Control Provider="AIRFRANCE" />
+   </soapenv:Header>
+   <soapenv:Body>
+        <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+            ...
+        </IATA_AirShoppingRQ>
+    </soapenv:Body>
+</soapenv:Envelope>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>SOAP response sample</b></summary>
+
+{% highlight xml %}
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns5:IATA_AirShoppingRS xmlns:ns5="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
+            ...
+        </ns5:IATA_AirShoppingRS>
+    </S:Body>
+</S:Envelope>
+{% endhighlight %}
+
+</details>
+
+
+### REST endpoints
+
+Note: NDC messages can be sent directly (without envelope, not like SOAP endpoint). Control header must be defined in the HTTP headers (*Orx-Control-Provider*, *Orx-Control-ApiVersion*, *Orx-Control-EnvironmentTarget*, etc).
+
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/Login
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/AirShopping
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/ServiceList
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OfferPrice
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderCreate
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderRetrieve
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderReshop
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderChange
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderCancel
+
+<details>
+  <summary><b>REST request sample</b></summary>
+
+POST https://.../ndc/ws/rest/19.2/AirShopping HTTP/1.1
+Content-Type: text/xml;charset=UTF-8
+Orx-Control-Provider: AIRFRANCE
+AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{% highlight xml %}
+<?xml version='1.0' encoding='UTF-8'?>
+<IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+  ...
+</IATA_AirShoppingRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>REST response sample</b></summary>
+
+{% highlight xml %}
+<?xml version='1.0' encoding='UTF-8'?>
+<ns5:IATA_AirShoppingRS xmlns:ns5="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRS">
+  ...
+</ns5:IATA_AirShoppingRS>
 {% endhighlight %}
 
 </details>
