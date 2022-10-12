@@ -107,7 +107,7 @@ The provider to request must be sent in the control header. For example:
 # Samples
 
 <details>
-  <summary><b>OrderCreateRQ</b></summary>
+  <summary><b>OrderCreateRQ (Hold booking)</b></summary>
 
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -186,7 +186,118 @@ The provider to request must be sent in the control header. For example:
 </details>
 
 <details>
-  <summary><b>OrderViewRS</b></summary>
+  <summary><b>OrderCreateRQ (Instant payment)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
+    <Party>
+        <Sender>
+            <TravelAgency>
+                <AgencyID>1234</AgencyID>
+            </TravelAgency>
+        </Sender>
+    </Party>
+    <PayloadAttributes>
+        <CorrelationID>87cd9bb7-85c7-3ccf-a42c-c6a71cb48c04</CorrelationID>
+        <PrimaryLangID>FR</PrimaryLangID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>c6b1031d-6390-46e5-81c8-5eab72080b0b</OfferRefID>
+                <OwnerCode>AF</OwnerCode>
+                <SelectedOfferItem>
+                    <OfferItemRefID>fd03303b-014c-4e16-9f50-a7955925ec7a</OfferItemRefID>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <PaxRefID>PAX2</PaxRefID>
+                </SelectedOfferItem>
+                <SelectedOfferItem>
+                    <OfferItemRefID>134feb1a-e026-4190-ba52-fdfaae2bdb98</OfferItemRefID>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <SelectedALaCarteOfferItem>
+                        <Qty>1</Qty>
+                    </SelectedALaCarteOfferItem>
+                </SelectedOfferItem>
+                <SelectedOfferItem>
+                    <OfferItemRefID>5c80c5e6-bc13-4cd8-ba00-64c24486ad1c</OfferItemRefID>
+                    <PaxRefID>PAX2</PaxRefID>
+                    <SelectedALaCarteOfferItem>
+                        <Qty>1</Qty>
+                    </SelectedALaCarteOfferItem>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>87c93851-804f-4ff2-b2b8-2699ad9ac8eb</ShoppingResponseRefID>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>florian.garnier@orchestra.eu</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <CountryDialingCode>33</CountryDialingCode>
+                        <PhoneNumber>622761972</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>Paris</CityName>
+                        <ContactTypeText>AddressAtOrigin</ContactTypeText>
+                        <CountryCode>FR</CountryCode>
+                        <PostalCode>75002</PostalCode>
+                        <StreetText>38 avenue de l'opera</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <Birthdate>1986-01-01</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <Individual>
+                        <Birthdate>1986-01-01</Birthdate>
+                        <GenderCode>M</GenderCode>
+                        <GivenName>Florian</GivenName>
+                        <IndividualID>IND1</IndividualID>
+                        <Surname>Garnier</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+                <Pax>
+                    <Birthdate>1988-01-01</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <Individual>
+                        <Birthdate>1988-01-01</Birthdate>
+                        <GenderCode>F</GenderCode>
+                        <GivenName>Flora</GivenName>
+                        <IndividualID>IND2</IndividualID>
+                        <Surname>Garnier</Surname>
+                        <TitleName>MRS</TitleName>
+                    </Individual>
+                    <PaxID>PAX2</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
+        <PaymentFunctions>
+            <PaymentProcessingDetails>
+                <Amount CurCode="EUR">246.12</Amount>
+                <PaymentMethod>
+                    <Cash/>
+                </PaymentMethod>
+                <TypeCode>CA</TypeCode>
+            </PaymentProcessingDetails>
+        </PaymentFunctions>
+    </Request>
+</IATA_OrderCreateRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderViewRS (Hold booking)</b></summary>
 
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -555,6 +666,450 @@ The provider to request must be sent in the control header. For example:
         <Timestamp>2020-09-30T17:44:16.725</Timestamp>
         <VersionNumber>19.2</VersionNumber>
     </PayloadAttributes>
+</IATA_OrderViewRS>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderViewRS (Instant payment)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderViewRS xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderViewRS">
+    <Response>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>florian.garnier@orchestra.eu</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <CountryDialingCode>33</CountryDialingCode>
+                        <PhoneNumber>622761972</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>Paris</CityName>
+                        <CountryCode>FR</CountryCode>
+                        <PostalCode>75002</PostalCode>
+                        <StreetText>38 avenue de l'opera</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <OriginDestList>
+                <OriginDest>
+                    <DestCode>BCN</DestCode>
+                    <OriginCode>PAR</OriginCode>
+                    <OriginDestID>OD3</OriginDestID>
+                    <PaxJourneyRefID>PJ21</PaxJourneyRefID>
+                </OriginDest>
+                <OriginDest>
+                    <DestCode>PAR</DestCode>
+                    <OriginCode>BCN</OriginCode>
+                    <OriginDestID>OD4</OriginDestID>
+                    <PaxJourneyRefID>PJ22</PaxJourneyRefID>
+                </OriginDest>
+            </OriginDestList>
+            <PaxJourneyList>
+                <PaxJourney>
+                    <Duration>P0Y0M0DT1H50M0S</Duration>
+                    <PaxJourneyID>PJ21</PaxJourneyID>
+                    <PaxSegmentRefID>SEG28</PaxSegmentRefID>
+                </PaxJourney>
+                <PaxJourney>
+                    <Duration>P0Y0M0DT2H0M0S</Duration>
+                    <PaxJourneyID>PJ22</PaxJourneyID>
+                    <PaxSegmentRefID>SEG29</PaxSegmentRefID>
+                </PaxJourney>
+            </PaxJourneyList>
+            <PaxList>
+                <Pax>
+                    <Birthdate>1986-01-01</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <Individual>
+                        <GenderCode>M</GenderCode>
+                        <GivenName>Florian</GivenName>
+                        <Surname>Garnier</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+                <Pax>
+                    <Birthdate>1988-01-01</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <Individual>
+                        <GenderCode>F</GenderCode>
+                        <GivenName>Flora</GivenName>
+                        <Surname>Garnier</Surname>
+                        <TitleName>MRS</TitleName>
+                    </Individual>
+                    <PaxID>PAX2</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+            <PaxSegmentList>
+                <PaxSegment>
+                    <Arrival>
+                        <AircraftScheduledDateTime>2023-01-09T22:55:00.000+01:00</AircraftScheduledDateTime>
+                        <IATA_LocationCode>BCN</IATA_LocationCode>
+                        <TerminalName>1</TerminalName>
+                    </Arrival>
+                    <DatedOperatingLeg>
+                        <Arrival/>
+                        <CarrierAircraftType>
+                            <CarrierAircraftTypeCode>321</CarrierAircraftTypeCode>
+                            <CarrierAircraftTypeName>321</CarrierAircraftTypeName>
+                        </CarrierAircraftType>
+                        <Dep/>
+                    </DatedOperatingLeg>
+                    <Dep>
+                        <AircraftScheduledDateTime>2023-01-09T21:05:00.000+01:00</AircraftScheduledDateTime>
+                        <IATA_LocationCode>CDG</IATA_LocationCode>
+                        <TerminalName>2F</TerminalName>
+                    </Dep>
+                    <Duration>P0Y0M0DT1H50M0S</Duration>
+                    <MarketingCarrierInfo>
+                        <CarrierDesigCode>AF</CarrierDesigCode>
+                        <MarketingCarrierFlightNumberText>1448</MarketingCarrierFlightNumberText>
+                    </MarketingCarrierInfo>
+                    <OperatingCarrierInfo>
+                        <CarrierDesigCode>AF</CarrierDesigCode>
+                    </OperatingCarrierInfo>
+                    <PaxSegmentID>SEG28</PaxSegmentID>
+                </PaxSegment>
+                <PaxSegment>
+                    <Arrival>
+                        <AircraftScheduledDateTime>2023-01-14T16:55:00.000+01:00</AircraftScheduledDateTime>
+                        <IATA_LocationCode>CDG</IATA_LocationCode>
+                        <TerminalName>2F</TerminalName>
+                    </Arrival>
+                    <DatedOperatingLeg>
+                        <Arrival/>
+                        <CarrierAircraftType>
+                            <CarrierAircraftTypeCode>321</CarrierAircraftTypeCode>
+                            <CarrierAircraftTypeName>321</CarrierAircraftTypeName>
+                        </CarrierAircraftType>
+                        <Dep/>
+                    </DatedOperatingLeg>
+                    <Dep>
+                        <AircraftScheduledDateTime>2023-01-14T14:55:00.000+01:00</AircraftScheduledDateTime>
+                        <IATA_LocationCode>BCN</IATA_LocationCode>
+                        <TerminalName>1</TerminalName>
+                    </Dep>
+                    <Duration>P0Y0M0DT2H0M0S</Duration>
+                    <MarketingCarrierInfo>
+                        <CarrierDesigCode>AF</CarrierDesigCode>
+                        <MarketingCarrierFlightNumberText>1649</MarketingCarrierFlightNumberText>
+                    </MarketingCarrierInfo>
+                    <OperatingCarrierInfo>
+                        <CarrierDesigCode>AF</CarrierDesigCode>
+                    </OperatingCarrierInfo>
+                    <PaxSegmentID>SEG29</PaxSegmentID>
+                </PaxSegment>
+            </PaxSegmentList>
+            <PriceClassList>
+                <PriceClass>
+                    <CabinType>
+                        <CabinTypeName>ECONOMY</CabinTypeName>
+                    </CabinType>
+                    <Name>Light</Name>
+                    <PriceClassID>PC1</PriceClassID>
+                </PriceClass>
+            </PriceClassList>
+            <ServiceDefinitionList>
+                <ServiceDefinition>
+                    <Desc>
+                        <DescText>1 luggage item 23kg</DescText>
+                    </Desc>
+                    <Desc>
+                        <DescText>Outbound (adult 1)</DescText>
+                    </Desc>
+                    <Name>1 luggage item 23kg</Name>
+                    <ServiceDefinitionID>SD9</ServiceDefinitionID>
+                </ServiceDefinition>
+                <ServiceDefinition>
+                    <Desc>
+                        <DescText>1 luggage item 23kg</DescText>
+                    </Desc>
+                    <Desc>
+                        <DescText>Outbound (adulte 2)</DescText>
+                    </Desc>
+                    <Name>1 luggage item 23kg</Name>
+                    <ServiceDefinitionID>SD10</ServiceDefinitionID>
+                </ServiceDefinition>
+            </ServiceDefinitionList>
+        </DataLists>
+        <Order>
+            <BookingRef>
+                <BookingEntity>
+                    <Carrier>
+                        <AirlineDesigCode>AF</AirlineDesigCode>
+                    </Carrier>
+                </BookingEntity>
+                <BookingID>WP3JLH</BookingID>
+            </BookingRef>
+            <BookingRef>
+                <BookingEntity>
+                    <Org>
+                        <Name>ORCHESTRA</Name>
+                        <OrgID>ORCHESTRA</OrgID>
+                    </Org>
+                </BookingEntity>
+                <BookingID>WP3JLH</BookingID>
+            </BookingRef>
+            <OrderID>3449</OrderID>
+            <OrderItem>
+                <FareDetail>
+                    <FareComponent>
+                        <CabinType>
+                            <CabinTypeCode>M</CabinTypeCode>
+                            <CabinTypeName>ECONOMY</CabinTypeName>
+                        </CabinType>
+                        <FareBasisCode>XS50OALG</FareBasisCode>
+                        <PaxSegmentRefID>SEG28</PaxSegmentRefID>
+                        <PriceClassRefID>PC1</PriceClassRefID>
+                    </FareComponent>
+                    <FareComponent>
+                        <CabinType>
+                            <CabinTypeCode>M</CabinTypeCode>
+                            <CabinTypeName>ECONOMY</CabinTypeName>
+                        </CabinType>
+                        <FareBasisCode>GS50OALG</FareBasisCode>
+                        <PaxSegmentRefID>SEG29</PaxSegmentRefID>
+                        <PriceClassRefID>PC1</PriceClassRefID>
+                    </FareComponent>
+                    <FarePriceType>
+                        <FarePriceTypeCode>70J</FarePriceTypeCode>
+                        <Price>
+                            <BaseAmount CurCode="EUR">55.00000000000000000000</BaseAmount>
+                            <TaxSummary>
+                                <Tax>
+                                    <Amount CurCode="EUR">49.06000000000000000000</Amount>
+                                    <TaxCode>GENERAL_TAXES_PAX_1_2</TaxCode>
+                                    <TaxName>Taxes - PAX1,2</TaxName>
+                                </Tax>
+                                <Tax>
+                                    <Amount CurCode="EUR">1.00000000000000000000</Amount>
+                                    <TaxCode>TAX_GROUP_1_PAX_1_2</TaxCode>
+                                    <TaxName>Fuel surcharge (YQ/YR) - PAX1,2</TaxName>
+                                </Tax>
+                                <TotalTaxAmount CurCode="EUR">50.06000000000000000000</TotalTaxAmount>
+                            </TaxSummary>
+                            <TotalAmount CurCode="EUR">105.06000000000000000000</TotalAmount>
+                        </Price>
+                    </FarePriceType>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <PaxRefID>PAX2</PaxRefID>
+                </FareDetail>
+                <OrderItemID>3dffa83a-f4f2-5aa7-8a01-23e2ef763c14</OrderItemID>
+                <Price>
+                    <BaseAmount CurCode="EUR">110.00000000000000000000</BaseAmount>
+                    <TaxSummary>
+                        <Tax>
+                            <Amount CurCode="EUR">98.12000000000000000000</Amount>
+                            <TaxCode>GENERAL_TAXES_PAX_1_2</TaxCode>
+                            <TaxName>Taxes - PAX1,2</TaxName>
+                        </Tax>
+                        <Tax>
+                            <Amount CurCode="EUR">2.00000000000000000000</Amount>
+                            <TaxCode>TAX_GROUP_1_PAX_1_2</TaxCode>
+                            <TaxName>Fuel surcharge (YQ/YR) - PAX1,2</TaxName>
+                        </Tax>
+                        <TotalTaxAmount CurCode="EUR">100.12000000000000000000</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="EUR">210.12000000000000000000</TotalAmount>
+                </Price>
+                <Service>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <ServiceAssociations>
+                        <PaxSegmentRefID>SEG28</PaxSegmentRefID>
+                    </ServiceAssociations>
+                    <ServiceID>SV636</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+                <Service>
+                    <PaxRefID>PAX2</PaxRefID>
+                    <ServiceAssociations>
+                        <PaxSegmentRefID>SEG28</PaxSegmentRefID>
+                    </ServiceAssociations>
+                    <ServiceID>SV637</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+                <Service>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <ServiceAssociations>
+                        <PaxSegmentRefID>SEG29</PaxSegmentRefID>
+                    </ServiceAssociations>
+                    <ServiceID>SV638</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+                <Service>
+                    <PaxRefID>PAX2</PaxRefID>
+                    <ServiceAssociations>
+                        <PaxSegmentRefID>SEG29</PaxSegmentRefID>
+                    </ServiceAssociations>
+                    <ServiceID>SV639</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+            </OrderItem>
+            <OrderItem>
+                <FareDetail>
+                    <FarePriceType>
+                        <FarePriceTypeCode>70J</FarePriceTypeCode>
+                        <Price>
+                            <BaseAmount CurCode="EUR">25.00000000000000000000</BaseAmount>
+                            <TotalAmount CurCode="EUR">25.00000000000000000000</TotalAmount>
+                        </Price>
+                    </FarePriceType>
+                    <PaxRefID>PAX1</PaxRefID>
+                </FareDetail>
+                <OrderItemID>b9dad960-aa3e-5ca7-9334-08cbef0b2b03</OrderItemID>
+                <Price>
+                    <BaseAmount CurCode="EUR">25.00000000000000000000</BaseAmount>
+                    <TotalAmount CurCode="EUR">25.00000000000000000000</TotalAmount>
+                </Price>
+                <Service>
+                    <PaxRefID>PAX1</PaxRefID>
+                    <ServiceAssociations>
+                        <ServiceDefinitionRef>
+                            <FlightAssociations>
+                                <PaxJourneyRefID>PJ21</PaxJourneyRefID>
+                            </FlightAssociations>
+                            <ServiceDefinitionRefID>SD9</ServiceDefinitionRefID>
+                        </ServiceDefinitionRef>
+                    </ServiceAssociations>
+                    <ServiceID>SV640</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+            </OrderItem>
+            <OrderItem>
+                <FareDetail>
+                    <FarePriceType>
+                        <FarePriceTypeCode>70J</FarePriceTypeCode>
+                        <Price>
+                            <BaseAmount CurCode="EUR">25.00000000000000000000</BaseAmount>
+                            <TotalAmount CurCode="EUR">25.00000000000000000000</TotalAmount>
+                        </Price>
+                    </FarePriceType>
+                    <PaxRefID>PAX2</PaxRefID>
+                </FareDetail>
+                <OrderItemID>910bbd3a-245d-5459-9e1d-91ac380d36cc</OrderItemID>
+                <Price>
+                    <BaseAmount CurCode="EUR">25.00000000000000000000</BaseAmount>
+                    <TotalAmount CurCode="EUR">25.00000000000000000000</TotalAmount>
+                </Price>
+                <Service>
+                    <PaxRefID>PAX2</PaxRefID>
+                    <ServiceAssociations>
+                        <ServiceDefinitionRef>
+                            <FlightAssociations>
+                                <PaxJourneyRefID>PJ21</PaxJourneyRefID>
+                            </FlightAssociations>
+                            <ServiceDefinitionRefID>SD10</ServiceDefinitionRefID>
+                        </ServiceDefinitionRef>
+                    </ServiceAssociations>
+                    <ServiceID>SV641</ServiceID>
+                    <StatusCode>T</StatusCode>
+                </Service>
+            </OrderItem>
+            <OwnerCode>AF</OwnerCode>
+            <StatusCode>OPENED</StatusCode>
+            <TotalPrice>
+                <BaseAmount CurCode="EUR">160.00000000000000000000</BaseAmount>
+                <TaxSummary>
+                    <Tax>
+                        <Amount CurCode="EUR">98.12000000000000000000</Amount>
+                        <TaxCode>GENERAL_TAXES_PAX_1_2</TaxCode>
+                        <TaxName>Taxes - PAX1,2</TaxName>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="EUR">2.00000000000000000000</Amount>
+                        <TaxCode>TAX_GROUP_1_PAX_1_2</TaxCode>
+                        <TaxName>Fuel surcharge (YQ/YR) - PAX1,2</TaxName>
+                    </Tax>
+                    <TotalTaxAmount CurCode="EUR">100.12000000000000000000</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="EUR">260.12000000000000000000</TotalAmount>
+            </TotalPrice>
+        </Order>
+        <TicketDocInfo>
+            <BookingRef>
+                <BookingEntity>
+                    <Carrier>
+                        <AirlineDesigCode>AF</AirlineDesigCode>
+                    </Carrier>
+                </BookingEntity>
+                <BookingID>WP3JLH</BookingID>
+            </BookingRef>
+            <PaxRefID>PAX1</PaxRefID>
+            <PaymentInfoRefID>PAY1</PaymentInfoRefID>
+            <Ticket>
+                <Coupon>
+                    <CouponNumber>1</CouponNumber>
+                    <CouponStatusCode>I</CouponStatusCode>
+                </Coupon>
+                <ReportingTypeCode>BSP</ReportingTypeCode>
+                <TicketDocTypeCode>T</TicketDocTypeCode>
+                <TicketNumber>0571478293245</TicketNumber>
+            </Ticket>
+            <Ticket>
+                <Coupon>
+                    <CouponNumber>1</CouponNumber>
+                    <CouponStatusCode>I</CouponStatusCode>
+                </Coupon>
+                <ReportingTypeCode>BSP</ReportingTypeCode>
+                <TicketDocTypeCode>J</TicketDocTypeCode>
+                <TicketNumber>0571506321294</TicketNumber>
+            </Ticket>
+        </TicketDocInfo>
+        <TicketDocInfo>
+            <BookingRef>
+                <BookingEntity>
+                    <Carrier>
+                        <AirlineDesigCode>AF</AirlineDesigCode>
+                    </Carrier>
+                </BookingEntity>
+                <BookingID>WP3JLH</BookingID>
+            </BookingRef>
+            <PaxRefID>PAX2</PaxRefID>
+            <PaymentInfoRefID>PAY1</PaymentInfoRefID>
+            <Ticket>
+                <Coupon>
+                    <CouponNumber>1</CouponNumber>
+                    <CouponStatusCode>I</CouponStatusCode>
+                </Coupon>
+                <ReportingTypeCode>BSP</ReportingTypeCode>
+                <TicketDocTypeCode>T</TicketDocTypeCode>
+                <TicketNumber>0571478293244</TicketNumber>
+            </Ticket>
+            <Ticket>
+                <Coupon>
+                    <CouponNumber>1</CouponNumber>
+                    <CouponStatusCode>I</CouponStatusCode>
+                </Coupon>
+                <ReportingTypeCode>BSP</ReportingTypeCode>
+                <TicketDocTypeCode>J</TicketDocTypeCode>
+                <TicketNumber>0571506321295</TicketNumber>
+            </Ticket>
+        </TicketDocInfo>
+    </Response>
+    <PayloadAttributes>
+        <CorrelationID>87cd9bb7-85c7-3ccf-a42c-c6a71cb48c04</CorrelationID>
+        <Timestamp>2022-10-12T11:44:49.624+02:00</Timestamp>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <PaymentFunctions>
+        <PaymentProcessingSummary>
+            <Amount CurCode="EUR">260.12000000000000000000</Amount>
+            <PaymentID>PAY1</PaymentID>
+            <PaymentMethod>
+                <Cash/>
+            </PaymentMethod>
+            <TypeCode>Cash</TypeCode>
+        </PaymentProcessingSummary>
+    </PaymentFunctions>
 </IATA_OrderViewRS>
 {% endhighlight %}
 
