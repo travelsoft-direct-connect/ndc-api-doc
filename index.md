@@ -52,7 +52,7 @@ To avoid to send username/password for each NDC request, a login method allows t
 
 A control node can be added in the SOAP header of each NDC request. This node contains extra data to control request:
 
-- *Provider*: code of provider to request
+- *Provider*: code of provider to request (put SWITCHALLINONE to receive all available companies)
 - *ApiVersion*: version of Orchestra NDC API to use (allows to maintain backward compatibility if necessary)
 
 :information_source: The Orchestra NDC API is designed as a gateway, so a provider code is mandatory in request by using control header to indicate the provider to request. The provider can be an airline system, an aggregator, another gateway API, etc. Only one provider code can be set for each request.
@@ -61,7 +61,7 @@ A control node can be added in the SOAP header of each NDC request. This node co
   <summary><b>Control Header Sample</b></summary>
 
 {% highlight xml %}
-<Control Provider="AIRFRANCE" ApiVersion="1.0" />
+<Control Provider="SWITCHALLINONE" ApiVersion="1.0" />
 {% endhighlight %}
 
 </details>
