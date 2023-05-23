@@ -71,6 +71,7 @@ The order retrieve method allows to get booking information after order creation
 | --- | --- | --- |
 | OrderID | The order ID (same as requested) | Mandatory |
 | BookingRefs | List of booking references | Mandatory |
+| StatusCode | The order status {::nomarkdown}<ul><li>OPENED: order confirmed</li><li>FROZEN: on request (order to be confirmed)</li><li>CLOSED: order cancelled</li></ul> {:/} | Mandatory |
 | TotalPrice | The total price of the whole order | Mandatory |
 | OrderItems | List of order items detailed [below](#orderitem) | Mandatory |
 
@@ -84,7 +85,7 @@ The order retrieve method allows to get booking information after order creation
 | PriceGuaranteeTimeLimitDateTime | The price guarantee time limit (only if payment must be done) | Optional |
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
 | Price | The total price of this offer item | Mandatory |
-| Services | List of flight/serviceDefinition associations with PAX | Mandatory |
+| Services | List of flight/serviceDefinition associations with PAX and StatusCode: {::nomarkdown}<ul><li>RQ: on request (availability is waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>K: pending (OrderChangeRQ has to be executed to issue tickets)</li><li>SB: issuance in progress (waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>T: tickets issued</li><li>X: cancelled</li></ul> {:/} | Mandatory |
 
 # Samples
 

@@ -83,6 +83,7 @@ The order change method allows to make additional updates after order creation i
 | --- | --- | --- |
 | OrderID | The order ID (to use for servicing) | Mandatory |
 | BookingRefs | List of booking references | Mandatory |
+| StatusCode | The order status {::nomarkdown}<ul><li>OPENED: order confirmed</li><li>CLOSED: order cancelled</li></ul> {:/} | Mandatory |
 | TotalPrice | The total price of the whole order | Mandatory |
 | OrderItems | List of order items detailed [below](#orderitem) | Mandatory |
 
@@ -94,7 +95,7 @@ The order change method allows to make additional updates after order creation i
 | OrderItemID | ID of the order item | Mandatory |
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
 | Price | The total price of this offer item | Mandatory |
-| Services | List of flight/serviceDefinition associations with PAX | Mandatory |
+| Services | List of flight/serviceDefinition associations with PAX and StatusCode: {::nomarkdown}<ul><li>SB: issuance in progress (waiting to be confirmed, OrderRetrieveRQ has to be called periodically until status is updated)</li><li>T: tickets issued</li></ul> {:/} | Mandatory |
 
 ### TicketDocInfo
 {: .no_toc }
