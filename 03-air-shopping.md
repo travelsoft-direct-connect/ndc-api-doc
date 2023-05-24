@@ -33,7 +33,7 @@ The air shopping operation allows to initiate a shopping session and returns a l
 The provider to request must be sent in the control header. For example:
 
 {% highlight xml %}
-<Control Provider="VUELING" />
+<Control Provider="SWITCHALLINONE" />
 {% endhighlight %}
 
 # AirShoppingRQ
