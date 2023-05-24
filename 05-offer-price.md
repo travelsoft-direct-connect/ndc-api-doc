@@ -31,7 +31,7 @@ The offer price method is used to confirm price and availability of selected off
 The provider to request must be sent in the control header. For example:
 
 {% highlight xml %}
-<Control Provider="VUELING" />
+<Control Provider="SWITCHALLINONE" />
 {% endhighlight %}
 
 # OfferPriceRQ

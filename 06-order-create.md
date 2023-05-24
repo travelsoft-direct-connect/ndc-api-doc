@@ -31,7 +31,7 @@ The order create method allows to create an order from an offer selection. The p
 The provider to request must be sent in the control header. For example:
 
 {% highlight xml %}
-<Control Provider="VUELING" />
+<Control Provider="SWITCHALLINONE" />
 {% endhighlight %}
 
 # OrderCreateRQ

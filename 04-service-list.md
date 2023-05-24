@@ -31,7 +31,7 @@ The service list method returns a list of available ancillaries for the selected
 The provider to request must be sent in the control header. For example:
 
 {% highlight xml %}
-<Control Provider="VUELING" />
+<Control Provider="SWITCHALLINONE" />
 {% endhighlight %}
 
 # ServiceListRQ
