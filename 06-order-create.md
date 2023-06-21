@@ -64,7 +64,7 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | ContactInfoList | Must contains the client contact | Mandatory |
-| PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc) + client contact reference | Mandatory |
+| PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc) + client contact reference. Possible values for the title ('MR', 'MRS' and 'MISS') | Mandatory |
 
 # OrderCreate - OrderViewRS
 
