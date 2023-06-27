@@ -6,7 +6,9 @@ nav_order: 10
 
 # OrderChange operation
 {: .no_toc }
-The order change method allows to make additional updates after order creation in the airline system. For example, it must be used to add payment to issue tickets.
+The order change method allows to make additional updates after order creation in the airline system. For example, it must be used to
+- add payment to issue tickets
+- accept disruption (schedule change)
 
 ---------------------------------------
 
@@ -42,6 +44,7 @@ The order change method allows to make additional updates after order creation i
 | DataLists | The request data lists detailed [below](#datalists) | Mandatory |
 | Order | The order to change, detailed [below](#order) | Mandatory |
 | PaymentFunctions | Must contain an element 'PaymentProcessingDetails' with Cash method to issue tickets | Mandatory for ticket issue |
+| ChangeOrder | Must contain an element 'AcceptChange' with order item references to accept disruption | Mandatory for disruption acceptance |
 
 ### DataLists
 {: .no_toc }
@@ -335,6 +338,40 @@ The order change method allows to make additional updates after order creation i
         </PaymentProcessingSummary>
     </PaymentFunctions>
 </IATA_OrderViewRS>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderChangeRQ - Accept disruption</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderChangeRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderChangeRQ">
+    <Party>
+        <Sender>
+            <TravelAgency>
+                <AgencyID>agency1234</AgencyID>
+            </TravelAgency>
+        </Sender>
+    </Party>
+    <PayloadAttributes>
+        <CorrelationID>dbc121be-c27b-4b63-9eab-5e73dfb8b6c4</CorrelationID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <ChangeOrder>
+            <AcceptChange>
+                <OrderItemRefID>32764ce2-5548-4498-b36f-58a10c3906f9</OrderItemRefID>
+                <OrderItemRefID>1dbb3411-1bc3-4e6c-896e-b90cc7a585b6</OrderItemRefID>
+            </AcceptChange>
+        </ChangeOrder>
+        <Order>
+            <OrderID>544755</OrderID>
+            <OwnerCode>BA</OwnerCode>
+        </Order>
+    </Request>
+</IATA_OrderChangeRQ>
 {% endhighlight %}
 
 </details>
