@@ -76,6 +76,7 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | The flight criteria detailed [below](#flightcriteria) | Mandatory |
+| SpecialNeedsCriteria | Used to limit search results [below](#specialneedscriteria) | Optional |
 
 #### FlightCriteria
 {: .no_toc }
@@ -84,6 +85,15 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | CabinType | Indicates the preferred transport class to request by setting CabinTypeName with: {::nomarkdown}<ul><li>ECONOMY</li><li>PREMIUM_ECONOMY</li><li>BUSINESS</li><li>FIRST</li></ul> {:/} Note: CabinType can be omitted to request all classes | Optional |
 | FlightCharacteristicsCriteria | Allows to request non-stop flights by setting NonStop in CharacteristicsCode with PrefLevelCode=Preferred (or PrefLevelCode=Exclude to request flights with stops only) | Optional |
+
+#### SpecialNeedsCriteria
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| Qty | Indicates the desired max results | Mandatory |
+| FreeText | Indicates that we are limiting offers (possible values: offerLimit) | Mandatory |
+| SpecialServiceCode | Indicates how we are limiting results (possible values: CHEAPEST, FIRST, SLICE) <br> Note: Slice takes randomly some results at the beginning, middle and end of the response | Optional |
 
 # AirShoppingRS
 
