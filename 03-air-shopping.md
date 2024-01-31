@@ -327,6 +327,65 @@ The provider to request must be sent in the control header. For example:
 </details>
 
 <details>
+  <summary><b>AirShoppingRQ - Search limit</b></summary>
+
+{% highlight xml %}
+    <IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+        <Party>
+            <Sender>
+            <TravelAgency>
+                <AgencyID>1234</AgencyID>
+            </TravelAgency>
+            </Sender>
+        </Party>
+        <PayloadAttributes>
+            <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>
+            <VersionNumber>19.2</VersionNumber>
+        </PayloadAttributes>
+        <Request>
+            <FlightCriteria>
+            <OriginDestCriteria>
+                <DestArrivalCriteria>
+                <IATA_LocationCode>BCN</IATA_LocationCode>
+                </DestArrivalCriteria>
+                <OriginDepCriteria>
+                <Date>2023-03-16</Date>
+                <IATA_LocationCode>PAR</IATA_LocationCode>
+                </OriginDepCriteria>
+            </OriginDestCriteria>
+            </FlightCriteria>
+            <Paxs>
+            <Pax>
+                <PaxID>PAX1</PaxID>
+                <PTC>ADT</PTC>
+            </Pax>
+            </Paxs>
+            <ResponseParameters>
+            <CurParameter>
+                <RequestedCurCode>EUR</RequestedCurCode>
+            </CurParameter>
+            <LangUsage>
+                <LangCode>en-GB</LangCode>
+            </LangUsage>
+            </ResponseParameters>
+            <ShoppingCriteria>
+            <FlightCriteria>
+                <CabinType>
+                <CabinTypeName>Economy</CabinTypeName>
+                </CabinType>
+            </FlightCriteria>
+            <SpecialNeedsCriteria>
+                <FreeText>offerLimit</FreeText>
+                <SpecialServiceCode>CHEAPEST|FIRST|SLICE</SpecialServiceCode>
+                <Qty>200</Qty>
+            </SpecialNeedsCriteria>
+            </ShoppingCriteria>
+        </Request>
+        </IATA_AirShoppingRQ>
+    {% endhighlight %}
+</details>
+
+<details>
   <summary><b>AirShopping RS - Error</b></summary>
 
 {% highlight xml %}
