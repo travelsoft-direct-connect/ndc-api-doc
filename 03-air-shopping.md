@@ -75,8 +75,16 @@ The provider to request must be sent in the control header. For example:
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
+| FareCriteria | Used to request specific fare codes [below](#farecriteria) | Optional |
 | FlightCriteria | The flight criteria detailed [below](#flightcriteria) | Mandatory |
 | SpecialNeedsCriteria | Used to limit search results [below](#specialneedscriteria) | Optional |
+
+#### FareCriteria
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| FareTypeCode | Indicates the fare codes to request, can be: {::nomarkdown}<ul><li>70J (public)</li><li>70E (negotiated)</li><li>70F (corporate)</li><li>758-SEAMEN (seamen)</li><li>758-IT (TourOperator)</li><li>758-VFR (visit friends and relatives)</li></ul> {:/} Note: if FareTypeCode is omitted, public fares will be requested | Mandatory |
 
 #### FlightCriteria
 {: .no_toc }
@@ -255,6 +263,60 @@ The provider to request must be sent in the control header. For example:
             </LangUsage>
         </ResponseParameters>
         <ShoppingCriteria>
+            <FlightCriteria>
+                <CabinType>
+                    <CabinTypeName>ECONOMY</CabinTypeName>
+                </CabinType>
+            </FlightCriteria>
+        </ShoppingCriteria>
+    </Request>
+</IATA_AirShoppingRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>AirShoppingRQ - Special fares (Public + InclusiveTour)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_AirShoppingRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ">
+    <Party>
+        <Sender>
+            <TravelAgency>
+                <AgencyID>1234</AgencyID>
+            </TravelAgency>
+        </Sender>
+    </Party>
+    <PayloadAttributes>
+        <CorrelationID>ded13b93-d2ef-3c3b-8ea8-0bb7f4c1a4fd</CorrelationID>
+        <PrimaryLangID>EN</PrimaryLangID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <FlightCriteria>
+            <OriginDestCriteria>
+                <DestArrivalCriteria>
+                    <IATA_LocationCode>ROM</IATA_LocationCode>
+                </DestArrivalCriteria>
+                <OriginDepCriteria>
+                    <Date>2021-11-25</Date>
+                    <IATA_LocationCode>CDG</IATA_LocationCode>
+                </OriginDepCriteria>
+                <OriginDestID>OD1</OriginDestID>
+            </OriginDestCriteria>
+        </FlightCriteria>
+        <Paxs>
+            <Pax>
+                <PaxID>PAX1</PaxID>
+                <PTC>ADT</PTC>
+            </Pax>
+        </Paxs>
+        <ShoppingCriteria>
+            <FareCriteria>
+                <FareTypeCode>70J</FareTypeCode>
+                <FareTypeCode>758-IT</FareTypeCode>
+            </FareCriteria>
             <FlightCriteria>
                 <CabinType>
                     <CabinTypeName>ECONOMY</CabinTypeName>
