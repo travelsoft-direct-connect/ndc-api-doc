@@ -37,6 +37,7 @@ WSDL and XSD files can be downloaded directly [here](orchestraNDCService-20192.z
 - *login* &rarr; get an access token
 - *airShopping* &rarr; search flights
 - *serviceList* &rarr; get ancillaries
+- *seatAvailability* &rarr; get seat map
 - *offerPrice* &rarr; quote an offer selection
 - *orderCreate* &rarr; make a booking
 - *orderRetrieve* &rarr; get a booking
@@ -124,6 +125,7 @@ Note: NDC messages can be sent directly (without envelope, not like SOAP endpoin
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/Login
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/AirShopping
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/ServiceList
+- https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/SeatAvailability
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OfferPrice
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderCreate
 - https://\_\_\_\_\_\_\_\_/ndc/ws/rest/19.2/OrderRetrieve
@@ -162,7 +164,7 @@ AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Shopping flow
 
->airShopping (&rarr; offerPrice) &rarr; serviceList &rarr; offerPrice &rarr; orderCreate
+>airShopping (&rarr; offerPrice) &rarr; serviceList &rarr; seatAvailability &rarr; offerPrice &rarr; orderCreate
 
 Note: the airShopping transaction initiates a session which is maintained on Orchestra side by using the ShoppingResponseID as session ID.
 
