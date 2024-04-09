@@ -71,6 +71,8 @@ A control node can be added in the SOAP header of each NDC request. This node co
 
 Depending on your preferences, the NDC API can be consumed as SOAP WS or REST WS. In both cases, the *Content-Type* header must be *text/xml;charset=UTF-8*
 
+Also, in both cases, the *Accept-Encoding* header with gzip value should be sent to enable GZIP compression to reduce response size and optimize transmission.
+
 ### SOAP endpoint
 
 Note: NDC messages are contained in SOAP envelope for request and response. Control header must be defined in the SOAP header as XML element.

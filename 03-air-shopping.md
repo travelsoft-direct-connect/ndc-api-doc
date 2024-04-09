@@ -27,6 +27,7 @@ The air shopping operation allows to initiate a shopping session and returns a l
 ## Mandatory HTTP header
 
 - *AuthToken*: token value retrieved from login response
+- *Accept-Encoding*: set to gzip to enable GZIP compression for faster responses
 
 ## Control header
 
