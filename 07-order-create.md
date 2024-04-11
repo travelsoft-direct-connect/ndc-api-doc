@@ -63,10 +63,21 @@ The provider to request must be sent in the control header. For example:
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| ContactInfoList | Must contains the client contact | Mandatory |
+| ContactInfoList | Must contains the client contact, detailed [below](#contactinfo) | Mandatory |
 | PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc), detailed [below](#pax) | Mandatory |
 
-### Pax
+#### ContactInfo
+
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| ContactInfoID | The contact info ID (to use as reference at PAX level) | Mandatory |
+| EmailAddress | The email address | Mandatory |
+| Phone | The phone number | Mandatory |
+| PostalAddress | The postal address | Mandatory |
+
+#### Pax
 
 {: .no_toc }
 
@@ -79,7 +90,7 @@ The provider to request must be sent in the control header. For example:
 | Individual       | Pax information, detailed [below](#individual)    | Mandatory          |
 | IdentityDoc      | Pax Document, detailed [below](#identitydoc)      | Optional           |
 
-### Individual
+##### Individual
 
 {: .no_toc }
 
@@ -91,7 +102,7 @@ The provider to request must be sent in the control header. For example:
 | Surname      | Last name             | Mandatory          |
 | TitleName    | 'MR', 'MRS' or 'MISS' | Mandatory          |
 
-### IdentityDoc
+##### IdentityDoc
 
 {: .no_toc }
 
