@@ -67,7 +67,6 @@ The provider to request must be sent in the control header. For example:
 | PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc), detailed [below](#pax) | Mandatory |
 
 #### ContactInfo
-
 {: .no_toc }
 
 | Element | Description | Optional/Mandatory |
@@ -78,7 +77,6 @@ The provider to request must be sent in the control header. For example:
 | PostalAddress | The postal address | Mandatory |
 
 #### Pax
-
 {: .no_toc }
 
 | Element | Description | Optional/Mandatory |
@@ -91,7 +89,6 @@ The provider to request must be sent in the control header. For example:
 | IdentityDoc      | Pax Document, detailed [below](#identitydoc)      | Optional           |
 
 ##### Individual
-
 {: .no_toc }
 
 | Element      | Description           | Optional/Mandatory |
@@ -103,7 +100,6 @@ The provider to request must be sent in the control header. For example:
 | TitleName    | 'MR', 'MRS' or 'MISS' | Mandatory          |
 
 ##### IdentityDoc
-
 {: .no_toc }
 
 | Element | Description | Optional/Mandatory |
