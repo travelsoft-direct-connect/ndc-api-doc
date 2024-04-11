@@ -64,7 +64,51 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | ContactInfoList | Must contains the client contact | Mandatory |
-| PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc) + client contact reference. Possible values for the title ('MR', 'MRS' and 'MISS') | Mandatory |
+| PaxList | List of passengers (same as AirShoppingRQ) with more information (name, document, etc), detailed [below](#pax) | Mandatory |
+
+### Pax
+
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| PTC              | PTC                                           | Mandatory          |
+| PaxID            | Pax ID                                        | Mandatory          |
+| Birthdate        | date of birth                                 | Mandatory          |
+| ContactInfoRefID | client contact reference, see [ContactInfoList](#datalists) | Optional           |
+| Individual       | Pax information, detailed [below](#individual)    | Mandatory          |
+| IdentityDoc      | Pax Document, detailed [below](#identitydoc)      | Optional           |
+
+### Individual
+
+{: .no_toc }
+
+| Element      | Description           | Optional/Mandatory |
+| ------------ | --------------------- | ------------------ |
+| IndividualID | ID                    | Mandatory          |
+| Birthdate    | date of birth         | Mandatory          |
+| GivenName    | First name            | Mandatory          |
+| Surname      | Last name             | Mandatory          |
+| TitleName    | 'MR', 'MRS' or 'MISS' | Mandatory          |
+
+### IdentityDoc
+
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| IdentityDocID | Document ID<br />By default it is the document number<br />For fiscal code use case, the expected format is:<br />(Code/ID/CompanyName)<br />For example: <br />- CUIL/123456789<br />- CUIL/123456789/MyAgencyName | Mandatory |
+| IdentityDocTypeCode | Document Code, possible values (PT, VS, ID, DL or FC)<br />PT = Passport<br />VS = Visa<br />ID = Identity card<br />DL = Driving License<br />FC = Fiscal code  | Mandatory |
+| Birthdate |  | Optional |
+| CitizenshipCountryCode |  | Optional |
+| ExpiryDate |  | Optional |
+| GivenName | First name | Optional |
+| IssueDate |  | Optional |
+| IssuingCountryCode |  | Optional |
+| ResidenceCountryCode |  | Optional |
+| Surname | Last name  | Optional |
+| TitleName | 'MR', 'MRS' or 'MISS' | Optional |
+| Visa |  | Optional |
 
 # OrderCreate - OrderViewRS
 
@@ -291,6 +335,147 @@ The provider to request must be sent in the control header. For example:
                 <TypeCode>CA</TypeCode>
             </PaymentProcessingDetails>
         </PaymentFunctions>
+    </Request>
+</IATA_OrderCreateRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderCreateRQ (Passport)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
+    <PayloadAttributes>
+        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>ec45fdc2-6cf2-4875-8d90-bdabf046cc72</OfferRefID>
+                <OwnerCode>AF</OwnerCode>
+                <SelectedOfferItem>
+                    <OfferItemRefID>5a593167-ac00-487e-b4aa-f262c0b06ff3</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>a5359ed4-3774-4fc6-a87a-b582b3bec694</ShoppingResponseRefID>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>florian.garnier@orchestra.eu</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <PhoneNumber>330677889922</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>Paris</CityName>
+                        <CountryCode>FR</CountryCode>
+                        <PostalCode>75002</PostalCode>
+                        <StreetText>38 av opera</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <Birthdate>1980-02-03</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <Birthdate>1980-02-03</Birthdate>
+                        <CitizenshipCountryCode>BD</CitizenshipCountryCode>
+                        <ExpiryDate>2025-05-03</ExpiryDate>
+                        <GivenName>John</GivenName>
+                        <IdentityDocID>78965412306</IdentityDocID>
+                        <IdentityDocTypeCode>PT</IdentityDocTypeCode>
+                        <IssueDate>2020-07-14</IssueDate>
+                        <IssuingCountryCode>BD</IssuingCountryCode>
+                        <ResidenceCountryCode>BD</ResidenceCountryCode>
+                        <Surname>Doe</Surname>
+                        <TitleName>MR</TitleName>
+                        <Visa>
+                            <VisaID>4451512345</VisaID>
+                            <VisaTypeCode>VS</VisaTypeCode>
+                        </Visa>
+                    </IdentityDoc>
+                    <Individual>
+                        <GivenName>John</GivenName>
+                        <IndividualID>IND1</IndividualID>
+                        <Surname>Doe</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
+    </Request>
+</IATA_OrderCreateRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderCreateRQ (Fiscal code)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
+    <PayloadAttributes>
+        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>ec45fdc2-6cf2-4875-8d90-bdabf046cc72</OfferRefID>
+                <OwnerCode>AF</OwnerCode>
+                <SelectedOfferItem>
+                    <OfferItemRefID>5a593167-ac00-487e-b4aa-f262c0b06ff3</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>a5359ed4-3774-4fc6-a87a-b582b3bec694</ShoppingResponseRefID>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>florian.garnier@orchestra.eu</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <PhoneNumber>330677889922</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>Paris</CityName>
+                        <CountryCode>FR</CountryCode>
+                        <PostalCode>75002</PostalCode>
+                        <StreetText>38 av opera</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <Birthdate>1980-02-03</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <IdentityDocID>CUIL/123456789/MyAgencyName</IdentityDocID>
+                        <IdentityDocTypeCode>FC</IdentityDocTypeCode>
+                    </IdentityDoc>
+                    <Individual>
+                        <GivenName>John</GivenName>
+                        <IndividualID>IND1</IndividualID>
+                        <Surname>Doe</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
     </Request>
 </IATA_OrderCreateRQ>
 {% endhighlight %}
