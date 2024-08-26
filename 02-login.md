@@ -8,7 +8,7 @@ nav_order: 2
 {: .no_toc }
 The login operation authenticates a user and returns a token to access all others methods. A token has an expiration date and can be used for all requests of the user (agency/agent) until it expires. Usually a token is valid during 24h after its creation.
 
-**You should also receive in the response a cookie named JSESSIONID, you must send it back to all the next requests in you workflow!**
+**You should also receive in this response somes cookies (JSESSIONID + ROUTE_ID), you must send them back to all the next requests in you workflow!**
 
 __Important__:
 
