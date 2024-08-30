@@ -71,7 +71,7 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | Warnings | List of warnings returned by provider | Optional |
 | ShoppingResponse | The Shopping session ID to use for next requests | Mandatory |
-| DataLists | The response data lists (journeys, segments, service definitions, etc) | Mandatory |
+| DataLists | The response data lists (journeys, segments, service definitions, etc) [below](#datalists) | Mandatory |
 | PricedOffer | The priced offer element detailed [below](#pricedoffer) | Mandatory |
 
 ### PricedOffer
@@ -84,6 +84,33 @@ The provider to request must be sent in the control header. For example:
 | BaggageAllowance | The baggage allowance for each pax/segment | Mandatory |
 | TotalPrice | The total price of this offer | Mandatory |
 | OfferItems | List of offer items detailed [below](#offeritem) | Mandatory |
+
+### DataLists
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| PaxList | List of passengers, detailed [below](#pax) | Mandatory |
+
+#### Pax
+{: .no_toc }
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| PTC              | PTC                                           | Mandatory          |
+| PaxID            | Pax ID                                        | Mandatory          |
+| IdentityDoc      | Pax Document, detailed [below](#identitydoc)  | Optional           |
+
+##### IdentityDoc
+{: .no_toc }
+When an IdentityDoc is sent in OfferPrice response, it indicates that this information is required for OrderCreateRQ
+
+| Element | Description | Optional/Mandatory |
+| --- | --- | --- |
+| IdentityDocID | When filled with 'XXXXXXX', it is mandatory to send this information in OrderCreateRQ for the IdentityDocTypeCode below | Optional |
+| IdentityDocTypeCode | Document Code, possible values (PT, VS, ID, DL or FC)<br />PT = Passport<br />VS = Visa<br />ID = Identity card<br />DL = Driving License<br />FC = Fiscal code  | Optional |
+| CitizenshipCountryCode | When filled with 'XX', it is mandatory to send this information in OrderCreateRQ | Optional |
+| ResidenceCountryCode | When filled with 'XX', it is mandatory to send this information in OrderCreateRQ | Optional |
 
 #### OfferItem
 {: .no_toc }
