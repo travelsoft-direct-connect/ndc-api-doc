@@ -102,7 +102,7 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | Qty | Indicates the desired max results | Mandatory |
 | FreeText | Indicates that we are limiting offers (possible values: offerLimit) | Mandatory |
-| SpecialServiceCode | Indicates how we are limiting results (possible values: CHEAPEST, FIRST, SLICE) <br> Note: Slice takes randomly some results at the beginning, middle and end of the response | Optional |
+| SpecialServiceCode | Indicates how we are limiting results (possible values: CHEAPEST, FIRST, SLICE) <br> Default is CHEAPEST <br> Note: Slice takes randomly some results at the beginning, middle and end of the response | Optional |
 
 # AirShoppingRS
 
