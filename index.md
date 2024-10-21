@@ -170,21 +170,21 @@ AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Note: the airShopping transaction initiates a session which is maintained on Orchestra side by using the ShoppingResponseID as session ID.
 
-![Booking flow](/assets/images/BookingFlow.png "Booking flow")
+![Booking flow](/ndc-api-doc/assets/images/BookingFlow.png "Booking flow")
 
 ## Servicing flows
 
 - Get order data for refresh:
 
-![Retrieve flow](/assets/images/PostBookRetrieveFlow.png "Retrieve flow")
+![Retrieve flow](/ndc-api-doc/assets/images/PostBookRetrieveFlow.png "Retrieve flow")
 
 - Ticket issue:
 
-![Ticket issue flow](/assets/images/PostBookIssueFlow.png "Ticket issue flow")
+![Ticket issue flow](/ndc-api-doc/assets/images/PostBookIssueFlow.png "Ticket issue flow")
 
 - Cancellation:
 
-![Cancel flow](/assets/images/PostBookCancelFlow.png "Cancel flow")
+![Cancel flow](/ndc-api-doc/assets/images/PostBookCancelFlow.png "Cancel flow")
 
 ## Error management
 
