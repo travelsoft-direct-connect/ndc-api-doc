@@ -49,3 +49,8 @@ A: All flight details, such as origin, destination, segments, and services, can 
 
 A: Some airlines do not provide complete flight details. For further information, please contact the respective airline directly.  
 
+---
+
+**Q8: Can I use this API as a cache?**  
+
+A: No, this API is not designed to be used as a cache but as a direct shopping solution.  
