@@ -79,6 +79,7 @@ color_scheme: nil
 
 markdown: kramdown
 kramdown:
+  input: GFM
   syntax_highlighter_opts:
     block:
       line_numbers: true
