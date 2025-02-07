@@ -57,9 +57,4 @@ A: No, this API is not designed to be used as a cache but as a direct shopping s
 
 ---
 
-<iframe
-    src=“https://www.chatbase.co/chatbot-iframe/6zbFQMuc7RpePzFzsoiK0”
-    width=“100%”
-    style=“height: 100%; min-height: 700px”
-    frameborder=“0"
-></iframe>
+{% include iframe.html %}
