@@ -58,5 +58,6 @@ A: No, this API is not designed to be used as a cache but as a direct shopping s
 ---
 
 ChatBot
-
+{% raw %}
 {% include iframe.html %}
+{% endraw %}
