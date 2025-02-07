@@ -1,5 +1,7 @@
 ## Frequently Asked Questions (FAQ)
 
+## Use "Elya" - The virtual assistant [Accéder au Chatbot](chatbot.html)
+
 This FAQ is designed to answer common questions about the API. If you need further assistance, please contact contact@orchestra.eu.
 
 ---
@@ -54,10 +56,3 @@ A: Some airlines do not provide complete flight details. For further information
 **Q8: Can I use this API as a cache?**  
 
 A: No, this API is not designed to be used as a cache but as a direct shopping solution.  
-
----
-
-ChatBot
-{% raw %}
-{% include iframe.html %}
-{% endraw %}
