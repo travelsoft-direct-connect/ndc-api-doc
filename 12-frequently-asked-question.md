@@ -54,3 +54,12 @@ A: Some airlines do not provide complete flight details. For further information
 **Q8: Can I use this API as a cache?**  
 
 A: No, this API is not designed to be used as a cache but as a direct shopping solution.  
+
+---
+
+<iframe
+    src=“https://www.chatbase.co/chatbot-iframe/6zbFQMuc7RpePzFzsoiK0”
+    width=“100%”
+    style=“height: 100%; min-height: 700px”
+    frameborder=“0"
+></iframe>
