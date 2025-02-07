@@ -82,6 +82,7 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
+  parse_block_html: true
 
 compress_html:
   clippings: all
