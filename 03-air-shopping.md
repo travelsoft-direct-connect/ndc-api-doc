@@ -2680,6 +2680,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">151.00</BaseAmount>
                                     <TaxSummary>
@@ -2752,6 +2753,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">151.00</BaseAmount>
                                     <TaxSummary>
@@ -2824,6 +2826,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">151.00</BaseAmount>
                                     <TaxSummary>
@@ -2896,6 +2899,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">151.00</BaseAmount>
                                     <TaxSummary>
@@ -2983,6 +2987,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">191.00</BaseAmount>
                                     <TaxSummary>
@@ -3469,6 +3474,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3532,6 +3538,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3595,6 +3602,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3658,6 +3666,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3721,6 +3730,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3784,6 +3794,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3847,6 +3858,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3910,6 +3922,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -3973,6 +3986,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -4036,6 +4050,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -4099,6 +4114,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -4162,6 +4178,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -4225,6 +4242,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
@@ -4288,6 +4306,7 @@ The provider to request must be sent in the control header. For example:
                                 <PriceClassRefID>PC1</PriceClassRefID>
                             </FareComponent>
                             <FarePriceType>
+                                <FarePriceTypeCode>70J</FarePriceTypeCode>
                                 <Price>
                                     <BaseAmount CurCode="EUR">21.0</BaseAmount>
                                     <TaxSummary>
