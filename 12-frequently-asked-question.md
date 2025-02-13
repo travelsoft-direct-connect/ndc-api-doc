@@ -57,5 +57,33 @@ A: No, this API is not designed to be used as a cache but as a direct shopping s
 
 ---
 
+**Q9: Can I get alternatives offers after selecting one from AirShopping (Upselling)?**  
+
+A: No, this API does not currently support retrieving alternative offers after an initial selection.  
+
+---
+
+**Q10: Why do I receive an "Invalid offer item selection" error?**  
+
+A: This error occurs when the offer item(s) referenced in your request do not match any of the valid offer items from the shopping response. In other words, the **OfferID** and/or **OfferItemID** you are using might be invalid for this operation or fail to meet eligibility criteria (e.g., incorrect passenger or flight associations).  
+
+To troubleshoot this issue, follow these steps:  
+
+- **Verify the identifiers:** Ensure that the **OfferID** and each **OfferItemID** in your request **exactly** match those from the shopping response. Any discrepancy can trigger this error.  
+- **Check eligibility conditions:** Confirm that all eligibility criteria (such as passenger associations or flight segment references) are met for each offer item.  
+- **Review required items:** Make sure no required offer item has been omitted and that no inapplicable offer item has been included.  
+
+---
+
+**Q11: How many service restrictions can airlines impose?**  
+
+A: Some airlines do not allow booking multiple services. There are three types of restrictions:  
+
+- **One per passenger `OnePerPax`:** You can book only one of this service per passenger.  
+- **One per order `OnePerOrder`:** You can book only one of this service for the entire order.  
+- **No restriction `None`:** There are no limitations for this service.  
+
+---
+
 ## Still have questions?   
 💬 [**Ask "Elya" - The Virtual Assistant**](chatbot.html)
