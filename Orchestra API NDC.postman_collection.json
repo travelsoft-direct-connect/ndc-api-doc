@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "4aa66a64-54cf-4e95-93fd-7cf98200c105",
+		"name": "Orchestra API NDC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41326903"
+	},
+	"item": [
+		{
+			"name": "login local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = xml2Json(responseBody);",
+							"pm.environment.set(\"auth_token\", data[\"S:Envelope\"][\"S:Body\"][\"ns18:LoginRS\"][\"ns18:AuthToken\"][\"ns18:Value\"]);",
+							"console.log(pm.environment)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/login\"",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version='1.0' encoding='UTF-8'?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:log=\"http://www.travelsoft.fr/orchestra/ndc/login\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <log:LoginRQ Username=\"{{username}}\" Password=\"{{password}}\"/>\n   </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/soap/19.2/OrchestraNDCService",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"soap",
+						"19.2",
+						"OrchestraNDCService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AirShopping local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = xml2Json(pm.response.text());\r",
+							"var choiceOffer = data[\"IATA_AirShoppingRS\"][\"Response\"][\"OffersGroup\"][\"CarrierOffers\"][\"Offer\"][0];\r",
+							"if (pm.collectionVariables.get(\"isSwitch\") == \"true\") {\r",
+							"    var obj = data[\"IATA_AirShoppingRS\"][\"Response\"][\"OffersGroup\"][\"CarrierOffers\"][\"Offer\"];\r",
+							"    for(var key in obj){\r",
+							"        if (obj[key].OwnerCode == pm.collectionVariables.get(\"switchChoice\")){\r",
+							"            choiceOffer = obj[key];\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"offer-id\", choiceOffer.OfferID);\r",
+							"pm.environment.set(\"shopping-response-id\", data[\"IATA_AirShoppingRS\"][\"Response\"][\"ShoppingResponse\"][\"ShoppingResponseRefID\"]);\r",
+							"var offerItems = choiceOffer.OfferItem;\r",
+							"if (Array.isArray(offerItems)) {\r",
+							"    var items = offerItems.map((i) => i[\"OfferItemID\"]).join(\"\")\r",
+							"    pm.environment.set(\"offer-items\", items);\r",
+							"} else {\r",
+							"    pm.environment.set(\"offer-items\", offerItems[\"OfferItemID\"]);\r",
+							"}\r",
+							"pm.environment.set(\"owner-code\", choiceOffer.OwnerCode);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/AirShopping\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<IATA_AirShoppingRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ\">\n    <Party>\n        <Sender>\n            <TravelAgency>\n                <AgencyID>1234</AgencyID>\n            </TravelAgency>\n        </Sender>\n    </Party>\n    <PayloadAttributes>\n        <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_AirShoppingRQ\">\n        <FlightCriteria>\n            <OriginDestCriteria>\n                <DestArrivalCriteria>\n                    <IATA_LocationCode>PAR</IATA_LocationCode>\n                </DestArrivalCriteria>\n                <OriginDepCriteria>\n                    <Date>2025-03-26</Date>\n                    <IATA_LocationCode>MAD</IATA_LocationCode>\n                </OriginDepCriteria>\n            </OriginDestCriteria>\n            <OriginDestCriteria>\n                <DestArrivalCriteria>\n                    <IATA_LocationCode>MAD</IATA_LocationCode>\n                </DestArrivalCriteria>\n                <OriginDepCriteria>\n                    <Date>2025-04-06</Date>\n                    <IATA_LocationCode>PAR</IATA_LocationCode>\n                </OriginDepCriteria>\n            </OriginDestCriteria>\n        </FlightCriteria>\n        <Paxs>\n            <Pax>\n                <PaxID>PAX1</PaxID>\n                <PTC>ADT</PTC>\n            </Pax>\n        </Paxs>\n        <ResponseParameters>\n            <CurParameter>\n                <RequestedCurCode>EUR</RequestedCurCode>\n            </CurParameter>\n        </ResponseParameters>\n    </Request>\n</IATA_AirShoppingRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/AirShopping",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"AirShopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OfferPrice local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = xml2Json(pm.response.text());",
+							"pm.environment.set(\"total-price\", data[\"IATA_OfferPriceRS\"][\"Response\"][\"PricedOffer\"][\"TotalPrice\"][\"TotalAmount\"][\"_\"]);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OfferPrice\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OfferPriceRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRQ\">\n    <PayloadAttributes>\n        <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <DataLists>\n            <PaxList>\n                <Pax>\n                    <PaxID>PAX1</PaxID>\n                    <PTC>ADT</PTC>\n                </Pax>\n            </PaxList>\n        </DataLists>\n        <PricedOffer>\n            <SelectedOffer>\n                <OfferRefID>{{offer-id}}</OfferRefID>\n                <OwnerCode>{{owner-code}}</OwnerCode>\n                <SelectedOfferItem>\n                    <OfferItemRefID>{{offer-items}}</OfferItemRefID>\n                </SelectedOfferItem>\n                <ShoppingResponseRefID>{{shopping-response-id}}</ShoppingResponseRefID>\n            </SelectedOffer>\n        </PricedOffer>\n    </Request>\n</IATA_OfferPriceRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OfferPrice",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OfferPrice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServiceList local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = xml2Json(pm.response.text());",
+							"//pm.environment.set(\"total-price\", data[\"IATA_OfferPriceRS\"][\"Response\"][\"PricedOffer\"][\"TotalPrice\"][\"TotalAmount\"][\"_\"]);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OfferPrice\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_ServiceListRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_ServiceListRQ\">\n    <PayloadAttributes>\n        <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <PaxList>\n            <Pax>\n                <PaxID>PAX1</PaxID>\n                <PTC>ADT</PTC>\n            </Pax>\n        </PaxList>\n        <CoreRequest>\n            <Offer>\n                <OfferID>{{offer-id}}</OfferID>\n                <OwnerCode>{{owner-code}}</OwnerCode>\n                 <OfferItem>\n                    <OfferItemID>{{offer-items}}</OfferItemID>\n                </OfferItem>\n            </Offer>\n        </CoreRequest>\n        <ShoppingResponse>\n            <ShoppingResponseRefID>{{shopping-response-id}}</ShoppingResponseRefID>\n        </ShoppingResponse>\n    </Request>\n</IATA_ServiceListRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/ServiceList",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"ServiceList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SeatAvailability local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = xml2Json(pm.response.text());",
+							"//pm.environment.set(\"total-price\", data[\"IATA_OfferPriceRS\"][\"Response\"][\"PricedOffer\"][\"TotalPrice\"][\"TotalAmount\"][\"_\"]);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OfferPrice\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_SeatAvailabilityRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_SeatAvailabilityRQ\">\n    <PayloadAttributes>\n        <CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <PaxList>\n            <Pax>\n                <PaxID>PAX1</PaxID>\n                <PTC>ADT</PTC>\n            </Pax>\n        </PaxList>\n        <CoreRequest>\n            <Offer>\n                <OfferID>{{offer-id}}</OfferID>\n                <OwnerCode>{{owner-code}}</OwnerCode>\n                 <OfferItem>\n                    <OfferItemID>{{offer-items}}</OfferItemID>\n                </OfferItem>\n            </Offer>\n        </CoreRequest>\n        <ShoppingResponse>\n            <ShoppingResponseRefID>{{shopping-response-id}}</ShoppingResponseRefID>\n        </ShoppingResponse>\n    </Request>\n</IATA_SeatAvailabilityRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/SeatAvailability",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"SeatAvailability"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderCreate local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = xml2Json(pm.response.text());\r",
+							"pm.environment.set(\"order-id\", data[\"IATA_OrderViewRS\"][\"Response\"][\"Order\"][\"OrderID\"]);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderCreateRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <CreateOrder>\n            <SelectedOffer>\n                <OfferRefID>{{offer-id}}</OfferRefID>\n                <OwnerCode>{{owner-code}}</OwnerCode>\n                <SelectedOfferItem>\n                    <OfferItemRefID>{{offer-items}}</OfferItemRefID>\n                </SelectedOfferItem>\n                <ShoppingResponseRefID>{{shopping-response-id}}</ShoppingResponseRefID>\n            </SelectedOffer>\n        </CreateOrder>\n        <DataLists>\n            <ContactInfoList>\n                <ContactInfo>\n                    <ContactInfoID>CONT1</ContactInfoID>\n                    <EmailAddress>\n                        <EmailAddressText>kevin.quach@orchestra.eu</EmailAddressText>\n                    </EmailAddress>\n                    <Phone>\n                        <CountryDialingCode>33</CountryDialingCode>\n                        <PhoneNumber>330677889922</PhoneNumber>\n                    </Phone>\n                    <PostalAddress>\n                        <CityName>Paris</CityName>\n                        <CountryCode>FR</CountryCode>\n                        <PostalCode>75002</PostalCode>\n                        <StreetText>38 av opera</StreetText>\n                    </PostalAddress>\n                </ContactInfo>\n            </ContactInfoList>\n            <PaxList>\n                <Pax>\n                    <Birthdate>1980-02-03</Birthdate>\n                    <ContactInfoRefID>CONT1</ContactInfoRefID>\n                    <IdentityDoc>\n                        <IdentityDocID>123456789</IdentityDocID>\n                        <IdentityDocTypeCode>FC</IdentityDocTypeCode>\n                    </IdentityDoc>\n                    <IdentityDoc>\n                        <Birthdate>1980-02-03</Birthdate>\n                        <ExpiryDate>2025-05-03</ExpiryDate>\n                        <GivenName>John</GivenName>\n                        <CitizenshipCountryCode>FR</CitizenshipCountryCode>\n                        <IdentityDocID>78965412306</IdentityDocID>\n                        <IdentityDocTypeCode>PT</IdentityDocTypeCode>\n                        <IssueDate>2020-07-14</IssueDate>\n                        <IssuingCountryCode>BD</IssuingCountryCode>\n                        <ResidenceCountryCode>BD</ResidenceCountryCode>\n                        <Surname>Doe</Surname>\n                        <TitleName>MR</TitleName>\n                    </IdentityDoc>\n                    <Individual>\n                        <GivenName>John</GivenName>\n                        <IndividualID>IND1</IndividualID>\n                        <Surname>Doe</Surname>\n                        <TitleName>MR</TitleName>\n                    </Individual>\n                    <PaxID>PAX1</PaxID>\n                    <PTC>ADT</PTC>\n                </Pax>\n            </PaxList>\n        </DataLists>\n        <!--comment this tag to have Book on Hold-->\n        <PaymentFunctions>\n            <PaymentProcessingDetails>\n                <Amount CurCode=\"EUR\">{{total-price}}</Amount>\n                <PaymentMethod>\n                    <Cash/>\n                </PaymentMethod>\n                <TypeCode>CA</TypeCode>\n            </PaymentProcessingDetails>\n        </PaymentFunctions>\n    </Request>\n</IATA_OrderCreateRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderCreate",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderRetrieve local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = xml2Json(pm.response.text());\r",
+							"pm.environment.set(\"order-items\", data[\"IATA_OrderViewRS\"][\"Response\"][\"Order\"][\"OrderItem\"][\"OrderItemID\"]);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderRetrieveRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderRetrieveRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <OrderFilterCriteria>\n            <Order>\n                <OrderID>{{order-id}}</OrderID>\n                <OwnerCode>{{owner-code}}</OwnerCode>\n            </Order>\n        </OrderFilterCriteria>\n    </Request>\n</IATA_OrderRetrieveRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderRetrieve",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderRetrieve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderReshop local (Cancel Fee)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderReshopRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderReshopRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <OrderRefID>{{order-id}}</OrderRefID>\n        <UpdateOrder>\n            <ReshopOrder>\n                <ServiceOrder>\n                    <DeleteOrderItem>\n                        <OrderItemRefID>{{order-id}}</OrderItemRefID>\n                    </DeleteOrderItem>\n                </ServiceOrder>\n            </ReshopOrder>\n        </UpdateOrder>\n    </Request>\n</IATA_OrderReshopRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderReshop",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderReshop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderCancel local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderCancelRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCancelRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <Order>\n            <OrderID>{{order-id}}</OrderID>\n        </Order>\n    </Request>\n</IATA_OrderCancelRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderCancel",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderCancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderChange local (TicketIssue)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderChangeRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderChangeRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <DataLists>\n            <ContactInfoList>\n                <ContactInfo>\n                    <ContactInfoID>CONT1</ContactInfoID>\n                    <EmailAddress>\n                        <EmailAddressText>kevin.quach@orchestra.eu</EmailAddressText>\n                    </EmailAddress>\n                    <Phone>\n                        <CountryDialingCode>33</CountryDialingCode>\n                        <PhoneNumber>330677889922</PhoneNumber>\n                    </Phone>\n                    <PostalAddress>\n                        <CityName>Paris</CityName>\n                        <CountryCode>FR</CountryCode>\n                        <PostalCode>75002</PostalCode>\n                        <StreetText>38 av opera</StreetText>\n                    </PostalAddress>\n                </ContactInfo>\n            </ContactInfoList>\n            <PaxList>\n                <Pax>\n                    <Birthdate>1980-02-03</Birthdate>\n                    <ContactInfoRefID>CONT1</ContactInfoRefID>\n                    <IdentityDoc>\n                        <IdentityDocID>123456789</IdentityDocID>\n                        <IdentityDocTypeCode>FC</IdentityDocTypeCode>\n                    </IdentityDoc>\n                    <IdentityDoc>\n                        <Birthdate>1980-02-03</Birthdate>\n                        <ExpiryDate>2025-05-03</ExpiryDate>\n                        <GivenName>John</GivenName>\n                        <CitizenshipCountryCode>FR</CitizenshipCountryCode>\n                        <IdentityDocID>78965412306</IdentityDocID>\n                        <IdentityDocTypeCode>PT</IdentityDocTypeCode>\n                        <IssueDate>2020-07-14</IssueDate>\n                        <IssuingCountryCode>BD</IssuingCountryCode>\n                        <ResidenceCountryCode>BD</ResidenceCountryCode>\n                        <Surname>Doe</Surname>\n                        <TitleName>MR</TitleName>\n                    </IdentityDoc>\n                    <Individual>\n                        <GivenName>John</GivenName>\n                        <IndividualID>IND1</IndividualID>\n                        <Surname>Doe</Surname>\n                        <TitleName>MR</TitleName>\n                    </Individual>\n                    <PaxID>PAX1</PaxID>\n                    <PTC>ADT</PTC>\n                </Pax>\n            </PaxList>\n        </DataLists>\n        <Order>\n            <OrderID>{{order-id}}</OrderID>\n            <OwnerCode>{{owner-code}}</OwnerCode>\n        </Order>\n        <PaymentFunctions>\n            <PaymentProcessingDetails>\n                <Amount CurCode=\"EUR\">{{total-price}}</Amount>\n                <OrderAssociation>\n                    <OrderItemRefID>{{order-items}}</OrderItemRefID>\n                </OrderAssociation>\n                <PaymentMethod>\n                    <Cash/>\n                </PaymentMethod>\n                <TypeCode>CA</TypeCode>\n            </PaymentProcessingDetails>\n        </PaymentFunctions>\n    </Request>\n</IATA_OrderChangeRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderChange",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderChange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderChange local (Accept disruption)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"http://www.travelsoft.fr/orchestra/ndc/OrderCreate\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-Provider",
+						"value": "{{tcdev-provider}}",
+						"type": "text"
+					},
+					{
+						"key": "Orx-Control-ApiVersion",
+						"value": "19.2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<IATA_OrderChangeRQ xmlns=\"http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderChangeRQ\">\n    <PayloadAttributes>\n        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>\n        <VersionNumber>19.2</VersionNumber>\n    </PayloadAttributes>\n    <Request>\n        <ChangeOrder>\n            <AcceptChange>\n                <OrderItemRefID>{{order-items}}</OrderItemRefID>\n            </AcceptChange>\n        </ChangeOrder>\n        <Order>\n            <OrderID>{{order-id}}</OrderID>\n            <OwnerCode>{{owner-code}}</OwnerCode>\n        </Order>\n    </Request>\n</IATA_OrderChangeRQ>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}ndc/ws/rest/19.2/OrderRetrieve",
+					"host": [
+						"{{base-url}}ndc"
+					],
+					"path": [
+						"ws",
+						"rest",
+						"19.2",
+						"OrderRetrieve"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": ""
+		},
+		{
+			"key": "tcdev-provider",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "isSwitch",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "switchChoice",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
