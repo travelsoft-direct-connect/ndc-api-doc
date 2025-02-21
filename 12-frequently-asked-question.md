@@ -85,5 +85,11 @@ A: Some airlines do not allow booking multiple services. There are three types o
 
 ---
 
+**Q12: Why do I get the error "Form of payment missing or invalid for ticket/document" during booking issuance, even if my FOP is valid?**  
+
+A: This error typically occurs due to insufficient funds in your account balance. Even if your form of payment (FOP) is valid, the transaction cannot be processed if there are not enough funds available. Please contact orchestra or your agency to ensure that your account has sufficient funds to complete the payment for the flight.  
+
+---
+
 ## Still have questions?   
 💬 [**Ask "Elya" - The Virtual Assistant**](chatbot.html)
