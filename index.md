@@ -164,6 +164,9 @@ AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 </details>
 
+## Postman Collection
+You can dowload the [postman collection](Orchestra API NDC.postman_collection.json) to test during your integration.
+
 ## Shopping flow
 
 >airShopping (&rarr; offerPrice) &rarr; serviceList &rarr; seatAvailability &rarr; offerPrice &rarr; orderCreate
