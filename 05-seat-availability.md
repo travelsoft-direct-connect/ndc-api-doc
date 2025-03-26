@@ -6,7 +6,7 @@ nav_order: 5
 
 # SeatAvailability operation
 {: .no_toc }
-The seat availability method returns seat maps for the selected flight offer in request.
+The seat availability method returns seat maps and seat prices for the selected flight offer in request.
 
 ---------------------------------------
 
