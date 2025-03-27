@@ -14,6 +14,8 @@ __Important__:
 
 It could occur that tokens are removed because of a server restart, so it's important to check all NDC error responses to detect this case of token lost. If NDC error code is `368` (description: "`Not authorized`", owner: "`ORCHESTRA`"), that means token is expired or lost, so a login request must be executed again to get a new token.
 
+Even if the token has not yet expired, it must be renewed before performing certain critical operations, such as AirShopping (flight search), OrderRetrieve (refreshing an order, ticket issue or cancellation). This ensures the latest authentication context and prevents potential authorization issues.
+
 ---------------------------------------
 
 ## Table of contents
