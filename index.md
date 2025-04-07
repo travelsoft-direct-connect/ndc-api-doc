@@ -6,7 +6,7 @@ nav_order: 0
 
 # Getting Started
 {: .no_toc }
-This documentation is designed to be used as a base to integrate the Orchestra NDC API in a third-party system. The Orchestra NDC API is based on SOAP Web Service technology, but it's also available as REST Web Services. The current NDC version exposed is 19.2.
+This documentation is designed to be used as a base to integrate the Travelsoft NDC API in a third-party system. The Travelsoft NDC API is based on SOAP Web Service technology, but it's also available as REST Web Services. The current NDC version exposed is 19.2.
 
 ## Table of contents
 {: .no_toc .text-delta }
