@@ -14,14 +14,14 @@ This documentation is designed to be used as a base to integrate the Orchestra N
 1. TOC
 {:toc}
 
-## Steps for Orchestra NDC API Integration
+## Steps for Travelsoft NDC API Integration
 
-- give IP addresses of your system to Orchestra to update firewall of WS server
+- give IP addresses of your system to Travelsoft to update firewall of WS server
 - build a WS client by using provided WSDL + XSD files
-- get a test user from Orchestra to make test calls
+- get a test user from Travelsoft to make test calls
 - integrate WS operations in your system (by following recommended flows)
 
-If you have any questions, ask your contact at Orchestra or contact@orchestra.eu if you don't yet have a referent contact.
+If you have any questions, ask your contact at Travelsoft or contacts@travelsoft.fr if you don't yet have a referent contact.
 
 ## Environments
 
@@ -171,7 +171,7 @@ You can dowload the [postman collection](Orchestra_API_NDC.postman_collection.js
 
 >airShopping (&rarr; offerPrice) &rarr; serviceList &rarr; seatAvailability &rarr; offerPrice &rarr; orderCreate
 
-Note: the airShopping transaction initiates a session which is maintained on Orchestra side by using the ShoppingResponseID as session ID.
+Note: the airShopping transaction initiates a session which is maintained on Travelsoft side by using the ShoppingResponseID as session ID.
 
 ![Booking flow](/ndc-api-doc/assets/images/BookingFlow.png "Booking flow")
 

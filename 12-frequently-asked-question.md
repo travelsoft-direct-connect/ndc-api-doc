@@ -1,6 +1,6 @@
 ## Frequently Asked Questions (FAQ)
 
-This FAQ is designed to answer common questions about the API. If you need further assistance, please contact contact@orchestra.eu.
+This FAQ is designed to answer common questions about the API. If you need further assistance, please contact contacts@travelsoft.fr.
 
 ---
 
@@ -29,13 +29,13 @@ A: No, post-booking modifications are strictly limited to cancellations. Adding 
 
 **Q4: I am using the test environment. Why do I get "error 405"?**  
 
-A: In the test environment, occasional maintenance may cause the servers to be temporarily inaccessible. If the error persists, please contact Orchestra for further assistance.  
+A: In the test environment, occasional maintenance may cause the servers to be temporarily inaccessible. If the error persists, please contact Travelsoft for further assistance.  
 
 ---
 
 **Q5: I am using the test environment. Why do I get a "SOAP Failure"?**  
 
-A: In the test environment, some airlines may experience issues. Please try selecting a different airline. If the error persists across multiple airlines, contact Orchestra for support.  
+A: In the test environment, some airlines may experience issues. Please try selecting a different airline. If the error persists across multiple airlines, contact Travelsoft for support.  
 
 ---
 
@@ -87,7 +87,7 @@ A: Some airlines do not allow booking multiple services. There are three types o
 
 **Q12: Why do I get the error "Form of payment missing or invalid for ticket/document" during booking issuance, even if my FOP is valid?**  
 
-A: This error typically occurs due to insufficient funds in your account balance. Even if your form of payment (FOP) is valid, the transaction cannot be processed if there are not enough funds available. Please contact orchestra or your agency to ensure that your account has sufficient funds to complete the payment for the flight.  
+A: This error typically occurs due to insufficient funds in your account balance. Even if your form of payment (FOP) is valid, the transaction cannot be processed if there are not enough funds available. Please contact Travelsoft or your agency to ensure that your account has sufficient funds to complete the payment for the flight.  
 
 ---
 
