@@ -143,6 +143,7 @@ The provider to request must be sent in the control header. For example:
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
 | Price | The total price of this offer item | Mandatory |
 | Services | List of flight associations with PAX | Mandatory |
+| PaymentTimeLimit | Contains the payment time limit (PaymentTimeLimitDateTime) | Optional |
 
 
 # Samples
@@ -849,6 +850,9 @@ The provider to request must be sent in the control header. For example:
                             </ServiceAssociations>
                             <ServiceID>SV1</ServiceID>
                         </Service>
+                        <PaymentTimeLimit>
+                            <PaymentTimeLimitDateTime>2025-05-17T23:59:00.000</PaymentTimeLimitDateTime>
+                        </PaymentTimeLimit>
                     </OfferItem>
                     <OwnerCode>VY</OwnerCode>
                     <TotalPrice>
@@ -4331,6 +4335,9 @@ The provider to request must be sent in the control header. For example:
                             </ServiceAssociations>
                             <ServiceID>SV14</ServiceID>
                         </Service>
+                        <PaymentTimeLimit>
+                            <PaymentTimeLimitDateTime>2025-05-17T23:59:00.000</PaymentTimeLimitDateTime>
+                        </PaymentTimeLimit>
                     </OfferItem>
                     <OwnerCode>PC</OwnerCode>
                     <TotalPrice>
