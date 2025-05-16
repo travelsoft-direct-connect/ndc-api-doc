@@ -86,7 +86,7 @@ The order retrieve method allows to get booking information after order creation
 | FareDetail | Contains the PAX associations, the unit price in FarePriceType, and more information for each segment in FareComponent | Mandatory |
 | Price | The total price of this offer item | Mandatory |
 | SellerFollowUpAction | List of post-booking actions required, to accept schedule change for example. Action codes: {::nomarkdown}<ul><li>Contact Airline</li><li>Accept</li></ul> {:/} | Optional |
-| Services | List of flight/serviceDefinition associations with PAX and StatusCode: {::nomarkdown}<ul><li>RQ: on request (availability is waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>K: pending (OrderChangeRQ has to be executed to issue tickets)</li><li>SB: issuance in progress (waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>TK: schedule change (see possible actions in SellerFollowUpAction node)</li><li>T: tickets issued</li><li>X: cancelled</li></ul> {:/} | Mandatory |
+| Services | List of flight/serviceDefinition associations with PAX and StatusCode: {::nomarkdown}<ul><li>RQ: on request (availability is waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>K: pending (OrderChangeRQ has to be executed to issue tickets)</li><li>SB: issuance in progress (waiting to be confirmed, OrderRetrieveRQ has to be called again until status is updated)</li><li>TK: schedule change (see possible actions in SellerFollowUpAction node)</li><li>T: tickets issued</li><li>X: cancelled</li></ul> {:/}  Note: If the StatusCode is absent, the service is included, so no further action is necessary | Mandatory |
 
 # Samples
 
