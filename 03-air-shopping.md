@@ -51,7 +51,7 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | FlightCriteria | List of origin/destination criteria (one OD for one-way, two ODs for round-trip or open-jaw) | Mandatory |
-| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants + birth date or age</li></ul>{:/} Note that loyalty program account can be set if given as input with passenger name, see [below](#loyaltyprogramaccount) | Mandatory |
+| Paxs | List of passengers with type (PTC): {::nomarkdown}<ul><li>ADT for adults</li><li>CHD for children + birth date or age </li><li>INF for infants</li></ul>{:/} Note that loyalty program account can be set if given as input with passenger name, see [below](#loyaltyprogramaccount) | Mandatory |
 | ResponseParameters | {::nomarkdown}<ul><li>Currency requested (EUR by default)</li><li>Language requested (ignored if not supported by the provider)</li></ul>{:/} | Optional |
 | ShoppingCriteria | The shopping criteria containing flight criteria, as preferred transport class (ECONOMY, BUSINESS, etc), see [below](#shoppingcriteria) | Mandatory |
 
@@ -185,6 +185,15 @@ The provider to request must be sent in the control header. For example:
             <Pax>
                 <PaxID>PAX2</PaxID>
                 <PTC>ADT</PTC>
+            </Pax>
+            <Pax>
+                <PaxID>PAX3</PaxID>
+                <Birthdate>2016-07-03</Birthdate>
+                <PTC>CHD</PTC>
+            </Pax>
+            <Pax>
+                <PaxID>PAX4</PaxID>
+                <PTC>INF</PTC>
             </Pax>
         </Paxs>
         <ResponseParameters>
