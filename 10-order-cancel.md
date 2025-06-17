@@ -6,7 +6,7 @@ nav_order: 10
 
 # OrderCancel operation
 {: .no_toc }
-The order cancel method allows to cancel/void an order in the airline system. The order reshop method must be called before to retrieve potential cancellation fee.
+The order cancel method allows to cancel/refund/void an order for all passengers in the airline system. The order reshop method must be called before to retrieve potential cancellation fee.
 
 ---------------------------------------
 
