@@ -8,7 +8,8 @@ nav_order: 0
 ## What is the Travelsoft API NDC ?
 The Travelsoft API NDC provides programmatic acces to airline content based on IATA's New Distribution Capability (NDC) standard. NDC is a travel infustry-supported program launched by IATA for the development and market adoption of a new XML-based data transmission standard between airlines and travel agents.
 
-![NDC Certified](/ndc-api-doc/assets/images/ndc-certified.png "NDC Certified") ![NDC Capable](/ndc-api-doc/assets/images/ndc-capable.png "NDC Capable")
+<img src="/ndc-api-doc/assets/images/ndc-certified.png" alt="NDC Certified" width="100" height="100" style="object-fit: contain;" />
+<img src="/ndc-api-doc/assets/images/ndc-capable.png" alt="NDC Capable" width="100" height="100" style="object-fit: contain;" />
 
 ## Key Feature
 
