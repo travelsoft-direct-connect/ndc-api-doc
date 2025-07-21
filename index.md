@@ -36,6 +36,32 @@ The Travelsoft API NDC provides programmatic acces to airline content based on I
 
     
 # How to Use the API
- [Start Here](https://travelsoft-direct-connect.github.io/ndc-api-doc/00-getting-started.html)
+ [Here](https://travelsoft-direct-connect.github.io/ndc-api-doc/00-getting-started.html)
 
+## Integration and Development
+The Travelsoft NDC API is designed to be integrated into various travel distribution systems:
+- Online travel agencies
+- Travel management companies
+- Corporate booking tools
+- Airline direct channels
+- Meta-search engines
+
+## Documentation and Resources
+You can get started [here](https://travelsoft-direct-connect.github.io/ndc-api-doc/00-getting-started.html).
+
+### This interactive documentation includes:
+
+- Detailed endpoint descriptions
+- NDC message schemas
+- Request and response examples
+- Swagger interface for directly testing the API
+
+## Technical Support
+For technical questions or implementation assistance, you can contact contacts@travelsoft.fr or ["Elya" the Virtual Assistant](https://travelsoft-direct-connect.github.io/ndc-api-doc/chatbot.html).
+
+# About IATA NDC
+
+NDC (New Distribution Capability) is a travel industry-supported program launched by IATA for the development and market adoption of a new XML-based data transmission standard. NDC enables the travel industry to transform the way air products are retailed to corporations, leisure, and business travelers, by addressing the industry’s current distribution limitations.
+
+For more information about IATA’s NDC standard, visit [IATA's website](https://www.iata.org/en/programs/airline-distribution/retailing/ndc/).
 
