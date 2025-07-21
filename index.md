@@ -36,7 +36,6 @@ The Travelsoft API NDC provides programmatic acces to airline content based on I
 
     
 # How to Use the API
- [Here](https://travelsoft-direct-connect.github.io/ndc-api-doc/00-getting-started.html)
 
 ## Integration and Development
 The Travelsoft NDC API is designed to be integrated into various travel distribution systems:
