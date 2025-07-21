@@ -20,12 +20,14 @@ The Travelsoft API NDC provides programmatic acces to airline content based on I
   - Access airline content directly
   - Book and manage reservations
   - Issue tickets and manage orders
+
 ### 2. Available Airline Data
 
   - Flight schedules and availability
   - Rich content for airline offers
   - Fare information and ancillary services
   - Real-time pricing and inventory
+
 ### 3. Data Formats
 
   - Structured XML/JSON responses
