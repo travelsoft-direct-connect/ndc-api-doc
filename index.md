@@ -165,7 +165,7 @@ AuthToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 </details>
 
 ## Postman Collection
-You can dowload the [postman collection](Orchestra_API_NDC.postman_collection.json) to test during your integration.
+You can dowload the [postman collection](Travelsoft_API_NDC.postman_collection.json) to test during your integration.
 
 ## Shopping flow
 
