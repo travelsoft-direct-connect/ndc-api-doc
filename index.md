@@ -14,7 +14,6 @@ The Travelsoft API NDC provides programmatic acces to airline content based on I
 
 
 ## Key Feature
-
 ### 1. NDC Compliant Operations
   - Search for flights and offers
   - Access airline content directly
@@ -25,7 +24,7 @@ The Travelsoft API NDC provides programmatic acces to airline content based on I
   - Rich content for airline offers
   - Fare information and ancillary services
   - Real-time pricing and inventory
-  ### 3. Data Formats
+### 3. Data Formats
   - Structured XML/JSON responses
   - NDC schema-compliant data
   - Interactive documentation via Swagger UI
