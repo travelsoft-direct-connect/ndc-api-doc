@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Order Reshop"
-nav_order: 9
+nav_order: 10
 ---
 
 # OrderReshop operation

@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Offer Price"
-nav_order: 6
+nav_order: 7
 ---
 
 # OfferPrice operation
