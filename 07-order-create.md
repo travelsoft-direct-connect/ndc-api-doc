@@ -83,10 +83,18 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | PTC              | PTC                                           | Mandatory          |
 | PaxID            | Pax ID                                        | Mandatory          |
+| Remark           | Remarks, see detailed [below](#remarks)       | Optional           |
 | Birthdate        | date of birth                                 | Mandatory          |
 | ContactInfoRefID | client contact reference, see [ContactInfoList](#datalists) | Optional           |
 | Individual       | Pax information, detailed [below](#individual)    | Mandatory          |
 | IdentityDoc      | Pax Document, detailed [below](#identitydoc)      | Optional           |
+
+##### Remarks
+{: .no_toc }
+| Element      | Description           | Optional/Mandatory |
+| ------------ | --------------------- | ------------------ |
+| RemarkText   | Additional data for requested special fares<br />Example values:<br /><ul><li>Spanish residents:<ul><li>MC\|380012 - where <b>380012</b> is an example of a Spanish municipality code</li></ul></li></ul> | Mandatory |
+
 
 ##### Individual
 {: .no_toc }
@@ -105,7 +113,7 @@ The provider to request must be sent in the control header. For example:
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
 | IdentityDocID | Document ID<br />By default it is the document number<br />For fiscal code use case, the expected format is:<br />(Code/ID/CompanyName)<br />For example: <br />- CUIL/123456789<br />- CUIL/123456789/MyAgencyName | Mandatory |
-| IdentityDocTypeCode | Document Code, possible values (PT, VS, ID, DL or FC)<br />PT = Passport<br />VS = Visa<br />ID = Identity card<br />DL = Driving License<br />FC = Fiscal code  | Mandatory |
+| IdentityDocTypeCode | Document Code, possible values (PT, VS, ID, DL or FC)<br />PT = Passport<br />VS = Visa<br />ID = Identity card (mandatory for Spanish resident discounted fares)<br />DL = Driving License<br />FC = Fiscal code  | Mandatory |
 | Birthdate |  | Optional |
 | CitizenshipCountryCode |  | Optional |
 | ExpiryDate |  | Optional |
@@ -483,6 +491,110 @@ The provider to request must be sent in the control header. For example:
                 </Pax>
             </PaxList>
         </DataLists>
+    </Request>
+</IATA_OrderCreateRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
+  <summary><b>OrderCreateRQ (Spanish residents)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
+    <PayloadAttributes>
+        <CorrelationID>3b84928e-d1a6-3192-ae3c-67851ad4392a</CorrelationID>
+        <PrimaryLangID>EN</PrimaryLangID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <POS>
+        <Country>
+            <CountryCode>ES</CountryCode>
+        </Country>
+    </POS>
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>ec45fdc2-6cf2-4875-8d90-bdabf046cc72</OfferRefID>
+                <OwnerCode>AF</OwnerCode>
+                <SelectedOfferItem>
+                    <OfferItemRefID>5a593167-ac00-487e-b4aa-f262c0b06ff3</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>a5359ed4-3774-4fc6-a87a-b582b3bec694</ShoppingResponseRefID>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>email@email.com</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <CountryDialingCode>34</CountryDialingCode>
+                        <PhoneNumber>34111111111</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>Madrid</CityName>
+                        <CountryCode>ES</CountryCode>
+                        <PostalCode>21342</PostalCode>
+                        <StreetText>Test Street</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <Remark>
+                        <RemarkText>MC|380012</RemarkText>
+                    </Remark>
+                    <Birthdate>1980-02-03</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <IdentityDocID>30000529L</IdentityDocID>
+                        <IdentityDocTypeCode>ID</IdentityDocTypeCode>
+                    </IdentityDoc>
+                    <Individual>
+                        <GivenName>STEFAN</GivenName>
+                        <IndividualID>IND1</IndividualID>
+                        <Surname>GARCIA</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PaxRefID>T1</PaxRefID>
+                    <PTC>ADT</PTC>
+                </Pax>
+                <Pax>
+                    <Remark>
+                        <RemarkText>MC|380012</RemarkText>
+                    </Remark>
+                    <Birthdate>2017-03-03</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <IdentityDocID>X2975617S</IdentityDocID>
+                        <IdentityDocTypeCode>ID</IdentityDocTypeCode>
+                    </IdentityDoc>
+                    <Individual>
+                        <GivenName>MARIUS</GivenName>
+                        <IndividualID>IND2</IndividualID>
+                        <Surname>GARCIA</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX2</PaxID>
+                    <PaxRefID>T2</PaxRefID>
+                    <PTC>CHD</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
+        <PaymentFunctions>
+            <PaymentProcessingDetails>
+                <Amount CurCode="EUR">123.00</Amount>
+                <PaymentMethod>
+                    <Cash/>
+                </PaymentMethod>
+                <TypeCode>CA</TypeCode>
+            </PaymentProcessingDetails>
+        </PaymentFunctions>
     </Request>
 </IATA_OrderCreateRQ>
 {% endhighlight %}
