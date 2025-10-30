@@ -60,7 +60,7 @@ The order retrieve method allows to get booking information after order creation
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Warnings | List of warnings returned by provider, see [warnings](#warnings) | Optional |
+| Warning | List of warnings returned by provider, see [warnings](#warnings) | Optional |
 | DataLists | The response data lists (journeys, segments, service definitions, etc) | Mandatory |
 | Order | The order element detailed [below](#order) | Mandatory |
 
