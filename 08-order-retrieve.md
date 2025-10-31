@@ -93,8 +93,8 @@ The order retrieve method allows to get booking information after order creation
 
 | Element | Description | Optional/Mandatory |
 | --- | --- | --- |
-| Code | The status code of the warning<br />Spanish residents: {::nomarkdown} <ul><li>RESIDENCY_VERIFICATION_STATUS</li></ul> | Mandatory |
-| DescText | The description of the warning<br />Spanish residents:<ul><li>&lt;passenger_name&gt; - NOT_VERIFIED</li><li>&lt;passenger_name&gt; - PENDING</li></ul> {:/} | Mandatory |
+| Code | The status code of the warning<br />Spanish residents: {::nomarkdown} <ul><li>RESIDENCY_VERIFICATION_STATUS</li></ul> {:/} | Mandatory |
+| DescText | The description of the warning<br />Spanish residents: {::nomarkdown} <ul><li>&lt;passenger_name&gt; - NOT_VERIFIED</li><li>&lt;passenger_name&gt; - PENDING</li></ul> {:/} | Mandatory |
 
 # Samples
 
