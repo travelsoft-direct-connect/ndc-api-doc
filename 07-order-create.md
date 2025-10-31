@@ -94,7 +94,7 @@ The provider to request must be sent in the control header. For example:
 
 | Element      | Description           | Optional/Mandatory |
 | --- | --- | --- |
-| RemarkText   | Additional data for requested special fares<br />Spanish residents:<ul><li>MC\|380012 - where <b>380012</b> is an example of a Spanish municipality code</li></ul> | Mandatory |
+| RemarkText   | Additional data for requested special fares<br />Spanish residents:{::nomarkdown}<ul><li>MC\|380012 - where <b>380012</b> is an example of a Spanish municipality code</li></ul> {:/} | Mandatory |
 
 
 ##### Individual
