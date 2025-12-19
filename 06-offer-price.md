@@ -176,7 +176,7 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 </details>
 
 <details>
-  <summary><b>OfferPriceRQ (with ancillaires)</b></summary>
+  <summary><b>OfferPriceRQ (with ancillaries)</b></summary>
 
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -559,4 +559,5 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 {% endhighlight %}
 
 </details>
+
 
