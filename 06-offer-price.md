@@ -176,6 +176,58 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 </details>
 
 <details>
+  <summary><b>OfferPriceRQ (with ancillaires)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OfferPriceRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OfferPriceRQ">
+	<PayloadAttributes>
+		<CorrelationID>a222c960-0d2c-4507-bd2c-59362825cc76</CorrelationID>
+		<VersionNumber>19.2</VersionNumber>
+	</PayloadAttributes>
+	<Request>
+		<DataLists>
+			<PaxList>
+				<Pax>
+					<PaxID>PAX1</PaxID>
+					<PTC>ADT</PTC>
+				</Pax>
+			</PaxList>
+		</DataLists>
+		<PricedOffer>
+			<SelectedOffer>
+				<OfferRefID>8354fe3d-a1e4-46aa-b20d-1e6a5a9b7f12</OfferRefID>
+				<OwnerCode>EY</OwnerCode>
+				<SelectedOfferItem>
+					<OfferItemRefID>9d8185d1-5d5b-4a45-971b-3ebe76c217ea</OfferItemRefID>
+					<PaxRefID>PAX1</PaxRefID>
+				</SelectedOfferItem>
+				<ShoppingResponseRefID>a1302470-1316-4b22-9bef-065d216e6c6c</ShoppingResponseRefID>
+			</SelectedOffer>
+			<!-- Service Select Offer-->
+			<SelectedOffer>
+				<OfferRefID>3601c199-bb9f-461c-88d0-cae7d35b24d8</OfferRefID>
+				<SelectedOfferItem>
+					<OfferItemRefID>92228867-60d8-4858-afe1-b2b5eadabb57</OfferItemRefID>
+				</SelectedOfferItem>
+				<ShoppingResponseRefID>a1302470-1316-4b22-9bef-065d216e6c6c</ShoppingResponseRefID>
+			</SelectedOffer>
+			<!-- Seat Select Offer-->
+			<SelectedOffer>
+				<OfferRefID>ab8b0a48-5c24-4a7e-bef1-7c2de2a0ad43</OfferRefID>
+				<SelectedOfferItem>
+					<OfferItemRefID>a9a2dc7c-e040-4d0f-8204-c4ad7d0908df</OfferItemRefID>
+				</SelectedOfferItem>
+				<ShoppingResponseRefID>a1302470-1316-4b22-9bef-065d216e6c6c</ShoppingResponseRefID>
+			</SelectedOffer>
+		</PricedOffer>
+	</Request>
+</IATA_OfferPriceRQ>
+{% endhighlight %}
+
+</details>
+
+<details>
   <summary><b>OfferPriceRS</b></summary>
 
 {% highlight xml %}
@@ -507,3 +559,4 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 {% endhighlight %}
 
 </details>
+
