@@ -602,6 +602,103 @@ The provider to request must be sent in the control header. For example:
 
 </details>
 
+
+<details>
+  <summary><b>OrderCreateRQ (with ancilaries)</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IATA_OrderCreateRQ xmlns="http://www.iata.org/IATA/2015/00/2019.2/IATA_OrderCreateRQ">
+    <Party>
+        <Sender>
+            <TravelAgency>
+                <AgencyID>1234</AgencyID>
+            </TravelAgency>
+        </Sender>
+    </Party>
+    <PayloadAttributes>
+        <CorrelationID>d837528f-522c-4fd0-a5c8-2de54e0d012d</CorrelationID>
+        <VersionNumber>19.2</VersionNumber>
+    </PayloadAttributes>
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>95b23c09-d98f-40f8-b996-2f571e2de9b6</OfferRefID>
+                <OwnerCode>EY</OwnerCode>
+                <SelectedOfferItem>
+                    <OfferItemRefID>6e126ab5-9c7c-4fb4-a1fc-f0ceab63f011</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>02ca728e-f9d4-4eca-b12a-7d6f13215ac8</ShoppingResponseRefID>
+            </SelectedOffer>
+            <!-- Service Select Offer-->
+            <SelectedOffer>
+                <OfferRefID>10e8ead7-5d04-4f4a-ae71-076b834ffc82</OfferRefID>
+                <SelectedOfferItem>
+                    <OfferItemRefID>5709d92d-c772-4d91-90f0-268d5f748fed</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>02ca728e-f9d4-4eca-b12a-7d6f13215ac8</ShoppingResponseRefID>
+            </SelectedOffer>
+          <!-- Seat Select Offer-->
+            <SelectedOffer>
+                <OfferRefID>02523186-6b1b-4db8-8335-65bb7a3cfdfc</OfferRefID>
+                <SelectedOfferItem>
+                    <OfferItemRefID>84488540-4bfc-47d5-8078-332ccfba9bb9</OfferItemRefID>
+                </SelectedOfferItem>
+                <ShoppingResponseRefID>02ca728e-f9d4-4eca-b12a-7d6f13215ac8</ShoppingResponseRefID>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>CONT1</ContactInfoID>
+                    <EmailAddress>
+                        <EmailAddressText>email@email.com</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <PhoneNumber>330677889922</PhoneNumber>
+                    </Phone>
+                    <PostalAddress>
+                        <CityName>SRZ</CityName>
+                        <CountryCode>FR</CountryCode>
+                        <PostalCode>0000</PostalCode>
+                        <StreetText>TROP</StreetText>
+                    </PostalAddress>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <Birthdate>1980-02-03</Birthdate>
+                    <ContactInfoRefID>CONT1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <Birthdate>1980-02-03</Birthdate>
+                        <ExpiryDate>2029-05-03</ExpiryDate>
+                        <GivenName>John</GivenName>
+                        <IdentityDocID>78965412306</IdentityDocID>
+                        <IdentityDocTypeCode>PT</IdentityDocTypeCode>
+                        <IssuingCountryCode>FR</IssuingCountryCode>
+                        <Surname>Doear</Surname>
+                        <TitleName>MR</TitleName>
+                    </IdentityDoc>
+                    <Individual>
+                        <Birthdate>1980-02-03</Birthdate>
+                        <GenderCode>M</GenderCode>
+                        <GivenName>John</GivenName>
+                        <IndividualID>IND1</IndividualID>
+                        <Surname>Doear</Surname>
+                        <TitleName>MR</TitleName>
+                    </Individual>
+                    <PaxID>PAX1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
+    </Request>
+</IATA_OrderCreateRQ>
+{% endhighlight %}
+
+</details>
+
 <details>
   <summary><b>OrderViewRS (Hold booking)</b></summary>
 
@@ -1420,3 +1517,4 @@ The provider to request must be sent in the control header. For example:
 {% endhighlight %}
 
 </details>
+
