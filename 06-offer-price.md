@@ -99,7 +99,7 @@ The provider to request must be sent in the control header. For example:
 | --- | --- | --- |
 | PTC              | PTC                                           | Mandatory          |
 | PaxID            | Pax ID                                        | Mandatory          |
-| IdentityDoc      | Pax Document, detailed [below](#identitydoc)  | Optional           |
+| IdentityDocs     | List of Pax Documents, detailed [below](#identitydoc). Note: If more than one IdentityDoc, only one of them will be required for OrderCreateRQ. | Optional           |
 
 ##### IdentityDoc
 {: .no_toc }
@@ -559,5 +559,6 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 {% endhighlight %}
 
 </details>
+
 
 
