@@ -1,0 +1,16 @@
+sequenceDiagram
+  Actor Customer as Partner
+  participant Login
+  participant GetBooking as Order Retrieve
+
+  opt Authentication
+    Customer ->>+ Login: LoginRQ
+    Login ->> Login: Authenticating
+    Login ->> Customer: LoginRS (AuthToken) + Set-Cookie (JSESSIONID + ROUTE_ID)
+  end
+
+  opt GetBooking
+    Customer ->>+ GetBooking: OrderRetrieveRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    GetBooking ->> GetBooking: Retrieve the order
+    GetBooking ->> Customer: OrderRetrieveRS
+  end

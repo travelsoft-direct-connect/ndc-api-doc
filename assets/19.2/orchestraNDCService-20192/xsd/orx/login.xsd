@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.travelsoft.fr/orchestra/ndc/login" targetNamespace="http://www.travelsoft.fr/orchestra/ndc/login" elementFormDefault="qualified">
+    <xs:element name="LoginRQ" type="LoginRQ" />
+    <xs:element name="LoginRS" type="LoginRS" />
+    <xs:complexType name="LoginRQ">
+        <xs:attribute name="Username" type="xs:string" />
+        <xs:attribute name="Password" type="xs:string" />
+    </xs:complexType>
+    <xs:complexType name="LoginRS">
+        <xs:sequence>
+            <xs:element name="AuthToken" type="AuthToken" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="AuthStatus" type="AuthStatus" />
+    </xs:complexType>
+    <xs:complexType name="AuthToken">
+        <xs:sequence>
+            <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="ExpirationDate" type="xs:dateTime" use="required" />
+    </xs:complexType>
+    <xs:simpleType name="AuthStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Success" />
+            <xs:enumeration value="Invalid" />
+            <xs:enumeration value="Failure" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
