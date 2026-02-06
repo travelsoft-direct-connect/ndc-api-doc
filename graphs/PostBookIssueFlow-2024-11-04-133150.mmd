@@ -1,0 +1,23 @@
+sequenceDiagram
+  Actor Customer as Partner
+  participant Login
+  participant GetBooking as Order Retrieve
+  participant Issue as Order Change
+
+  opt Authentication
+    Customer ->>+ Login: LoginRQ
+    Login ->> Login: Authenticating
+    Login ->> Customer: LoginRS (AuthToken) + Set-Cookie (JSESSIONID + ROUTE_ID)
+  end
+
+  opt GetBooking
+    Customer ->>+ GetBooking: OrderRetrieveRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    GetBooking ->> GetBooking: Retrieve booking from provider
+    GetBooking ->> Customer: OrderRetrieveRS
+  end
+
+  opt Issue
+    Customer ->>+ Issue: OrderChangeRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    Issue ->> Issue: Issuing the tickets
+    Issue ->> Customer: OrderChangeRS
+  end
