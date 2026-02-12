@@ -621,6 +621,7 @@ The order change method allows to make additional updates after order creation i
   <summary><b>OrderChangeRQ - Cancel</b></summary>
 
 {% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <IATA_OrderChangeRQ xmlns="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" xmlns:ns2="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersCommonTypes" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:ns4="http://www.travelsoft.fr/orchestra/ndc/headers" xmlns:ns5="http://www.travelsoft.fr/orchestra/ndc/login">
 	<DistributionChain>
 		<ns2:DistributionChainLink>
@@ -639,71 +640,670 @@ The order change method allows to make additional updates after order creation i
 	<Request>
 		<ns2:ChangeOrderChoice>
 			<ns2:AcceptCancelledOffer>
-				<ns2:OfferID>8f70a1e9-049c-4243-86d0-801a8fcd1082</ns2:OfferID>
+				<ns2:OfferID>c75465d8-5e1d-45c2-8f87-307c24be6dbd</ns2:OfferID>
 				<ns2:OwnerCode>BA</ns2:OwnerCode>
 			</ns2:AcceptCancelledOffer>
 		</ns2:ChangeOrderChoice>
-		<ns2:DataLists>
-			<ns2:ContactInfoList>
-				<ns2:ContactInfo>
-					<ns2:ContactInfoID>CONT1</ns2:ContactInfoID>
-					<ns2:EmailAddress>
-						<ns2:EmailAddressText>john.doe@orchestra.eu</ns2:EmailAddressText>
-					</ns2:EmailAddress>
-					<ns2:IndividualRefID>IND1</ns2:IndividualRefID>
-					<ns2:Phone>
-						<ns2:AreaCodeNumber/>
-						<ns2:CountryDialingCode>33</ns2:CountryDialingCode>
-						<ns2:PhoneNumber>102030405</ns2:PhoneNumber>
-					</ns2:Phone>
-					<ns2:PostalAddress>
-						<ns2:CityName>Paris</ns2:CityName>
-						<ns2:ContactTypeText>AddressAtOrigin</ns2:ContactTypeText>
-						<ns2:CountryCode>FR</ns2:CountryCode>
-						<ns2:PostalCode>75001</ns2:PostalCode>
-						<ns2:StreetText>5 rue de la Rue</ns2:StreetText>
-					</ns2:PostalAddress>
-				</ns2:ContactInfo>
-			</ns2:ContactInfoList>
-			<ns2:PaxList>
-				<ns2:Pax>
-					<ns2:Birthdate>2001-04-13</ns2:Birthdate>
-					<ns2:ContactInfoRefID>CONT1</ns2:ContactInfoRefID>
-					<ns2:Individual>
-						<ns2:Birthdate>2001-04-13</ns2:Birthdate>
-						<ns2:GenderCode>M</ns2:GenderCode>
-						<ns2:GivenName>John</ns2:GivenName>
-						<ns2:IndividualID>IND1</ns2:IndividualID>
-						<ns2:Surname>Doe</ns2:Surname>
-						<ns2:TitleName>MR</ns2:TitleName>
-					</ns2:Individual>
-					<ns2:PaxID>PAX1</ns2:PaxID>
-					<ns2:PTC>ADT</ns2:PTC>
-				</ns2:Pax>
-				<ns2:Pax>
-					<ns2:Birthdate>2000-11-14</ns2:Birthdate>
-					<ns2:ContactInfoRefID>CONT1</ns2:ContactInfoRefID>
-					<ns2:Individual>
-						<ns2:Birthdate>2000-11-14</ns2:Birthdate>
-						<ns2:GenderCode>F</ns2:GenderCode>
-						<ns2:GivenName>Jane</ns2:GivenName>
-						<ns2:IndividualID>IND2</ns2:IndividualID>
-						<ns2:Surname>Doe</ns2:Surname>
-						<ns2:TitleName>MRS</ns2:TitleName>
-					</ns2:Individual>
-					<ns2:PaxID>PAX2</ns2:PaxID>
-					<ns2:PTC>ADT</ns2:PTC>
-				</ns2:Pax>
-			</ns2:PaxList>
-		</ns2:DataLists>
 		<ns2:Order>
-			<ns2:OrderID>599187</ns2:OrderID>
+			<ns2:OrderID>119777</ns2:OrderID>
 			<ns2:OwnerCode>BA</ns2:OwnerCode>
 		</ns2:Order>
-		<ns2:OrderChangeParameters>
-			<ns2:CurParameter>
-				<ns2:CurCode>EUR</ns2:CurCode>
-			</ns2:CurParameter>
-		</ns2:OrderChangeParameters>
 	</Request>
 </IATA_OrderChangeRQ>
+{% endhighlight %}
+
+</details>
+
+
+<details>
+  <summary><b>OrderViewRS - Cancel</b></summary>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:IATA_OrderViewRS xmlns="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersCommonTypes" xmlns:ns2="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#">
+	<ns2:Response>
+		<DataLists>
+			<ContactInfoList>
+				<ContactInfo>
+					<ContactInfoID>CONT1</ContactInfoID>
+					<EmailAddress>
+						<EmailAddressText>john.doe@orchestra.eu</EmailAddressText>
+					</EmailAddress>
+					<Phone>
+						<CountryDialingCode>33</CountryDialingCode>
+						<PhoneNumber>0677990066</PhoneNumber>
+					</Phone>
+					<PostalAddress>
+						<CityName>Paris</CityName>
+						<CountryCode>FR</CountryCode>
+						<PostalCode>75001</PostalCode>
+						<StreetText>38 Rue de Paris</StreetText>
+					</PostalAddress>
+				</ContactInfo>
+			</ContactInfoList>
+			<DatedMarketingSegmentList>
+				<DatedMarketingSegment>
+					<Arrival>
+						<AircraftScheduledDateTime>2026-06-01T09:45:00.000+02:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>BCN</IATA_LocationCode>
+						<TerminalName>1</TerminalName>
+					</Arrival>
+					<CarrierDesigCode>BA</CarrierDesigCode>
+					<DatedMarketingSegmentId>DMS1</DatedMarketingSegmentId>
+					<DatedOperatingSegmentRefId>DOS1</DatedOperatingSegmentRefId>
+					<Dep>
+						<AircraftScheduledDateTime>2026-06-01T06:35:00.000+02:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>LHR</IATA_LocationCode>
+						<TerminalName>5</TerminalName>
+					</Dep>
+					<MarketingCarrierFlightNumberText>472</MarketingCarrierFlightNumberText>
+				</DatedMarketingSegment>
+				<DatedMarketingSegment>
+					<Arrival>
+						<AircraftScheduledDateTime>2026-06-10T22:30:00.000+02:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>LHR</IATA_LocationCode>
+						<TerminalName>5</TerminalName>
+					</Arrival>
+					<CarrierDesigCode>BA</CarrierDesigCode>
+					<DatedMarketingSegmentId>DMS2</DatedMarketingSegmentId>
+					<DatedOperatingSegmentRefId>DOS2</DatedOperatingSegmentRefId>
+					<Dep>
+						<AircraftScheduledDateTime>2026-06-10T21:15:00.000+02:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>BCN</IATA_LocationCode>
+						<TerminalName>1</TerminalName>
+					</Dep>
+					<MarketingCarrierFlightNumberText>485</MarketingCarrierFlightNumberText>
+				</DatedMarketingSegment>
+			</DatedMarketingSegmentList>
+			<DatedOperatingSegmentList>
+				<DatedOperatingSegment>
+					<CarrierDesigCode>BA</CarrierDesigCode>
+					<DatedOperatingLegRefID>DOL1</DatedOperatingLegRefID>
+					<DatedOperatingSegmentId>DOS1</DatedOperatingSegmentId>
+					<Duration>P0Y0M0DT2H10M0S</Duration>
+				</DatedOperatingSegment>
+				<DatedOperatingSegment>
+					<CarrierDesigCode>BA</CarrierDesigCode>
+					<DatedOperatingLegRefID>DOL2</DatedOperatingLegRefID>
+					<DatedOperatingSegmentId>DOS2</DatedOperatingSegmentId>
+					<Duration>P0Y0M0DT2H15M0S</Duration>
+				</DatedOperatingSegment>
+			</DatedOperatingSegmentList>
+			<OriginDestList>
+				<OriginDest>
+					<DestCode>BCN</DestCode>
+					<OriginCode>LHR</OriginCode>
+					<OriginDestID>OD1</OriginDestID>
+					<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+				</OriginDest>
+				<OriginDest>
+					<DestCode>LHR</DestCode>
+					<OriginCode>BCN</OriginCode>
+					<OriginDestID>OD2</OriginDestID>
+					<PaxJourneyRefID>PJ2</PaxJourneyRefID>
+				</OriginDest>
+			</OriginDestList>
+			<PaxJourneyList>
+				<PaxJourney>
+					<Duration>P0Y0M0DT2H10M0S</Duration>
+					<PaxJourneyID>PJ1</PaxJourneyID>
+					<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+				</PaxJourney>
+				<PaxJourney>
+					<Duration>P0Y0M0DT2H15M0S</Duration>
+					<PaxJourneyID>PJ2</PaxJourneyID>
+					<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+				</PaxJourney>
+			</PaxJourneyList>
+			<PaxList>
+				<Pax>
+					<Birthdate>1991-08-06+02:00</Birthdate>
+					<ContactInfoRefID>CONT1</ContactInfoRefID>
+					<Individual>
+						<GivenName>NDC</GivenName>
+						<Surname>SUMMER</Surname>
+						<TitleName>MR</TitleName>
+					</Individual>
+					<PaxID>PAX1</PaxID>
+					<PTC>ADT</PTC>
+				</Pax>
+				<Pax>
+					<Birthdate>1997-08-11+02:00</Birthdate>
+					<ContactInfoRefID>CONT1</ContactInfoRefID>
+					<Individual>
+						<GivenName>NDCA</GivenName>
+						<Surname>SUMMERA</Surname>
+						<TitleName>MRS</TitleName>
+					</Individual>
+					<PaxID>PAX2</PaxID>
+					<PTC>ADT</PTC>
+				</Pax>
+			</PaxList>
+			<PaxSegmentList>
+				<PaxSegment>
+					<DatedMarketingSegmentRefId>DMS1</DatedMarketingSegmentRefId>
+					<PaxSegmentID>SEG1</PaxSegmentID>
+				</PaxSegment>
+				<PaxSegment>
+					<DatedMarketingSegmentRefId>DMS2</DatedMarketingSegmentRefId>
+					<PaxSegmentID>SEG2</PaxSegmentID>
+				</PaxSegment>
+			</PaxSegmentList>
+			<PriceClassList>
+				<PriceClass>
+					<CabinType>
+						<CabinTypeName>ECONOMY</CabinTypeName>
+					</CabinType>
+					<Desc>
+						<DescText>INC - SNACK</DescText>
+					</Desc>
+					<Desc>
+						<DescText>INC - CABIN BAG UPTO 56 X 45 X 25CM</DescText>
+					</Desc>
+					<Desc>
+						<DescText>INC - HANDBAG UPTO 40 X 30 X 15CM</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - CHANGE BEFORE DEPARTURE</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - CHANGE AFTER DEPARTURE</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - SAME DAY FLT CHNG P2P ONLY</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - SEAT CHOICE</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - 1ST BAG MAX 23KG 51LB 208LCM</DescText>
+					</Desc>
+					<Desc>
+						<DescText>CHA - 2ND BAG MAX 23KG 51LB 208LCM</DescText>
+					</Desc>
+					<Desc>
+						<DescText>NOF - REFUND BEFORE DEPARTURE</DescText>
+					</Desc>
+					<Desc>
+						<DescText>NOF - REFUND AFTER DEPARTURE</DescText>
+					</Desc>
+					<Desc>
+						<DescText>NOF - LOUNGE ACCESS</DescText>
+					</Desc>
+					<Desc>
+						<DescText>NOF - PRIORITY SECURITY</DescText>
+					</Desc>
+					<Desc>
+						<DescText>NOF - DEDICATED CHECK IN ZONE</DescText>
+					</Desc>
+					<Name>BASIC</Name>
+					<PriceClassID>PC1</PriceClassID>
+				</PriceClass>
+			</PriceClassList>
+		</DataLists>
+		<Order>
+			<OrderID>119777</OrderID>
+			<OrderItem>
+				<FareDetail>
+					<FareComponent>
+						<CabinType>
+							<CabinTypeCode>O</CabinTypeCode>
+							<CabinTypeName>ECONOMY</CabinTypeName>
+						</CabinType>
+						<FareTypeCode>70J</FareTypeCode>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						<PriceClassRefID>PC1</PriceClassRefID>
+					</FareComponent>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">140.40</BaseAmount>
+							<TaxSummary>
+								<Tax>
+									<Amount CurCode="EUR">89.69</Amount>
+									<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+									<TaxName>Taxes - PAX1</TaxName>
+								</Tax>
+								<TotalTaxAmount CurCode="EUR">89.69</TotalTaxAmount>
+							</TaxSummary>
+							<TotalAmount CurCode="EUR">230.09</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+				</FareDetail>
+				<OrderItemID>baa83e83-0e3a-5b12-9fae-d70b6f6d387b</OrderItemID>
+				<Price>
+					<BaseAmount CurCode="EUR">140.40</BaseAmount>
+					<TaxSummary>
+						<Tax>
+							<Amount CurCode="EUR">89.69</Amount>
+							<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+							<TaxName>Taxes - PAX1</TaxName>
+						</Tax>
+						<TotalTaxAmount CurCode="EUR">89.69</TotalTaxAmount>
+					</TaxSummary>
+					<TotalAmount CurCode="EUR">230.09</TotalAmount>
+				</Price>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV1</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV2</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+			</OrderItem>
+			<OrderItem>
+				<FareDetail>
+					<FareComponent>
+						<CabinType>
+							<CabinTypeCode>O</CabinTypeCode>
+							<CabinTypeName>ECONOMY</CabinTypeName>
+						</CabinType>
+						<FareTypeCode>70J</FareTypeCode>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						<PriceClassRefID>PC1</PriceClassRefID>
+					</FareComponent>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">140.40</BaseAmount>
+							<TaxSummary>
+								<Tax>
+									<Amount CurCode="EUR">89.69</Amount>
+									<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+									<TaxName>Taxes - PAX2</TaxName>
+								</Tax>
+								<TotalTaxAmount CurCode="EUR">89.69</TotalTaxAmount>
+							</TaxSummary>
+							<TotalAmount CurCode="EUR">230.09</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX2</PaxRefID>
+				</FareDetail>
+				<OrderItemID>5b0f4058-3c0a-5fe8-9d50-bbde80d1cf22</OrderItemID>
+				<Price>
+					<BaseAmount CurCode="EUR">140.40</BaseAmount>
+					<TaxSummary>
+						<Tax>
+							<Amount CurCode="EUR">89.69</Amount>
+							<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+							<TaxName>Taxes - PAX2</TaxName>
+						</Tax>
+						<TotalTaxAmount CurCode="EUR">89.69</TotalTaxAmount>
+					</TaxSummary>
+					<TotalAmount CurCode="EUR">230.09</TotalAmount>
+				</Price>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV3</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV4</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+			</OrderItem>
+			<OrderItem>
+				<FareDetail>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">-140.40</BaseAmount>
+							<TaxSummary>
+								<Tax>
+									<Amount CurCode="EUR">-44.85</Amount>
+									<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+									<TaxName>Annulation - Taxes - PAX1</TaxName>
+								</Tax>
+								<Tax>
+									<Amount CurCode="EUR">-44.85</Amount>
+									<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+									<TaxName>Annulation - Taxes - PAX2</TaxName>
+								</Tax>
+								<TotalTaxAmount CurCode="EUR">-89.69</TotalTaxAmount>
+							</TaxSummary>
+							<TotalAmount CurCode="EUR">-230.09</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+					<PaxRefID>PAX2</PaxRefID>
+				</FareDetail>
+				<OrderItemID>69950c8e-a65c-5acd-b174-d4e84001d6e6</OrderItemID>
+				<Price>
+					<BaseAmount CurCode="EUR">-280.80</BaseAmount>
+					<TaxSummary>
+						<Tax>
+							<Amount CurCode="EUR">-89.69</Amount>
+							<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+							<TaxName>Annulation - Taxes - PAX1</TaxName>
+						</Tax>
+						<Tax>
+							<Amount CurCode="EUR">-89.69</Amount>
+							<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+							<TaxName>Annulation - Taxes - PAX2</TaxName>
+						</Tax>
+						<TotalTaxAmount CurCode="EUR">-179.38</TotalTaxAmount>
+					</TaxSummary>
+					<TotalAmount CurCode="EUR">-460.18</TotalAmount>
+				</Price>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV5</ServiceID>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV6</ServiceID>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV7</ServiceID>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV8</ServiceID>
+				</Service>
+			</OrderItem>
+			<OrderItem>
+				<FareDetail>
+					<FareComponent>
+						<CabinType>
+							<CabinTypeCode>O</CabinTypeCode>
+							<CabinTypeName>ECONOMY</CabinTypeName>
+						</CabinType>
+						<FareTypeCode>70J</FareTypeCode>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						<PriceClassRefID>PC1</PriceClassRefID>
+					</FareComponent>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">0.00</BaseAmount>
+							<TotalAmount CurCode="EUR">0.00</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+					<PaxRefID>PAX2</PaxRefID>
+				</FareDetail>
+				<OrderItemID>6b741880-83fe-53ec-a341-aa201f54ac5b</OrderItemID>
+				<Price>
+					<BaseAmount CurCode="EUR">0.00</BaseAmount>
+					<TotalAmount CurCode="EUR">0.00</TotalAmount>
+				</Price>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV9</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV10</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV11</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+				<Service>
+					<BookingRef>
+						<BookingEntity>
+							<Carrier>
+								<AirlineDesigCode>BA</AirlineDesigCode>
+							</Carrier>
+						</BookingEntity>
+						<BookingID>ZCGEWB</BookingID>
+					</BookingRef>
+					<OrderServiceAssociation>
+						<PaxSegmentRef>
+							<PaxSegmentRefID>SEG2</PaxSegmentRefID>
+						</PaxSegmentRef>
+					</OrderServiceAssociation>
+					<PaxRefID>PAX2</PaxRefID>
+					<ServiceID>SV12</ServiceID>
+					<StatusCode>X</StatusCode>
+				</Service>
+			</OrderItem>
+			<OwnerCode>BA</OwnerCode>
+			<StatusCode>CLOSED</StatusCode>
+			<TotalPrice>
+				<BaseAmount CurCode="EUR">0.00</BaseAmount>
+				<TaxSummary>
+					<Tax>
+						<Amount CurCode="EUR">89.69</Amount>
+						<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+						<TaxName>Taxes - PAX1</TaxName>
+					</Tax>
+					<Tax>
+						<Amount CurCode="EUR">89.69</Amount>
+						<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+						<TaxName>Taxes - PAX2</TaxName>
+					</Tax>
+					<Tax>
+						<Amount CurCode="EUR">-89.69</Amount>
+						<TaxCode>GENERAL_TAXES_PAX_1</TaxCode>
+						<TaxName>Annulation - Taxes - PAX1</TaxName>
+					</Tax>
+					<Tax>
+						<Amount CurCode="EUR">-89.69</Amount>
+						<TaxCode>GENERAL_TAXES_PAX_2</TaxCode>
+						<TaxName>Annulation - Taxes - PAX2</TaxName>
+					</Tax>
+					<TotalTaxAmount CurCode="EUR">0.00</TotalTaxAmount>
+				</TaxSummary>
+				<TotalAmount CurCode="EUR">0.00</TotalAmount>
+			</TotalPrice>
+		</Order>
+		<TicketDocInfo>
+			<BookingRef>
+				<BookingEntity>
+					<Carrier>
+						<AirlineDesigCode>BA</AirlineDesigCode>
+					</Carrier>
+				</BookingEntity>
+				<BookingID>ZCGEWB</BookingID>
+			</BookingRef>
+			<PaxRefID>PAX1</PaxRefID>
+			<Ticket>
+				<Coupon>
+					<CouponNumber>1</CouponNumber>
+					<CouponStatusCode>I</CouponStatusCode>
+				</Coupon>
+				<ReportingTypeCode>BSP</ReportingTypeCode>
+				<TicketDocTypeCode>T</TicketDocTypeCode>
+				<TicketNumber>125</TicketNumber>
+			</Ticket>
+			<Ticket>
+				<Coupon>
+					<CouponNumber>1</CouponNumber>
+					<CouponStatusCode>I</CouponStatusCode>
+				</Coupon>
+				<ReportingTypeCode>BSP</ReportingTypeCode>
+				<TicketDocTypeCode>T</TicketDocTypeCode>
+				<TicketNumber>2222364528</TicketNumber>
+			</Ticket>
+		</TicketDocInfo>
+		<TicketDocInfo>
+			<BookingRef>
+				<BookingEntity>
+					<Carrier>
+						<AirlineDesigCode>BA</AirlineDesigCode>
+					</Carrier>
+				</BookingEntity>
+				<BookingID>ZCGEWB</BookingID>
+			</BookingRef>
+			<PaxRefID>PAX2</PaxRefID>
+			<Ticket>
+				<Coupon>
+					<CouponNumber>1</CouponNumber>
+					<CouponStatusCode>I</CouponStatusCode>
+				</Coupon>
+				<ReportingTypeCode>BSP</ReportingTypeCode>
+				<TicketDocTypeCode>T</TicketDocTypeCode>
+				<TicketNumber>125</TicketNumber>
+			</Ticket>
+			<Ticket>
+				<Coupon>
+					<CouponNumber>1</CouponNumber>
+					<CouponStatusCode>I</CouponStatusCode>
+				</Coupon>
+				<ReportingTypeCode>BSP</ReportingTypeCode>
+				<TicketDocTypeCode>T</TicketDocTypeCode>
+				<TicketNumber>2222364527</TicketNumber>
+			</Ticket>
+		</TicketDocInfo>
+	</ns2:Response>
+	<ns2:PayloadAttributes>
+		<CorrelationID>1d9eb36f-dc7e-32a2-a29f-59a8b42e23a9</CorrelationID>
+		<Timestamp>2026-02-11T10:33:24.291+01:00</Timestamp>
+		<VersionNumber>21.3</VersionNumber>
+	</ns2:PayloadAttributes>
+</ns2:IATA_OrderViewRS>
+{% endhighlight %}
+
+</details>
