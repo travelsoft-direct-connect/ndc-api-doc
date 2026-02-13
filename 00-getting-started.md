@@ -53,10 +53,10 @@ A control node can be added in the SOAP header of each NDC request. This node co
 
 </details>
 
-## NDC 19.2
-
-Click [here](https://travelsoft-direct-connect.github.io/ndc-api-doc/getting_started/00-19.2.html) to get started on NDC 19.2.
-
 ## NDC 21.3
 
 Click [here](https://travelsoft-direct-connect.github.io/ndc-api-doc/getting_started/01-21.3.html) to get started on NDC 21.3.
+
+## NDC 19.2
+
+Click [here](https://travelsoft-direct-connect.github.io/ndc-api-doc/getting_started/00-19.2.html) to get started on NDC 19.2.
