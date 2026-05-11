@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.travelsoft.fr/orchestra/ndc/21.3/" name="OrchestraNDCService"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelsoft.fr/orchestra/ndc/21.3/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types>
+        <xs:schema>
+            <xs:import namespace="http://www.travelsoft.fr/orchestra/ndc/login" schemaLocation="xsd/orx/ORX_login.xsd"/>
+            <xs:import namespace="http://www.travelsoft.fr/orchestra/ndc/headers" schemaLocation="xsd/orx/ORX_headers.xsd"/>
+            <xs:import namespace="http://www.w3.org/2000/09/xmldsig" schemaLocation="xsd/ndc/21.3/xmldsig-core-schema.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersCommonTypes" schemaLocation="xsd/ndc/21.3/IATA_OffersAndOrdersCommonTypes.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_AirShoppingRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_AirShoppingRS.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OfferPriceRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OfferPriceRS.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderChangeRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderCreateRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderQuoteRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderReshopRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderReshopRS.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderRetrieveRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_OrderViewRS.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_SeatAvailabilityRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_SeatAvailabilityRS.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_ServiceListRQ.xsd"/>
+            <xs:import namespace="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" schemaLocation="xsd/ndc/21.3/IATA_ServiceListRS.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="login">
+        <part name="request" element="orx:LoginRQ" xmlns:orx="http://www.travelsoft.fr/orchestra/ndc/login"/>
+    </message>
+    <message name="loginResponse">
+        <part name="response" element="orx:LoginRS" xmlns:orx="http://www.travelsoft.fr/orchestra/ndc/login"/>
+    </message>
+    <message name="control">
+        <part name="control" element="orx:Control" xmlns:orx="http://www.travelsoft.fr/orchestra/ndc/headers"/>
+    </message>
+    <message name="airShopping">
+        <part name="request" element="iata:IATA_AirShoppingRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="airShoppingResponse">
+        <part name="response" element="iata:IATA_AirShoppingRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="serviceList">
+        <part name="request" element="iata:IATA_ServiceListRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="serviceListResponse">
+        <part name="response" element="iata:IATA_ServiceListRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="seatAvailability">
+        <part name="request" element="iata:IATA_SeatAvailabilityRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="seatAvailabilityResponse">
+        <part name="response" element="iata:IATA_SeatAvailabilityRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="offerPrice">
+        <part name="request" element="iata:IATA_OfferPriceRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="offerPriceResponse">
+        <part name="response" element="iata:IATA_OfferPriceRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderCreate">
+        <part name="request" element="iata:IATA_OrderCreateRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderCreateResponse">
+        <part name="response" element="iata:IATA_OrderViewRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderRetrieve">
+        <part name="request" element="iata:IATA_OrderRetrieveRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderRetrieveResponse">
+        <part name="response" element="iata:IATA_OrderViewRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderReshop">
+        <part name="request" element="iata:IATA_OrderReshopRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderQuote">
+        <part name="request" element="iata:IATA_OrderQuoteRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderReshopResponse">
+        <part name="response" element="iata:IATA_OrderReshopRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderChange">
+        <part name="request" element="iata:IATA_OrderChangeRQ"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <message name="orderChangeResponse">
+        <part name="response" element="iata:IATA_OrderViewRS"
+              xmlns:iata="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage"/>
+    </message>
+    <portType name="OrchestraNDCService">
+        <operation name="login">
+            <input message="tns:login"/>
+            <output message="tns:loginResponse"/>
+        </operation>
+        <operation name="airShopping">
+            <input message="tns:airShopping"/>
+            <output message="tns:airShoppingResponse"/>
+        </operation>
+        <operation name="serviceList">
+            <input message="tns:serviceList"/>
+            <output message="tns:serviceListResponse"/>
+        </operation>
+        <operation name="seatAvailability">
+            <input message="tns:seatAvailability"/>
+            <output message="tns:seatAvailabilityResponse"/>
+        </operation>
+        <operation name="offerPrice">
+            <input message="tns:offerPrice"/>
+            <output message="tns:offerPriceResponse"/>
+        </operation>
+        <operation name="orderCreate">
+            <input message="tns:orderCreate"/>
+            <output message="tns:orderCreateResponse"/>
+        </operation>
+        <operation name="orderRetrieve">
+            <input message="tns:orderRetrieve"/>
+            <output message="tns:orderRetrieveResponse"/>
+        </operation>
+        <operation name="orderQuote">
+            <input message="tns:orderQuote"/>
+            <output message="tns:orderReshopResponse"/>
+        </operation>
+        <operation name="orderReshop">
+            <input message="tns:orderReshop"/>
+            <output message="tns:orderReshopResponse"/>
+        </operation>
+        <operation name="orderChange">
+            <input message="tns:orderChange"/>
+            <output message="tns:orderChangeResponse"/>
+        </operation>
+    </portType>
+    <binding name="OrchestraNDCServiceSOAPBinding" type="tns:OrchestraNDCService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="login">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/login"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="airShopping">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/airShopping"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="serviceList">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/serviceList"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="seatAvailability">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/seatAvailability"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="offerPrice">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/offerPrice"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="orderCreate">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/orderCreate"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="orderRetrieve">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/orderRetrieve"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="orderQuote">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/orderQuote"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="orderReshop">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/orderReshop"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="orderChange">
+            <soap:operation soapAction="http://www.travelsoft.fr/orchestra/ndc/21.3/orderChange"/>
+            <input>
+                <soap:header message="tns:control" part="control" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="OrchestraNDCService">
+        <port name="OrchestraNDCServiceSOAP" binding="tns:OrchestraNDCServiceSOAPBinding">
+            <soap:address location="https://localhost/ndc/21.3/orchestraNDCService"/>
+        </port>
+    </service>
+</definitions>
+

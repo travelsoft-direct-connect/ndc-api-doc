@@ -1,0 +1,37 @@
+sequenceDiagram
+  Actor Customer as Partner
+  participant Login
+  participant Search as Air Shopping
+  participant Complete as Service List
+  participant Quote as Offer Price
+  participant Book as Order Create
+
+  opt Authentication
+    Customer ->>+ Login: LoginRQ
+    Login ->> Login: Authenticating
+    Login ->> Customer: LoginRS (AuthToken) + Set-Cookie (JSESSIONID + ROUTE_ID)
+  end
+
+  opt Search
+    Customer ->>+ Search: AirShoppingRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    Search ->> Search: Searching for flights
+    Search ->> Customer: AirShoppingRS
+  end
+
+  opt Complete
+    Customer ->>+ Complete: ServiceListRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    Complete ->> Complete: Looking for ancillaries
+    Complete ->> Customer: ServiceListRS
+  end
+
+  opt Quote
+    Customer ->>+ Quote: OfferPriceRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    Quote ->> Quote: Validating offer + choices
+    Quote ->> Customer: OfferPriceRS
+  end
+
+  opt Book
+    Customer ->>+ Book: OrderCreateRQ with AuthToken + Cookie (JSESSIONID + ROUTE_ID)
+    Book ->> Book: Booking flight
+    Book ->> Customer: OrderViewRS
+  end

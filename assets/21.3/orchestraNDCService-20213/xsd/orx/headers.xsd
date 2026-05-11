@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.travelsoft.fr/orchestra/ndc/headers" targetNamespace="http://www.travelsoft.fr/orchestra/ndc/headers" elementFormDefault="qualified">
+    <xs:element name="Control" type="ControlHeader" />
+    <xs:complexType name="ControlHeader">
+        <xs:sequence>
+            <xs:element name="Requester" type="RequesterHeader" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="Provider" type="xs:string" />
+        <xs:attribute name="EnvironmentTarget" type="EnvironmentTarget" />
+        <xs:attribute name="ApiVersion" type="xs:decimal" />
+        <xs:attribute name="BPVersion" type="xs:integer" />
+        <xs:attribute name="DefaultResConfig" type="xs:string" />
+        <xs:attribute name="TransverseConfigCodes" type="xs:string" />
+    </xs:complexType>
+    <xs:complexType name="RequesterHeader">
+        <xs:attribute name="ChannelType" type="xs:string" />
+        <xs:attribute name="ChannelCode" type="xs:string" />
+        <xs:attribute name="AgencyCode" type="xs:string" />
+        <xs:attribute name="AgentCode" type="xs:string" />
+    </xs:complexType>
+    <xs:simpleType name="EnvironmentTarget">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Test" />
+            <xs:enumeration value="Prod" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -29,3 +29,7 @@ Add Fiscal ID in OrderCreate
 ## 2024-07-01
 
 Add SessionID cookie in Login response
+
+## 2026-05-11
+
+Add NDC 21.3
