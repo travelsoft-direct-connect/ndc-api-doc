@@ -138,8 +138,8 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 
 | Element              | Description                                                                                                                      | Optional/Mandatory |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------| --- |
-| SeatAssignment       | The Seat Location selected by the Passenger (via SeatAvailability) or assigned to the Passenger by Orchestra for a given segment | Mandatory |
-| ServiceDefinitionRef | Reference to the specific definition of this service                                                                             | Mandatory |
+| SeatAssignment       | The Seat Location selected by the Passenger (via SeatAvailability) or assigned to the Passenger by Orchestra for a given segment | Optional |
+| ServiceDefinitionRef | Reference to the specific definition of this service                                                                             | Optional |
 
 #### SeatAssignment
 
