@@ -46,10 +46,10 @@ The provider to request must be sent in the control header. For example:
 ## Request
 {: .no_toc }
 
-| Element | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Optional/Mandatory |
-| --- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| DataLists | The request data lists detailed [below](#datalists)                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Mandatory |
-| PricedOffer | List of selected offers to price with Shopping session ID. </br><b>Note</b>: For certain airlines that provide free and mandatory seats, they are automatically pre-selected and returned in [OfferPriceRS](#offerpricers) as [OfferItems](#offerItem) with a SeatAssignment node in [OfferServiceAssociation](#offerServiceAssociation) and the price equal to 0. These OfferItems cannot be removed and, currently, cannot be changed with different seat selections. See the [Samples](#samples) section for examples. | Mandatory |
+| Element | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Optional/Mandatory |
+| --- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| DataLists | The request data lists detailed [below](#datalists)                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Mandatory |
+| PricedOffer | List of selected offers to price with Shopping session ID. <br /><b>Note</b>: For certain airlines that provide free and mandatory seats, they are automatically pre-selected and returned in [OfferPriceRS](#offerpricers) as [OfferItems](#offerItem) with a SeatAssignment node in [OfferServiceAssociation](#offerServiceAssociation) and the price equal to 0. These OfferItems cannot be removed and, currently, cannot be changed with different seat selections. See the [Samples](#samples) section for examples. | Mandatory |
 
 ### DataLists
 {: .no_toc }
@@ -610,309 +610,309 @@ When an IdentityDoc is sent in OfferPrice response, it indicates that this infor
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:IATA_OfferPriceRS xmlns="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersCommonTypes" xmlns:ns2="http://www.iata.org/IATA/2015/EASD/00/IATA_OffersAndOrdersMessage" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#">
-<ns2:Response>
-<DataLists>
-<BaggageAllowanceList>
-<BaggageAllowance>
-<BaggageAllowanceID>BA3</BaggageAllowanceID>
-<PieceAllowance>
-<TotalQty>1</TotalQty>
-</PieceAllowance>
-<TypeCode>CarryOn</TypeCode>
-</BaggageAllowance>
-<BaggageAllowance>
-<BaggageAllowanceID>BA2</BaggageAllowanceID>
-<PieceAllowance>
-<TotalQty>1</TotalQty>
-</PieceAllowance>
-<TypeCode>Checked</TypeCode>
-</BaggageAllowance>
-</BaggageAllowanceList>
-<DatedMarketingSegmentList>
-<DatedMarketingSegment>
-<Arrival>
-<AircraftScheduledDateTime>2026-08-31T12:30:00</AircraftScheduledDateTime>
-<IATA_LocationCode>IAS</IATA_LocationCode>
-</Arrival>
-<CarrierDesigCode>W4</CarrierDesigCode>
-<DatedMarketingSegmentId>DMS6</DatedMarketingSegmentId>
-<DatedOperatingSegmentRefId>DOS6</DatedOperatingSegmentRefId>
-<Dep>
-<AircraftScheduledDateTime>2026-08-31T08:35:00</AircraftScheduledDateTime>
-<IATA_LocationCode>BVA</IATA_LocationCode>
-</Dep>
-<MarketingCarrierFlightNumberText>3664</MarketingCarrierFlightNumberText>
-</DatedMarketingSegment>
-</DatedMarketingSegmentList>
-<DatedOperatingLegList>
-<DatedOperatingLeg>
-<Arrival/>
-<CarrierAircraftType>
-<CarrierAircraftTypeCode>320</CarrierAircraftTypeCode>
-<CarrierAircraftTypeName>Airbus A320</CarrierAircraftTypeName>
-</CarrierAircraftType>
-<DatedOperatingLegID>DOL6</DatedOperatingLegID>
-<Dep/>
-</DatedOperatingLeg>
-</DatedOperatingLegList>
-<DatedOperatingSegmentList>
-<DatedOperatingSegment>
-<CarrierDesigCode>W4</CarrierDesigCode>
-<DatedOperatingLegRefID>DOL6</DatedOperatingLegRefID>
-<DatedOperatingSegmentId>DOS6</DatedOperatingSegmentId>
-<Duration>P0Y0M0DT2H55M0S</Duration>
-</DatedOperatingSegment>
-</DatedOperatingSegmentList>
-<OriginDestList>
-<OriginDest>
-<DestCode>IAS</DestCode>
-<OriginCode>BVA</OriginCode>
-<OriginDestID>OD1</OriginDestID>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-</OriginDest>
-</OriginDestList>
-<PaxJourneyList>
-<PaxJourney>
-<Duration>P0Y0M0DT2H55M0S</Duration>
-<PaxJourneyID>PJ1</PaxJourneyID>
-<PaxSegmentRefID>SEG1</PaxSegmentRefID>
-</PaxJourney>
-</PaxJourneyList>
-<PaxList>
-<Pax>
-<PaxID>PAX1</PaxID>
-<PTC>ADT</PTC>
-</Pax>
-</PaxList>
-<PaxSegmentList>
-<PaxSegment>
-<DatedMarketingSegmentRefId>DMS6</DatedMarketingSegmentRefId>
-<PaxSegmentID>SEG1</PaxSegmentID>
-</PaxSegment>
-</PaxSegmentList>
-<PriceClassList>
-<PriceClass>
-<CabinType>
-<CabinTypeName>ECONOMY</CabinTypeName>
-</CabinType>
-<Desc>
-<DescText>+1 bagage à main 40 x 30 x 20 cm (placé sous le siège)</DescText>
-</Desc>
-<Desc>
-<DescText>Bagage cabine 55 x 40 x 23 cm garanti en cabine (sauf raisons opérationnelles)</DescText>
-</Desc>
-<Desc>
-<DescText>32 kg checked-in bag included. Additional bags of the same weight can be purchased.</DescText>
-</Desc>
-<Desc>
-<DescText>Sélection de siège Premium avec les sièges offrant plus despace pour les jambes</DescText>
-</Desc>
-<Desc>
-<DescText>Option WIZZ Flex vous permettant de modifier la date de votre vol si nécessaire, sans frais supplémentaires</DescText>
-</Desc>
-<Desc>
-<DescText>Remboursement sur le compte WIZZ</DescText>
-</Desc>
-<Desc>
-<DescText>Embarquement prioritaire</DescText>
-</Desc>
-<Desc>
-<DescText>Free airport &amp; online check-in up to 30 days before flight departure.</DescText>
-</Desc>
-<Desc>
-<DescText>Enregistrement prioritaire</DescText>
-</Desc>
-<Desc>
-<DescText>Enregistrement automatique</DescText>
-</Desc>
-<Name>PLUS</Name>
-<PriceClassID>PC4</PriceClassID>
-</PriceClass>
-</PriceClassList>
-</DataLists>
-<PaymentFunctions>
-<PaymentSupportedMethod>
-<PaymentTypeCode>Cash</PaymentTypeCode>
-</PaymentSupportedMethod>
-</PaymentFunctions>
-<PricedOffer>
-<BaggageAssociations>
-<BaggageAllowanceRefID>BA3</BaggageAllowanceRefID>
-<OfferFlightAssociations>
-<PaxSegmentReferences>
-<PaxSegmentRefID>SEG1</PaxSegmentRefID>
-</PaxSegmentReferences>
-<PaxJourneyRef>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-</PaxJourneyRef>
-</OfferFlightAssociations>
-<PaxRefID>PAX1</PaxRefID>
-</BaggageAssociations>
-<BaggageAssociations>
-<BaggageAllowanceRefID>BA2</BaggageAllowanceRefID>
-<OfferFlightAssociations>
-<PaxSegmentReferences>
-<PaxSegmentRefID>SEG1</PaxSegmentRefID>
-</PaxSegmentReferences>
-<PaxJourneyRef>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-</PaxJourneyRef>
-</OfferFlightAssociations>
-<PaxRefID>PAX1</PaxRefID>
-</BaggageAssociations>
-<JourneyOverview>
-<JourneyPriceClass>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-<PriceClassRefID>PC4</PriceClassRefID>
-</JourneyPriceClass>
-</JourneyOverview>
-<OfferExpirationTimeLimitDateTime>2025-09-30T12:26:08.000</OfferExpirationTimeLimitDateTime>
-<OfferID>3ae74012-0661-49be-a69d-451a1016ccb8</OfferID>
-<OfferItem>
-<FareDetail>
-<FareComponent>
-<CabinType>
-<CabinTypeCode>Z</CabinTypeCode>
-<CabinTypeName>ECONOMY</CabinTypeName>
-</CabinType>
-<FareBasisCode>Z</FareBasisCode>
-<FareTypeCode>70J</FareTypeCode>
-<PaxSegmentRefID>SEG1</PaxSegmentRefID>
-<PriceClassRefID>PC4</PriceClassRefID>
-</FareComponent>
-<FarePriceType>
-<Price>
-<BaseAmount CurCode="EUR">122.34</BaseAmount>
-<TotalAmount CurCode="EUR">122.34</TotalAmount>
-</Price>
-</FarePriceType>
-<PaxRefID>PAX1</PaxRefID>
-</FareDetail>
-<OfferItemID>7b545879-242b-4d71-abc3-26cb1bdf6eda</OfferItemID>
-<PaymentTimeLimit>
-<PaymentTimeLimitDuration>
-<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
-</PaymentTimeLimitDuration>
-</PaymentTimeLimit>
-<Price>
-<BaseAmount CurCode="EUR">122.34</BaseAmount>
-<TotalAmount CurCode="EUR">122.34</TotalAmount>
-</Price>
-<Service>
-<OfferServiceAssociation>
-<PaxJourneyRef>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-</PaxJourneyRef>
-</OfferServiceAssociation>
-<PaxRefID>PAX1</PaxRefID>
-<ServiceID>SV41</ServiceID>
-</Service>
-</OfferItem>
-<OfferItem>
-<FareDetail>
-<FarePriceType>
-<Price>
-<BaseAmount CurCode="EUR">0.00</BaseAmount>
-<TotalAmount CurCode="EUR">0.00</TotalAmount>
-</Price>
-</FarePriceType>
-<PaxRefID>PAX1</PaxRefID>
-</FareDetail>
-<OfferItemID>08297d09-b668-4fb8-ad1b-1e3cbf3c9cd2</OfferItemID>
-<PaymentTimeLimit>
-<PaymentTimeLimitDuration>
-<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
-</PaymentTimeLimitDuration>
-</PaymentTimeLimit>
-<Price>
-<BaseAmount CurCode="EUR">0.00</BaseAmount>
-<TotalAmount CurCode="EUR">0.00</TotalAmount>
-</Price>
-<Service>
-<OfferServiceAssociation>
-<SeatAssignment>
-<Seat>
-<ColumnID>C</ColumnID>
-<RowNumber>2</RowNumber>
-</Seat>
-<SeatAssignmentAssociations>
-<DatedOperatingLegRef>
-<DatedOperatingLegRefID>DOL6</DatedOperatingLegRefID>
-</DatedOperatingLegRef>
-</SeatAssignmentAssociations>
-</SeatAssignment>
-</OfferServiceAssociation>
-<PaxRefID>PAX1</PaxRefID>
-<ServiceID>SV42</ServiceID>
-</Service>
-</OfferItem>
-<OfferItem>
-<FareDetail>
-<FareComponent>
-<CabinType>
-<CabinTypeCode>Z</CabinTypeCode>
-<CabinTypeName>ECONOMY</CabinTypeName>
-</CabinType>
-<FareBasisCode>Z</FareBasisCode>
-<FareTypeCode>70J</FareTypeCode>
-<PaxSegmentRefID>SEG1</PaxSegmentRefID>
-<PriceClassRefID>PC4</PriceClassRefID>
-</FareComponent>
-<FarePriceType>
-<Price>
-<BaseAmount>0</BaseAmount>
-<Fee>
-<Amount CurCode="EUR">1.22</Amount>
-<DescText>Service fees INR India</DescText>
-<DesigText>No commission</DesigText>
-</Fee>
-<TotalAmount CurCode="EUR">1.22</TotalAmount>
-</Price>
-</FarePriceType>
-<PaxRefID>PAX1</PaxRefID>
-</FareDetail>
-<OfferItemID>f98da77b-3ae1-4142-acf7-f07ad1bff394</OfferItemID>
-<PaymentTimeLimit>
-<PaymentTimeLimitDuration>
-<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
-</PaymentTimeLimitDuration>
-</PaymentTimeLimit>
-<Price>
-<BaseAmount>0</BaseAmount>
-<Fee>
-<Amount CurCode="EUR">1.22</Amount>
-<DescText>Service fees INR India</DescText>
-<DesigText>No commission</DesigText>
-</Fee>
-<TotalAmount CurCode="EUR">1.22</TotalAmount>
-</Price>
-<Service>
-<OfferServiceAssociation>
-<PaxJourneyRef>
-<PaxJourneyRefID>PJ1</PaxJourneyRefID>
-</PaxJourneyRef>
-</OfferServiceAssociation>
-<PaxRefID>PAX1</PaxRefID>
-<ServiceID>SV43</ServiceID>
-</Service>
-</OfferItem>
-<OwnerCode>W4</OwnerCode>
-<TotalPrice>
-<BaseAmount CurCode="EUR">122.34</BaseAmount>
-<Fee>
-<Amount CurCode="EUR">1.22</Amount>
-<DescText>Service fees INR India</DescText>
-<DesigText>No commission</DesigText>
-</Fee>
-<TotalAmount CurCode="EUR">123.56</TotalAmount>
-</TotalPrice>
-</PricedOffer>
-</ns2:Response>
-<ns2:PayloadAttributes>
-<CorrelationID>e0511f74-7d4b-3763-b80c-08b1ec1803d2</CorrelationID>
-<Timestamp>2026-07-31T12:21:02.306+02:00</Timestamp>
-<VersionNumber>21.3</VersionNumber>
-</ns2:PayloadAttributes>
+	<ns2:Response>
+		<DataLists>
+			<BaggageAllowanceList>
+				<BaggageAllowance>
+					<BaggageAllowanceID>BA3</BaggageAllowanceID>
+					<PieceAllowance>
+						<TotalQty>1</TotalQty>
+					</PieceAllowance>
+					<TypeCode>CarryOn</TypeCode>
+				</BaggageAllowance>
+				<BaggageAllowance>
+					<BaggageAllowanceID>BA2</BaggageAllowanceID>
+					<PieceAllowance>
+						<TotalQty>1</TotalQty>
+					</PieceAllowance>
+					<TypeCode>Checked</TypeCode>
+				</BaggageAllowance>
+			</BaggageAllowanceList>
+			<DatedMarketingSegmentList>
+				<DatedMarketingSegment>
+					<Arrival>
+						<AircraftScheduledDateTime>2026-08-31T12:30:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>IAS</IATA_LocationCode>
+					</Arrival>
+					<CarrierDesigCode>W4</CarrierDesigCode>
+					<DatedMarketingSegmentId>DMS6</DatedMarketingSegmentId>
+					<DatedOperatingSegmentRefId>DOS6</DatedOperatingSegmentRefId>
+					<Dep>
+						<AircraftScheduledDateTime>2026-08-31T08:35:00</AircraftScheduledDateTime>
+						<IATA_LocationCode>BVA</IATA_LocationCode>
+					</Dep>
+					<MarketingCarrierFlightNumberText>3664</MarketingCarrierFlightNumberText>
+				</DatedMarketingSegment>
+			</DatedMarketingSegmentList>
+			<DatedOperatingLegList>
+				<DatedOperatingLeg>
+					<Arrival/>
+					<CarrierAircraftType>
+						<CarrierAircraftTypeCode>320</CarrierAircraftTypeCode>
+						<CarrierAircraftTypeName>Airbus A320</CarrierAircraftTypeName>
+					</CarrierAircraftType>
+					<DatedOperatingLegID>DOL6</DatedOperatingLegID>
+					<Dep/>
+				</DatedOperatingLeg>
+			</DatedOperatingLegList>
+			<DatedOperatingSegmentList>
+				<DatedOperatingSegment>
+					<CarrierDesigCode>W4</CarrierDesigCode>
+					<DatedOperatingLegRefID>DOL6</DatedOperatingLegRefID>
+					<DatedOperatingSegmentId>DOS6</DatedOperatingSegmentId>
+					<Duration>P0Y0M0DT2H55M0S</Duration>
+				</DatedOperatingSegment>
+			</DatedOperatingSegmentList>
+			<OriginDestList>
+				<OriginDest>
+					<DestCode>IAS</DestCode>
+					<OriginCode>BVA</OriginCode>
+					<OriginDestID>OD1</OriginDestID>
+					<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+				</OriginDest>
+			</OriginDestList>
+			<PaxJourneyList>
+				<PaxJourney>
+					<Duration>P0Y0M0DT2H55M0S</Duration>
+					<PaxJourneyID>PJ1</PaxJourneyID>
+					<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+				</PaxJourney>
+			</PaxJourneyList>
+			<PaxList>
+				<Pax>
+					<PaxID>PAX1</PaxID>
+					<PTC>ADT</PTC>
+				</Pax>
+			</PaxList>
+			<PaxSegmentList>
+				<PaxSegment>
+					<DatedMarketingSegmentRefId>DMS6</DatedMarketingSegmentRefId>
+					<PaxSegmentID>SEG1</PaxSegmentID>
+				</PaxSegment>
+			</PaxSegmentList>
+			<PriceClassList>
+				<PriceClass>
+					<CabinType>
+						<CabinTypeName>ECONOMY</CabinTypeName>
+					</CabinType>
+					<Desc>
+						<DescText>+1 bagage à main 40 x 30 x 20 cm (placé sous le siège)</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Bagage cabine 55 x 40 x 23 cm garanti en cabine (sauf raisons opérationnelles)</DescText>
+					</Desc>
+					<Desc>
+						<DescText>32 kg checked-in bag included. Additional bags of the same weight can be purchased.</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Sélection de siège Premium avec les sièges offrant plus despace pour les jambes</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Option WIZZ Flex vous permettant de modifier la date de votre vol si nécessaire, sans frais supplémentaires</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Remboursement sur le compte WIZZ</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Embarquement prioritaire</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Free airport &amp; online check-in up to 30 days before flight departure.</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Enregistrement prioritaire</DescText>
+					</Desc>
+					<Desc>
+						<DescText>Enregistrement automatique</DescText>
+					</Desc>
+					<Name>PLUS</Name>
+					<PriceClassID>PC4</PriceClassID>
+				</PriceClass>
+			</PriceClassList>
+		</DataLists>
+		<PaymentFunctions>
+			<PaymentSupportedMethod>
+				<PaymentTypeCode>Cash</PaymentTypeCode>
+			</PaymentSupportedMethod>
+		</PaymentFunctions>
+		<PricedOffer>
+			<BaggageAssociations>
+				<BaggageAllowanceRefID>BA3</BaggageAllowanceRefID>
+				<OfferFlightAssociations>
+					<PaxSegmentReferences>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+					</PaxSegmentReferences>
+					<PaxJourneyRef>
+						<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+					</PaxJourneyRef>
+				</OfferFlightAssociations>
+				<PaxRefID>PAX1</PaxRefID>
+			</BaggageAssociations>
+			<BaggageAssociations>
+				<BaggageAllowanceRefID>BA2</BaggageAllowanceRefID>
+				<OfferFlightAssociations>
+					<PaxSegmentReferences>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+					</PaxSegmentReferences>
+					<PaxJourneyRef>
+						<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+					</PaxJourneyRef>
+				</OfferFlightAssociations>
+				<PaxRefID>PAX1</PaxRefID>
+			</BaggageAssociations>
+			<JourneyOverview>
+				<JourneyPriceClass>
+					<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+					<PriceClassRefID>PC4</PriceClassRefID>
+				</JourneyPriceClass>
+			</JourneyOverview>
+			<OfferExpirationTimeLimitDateTime>2025-09-30T12:26:08.000</OfferExpirationTimeLimitDateTime>
+			<OfferID>3ae74012-0661-49be-a69d-451a1016ccb8</OfferID>
+			<OfferItem>
+				<FareDetail>
+					<FareComponent>
+						<CabinType>
+							<CabinTypeCode>Z</CabinTypeCode>
+							<CabinTypeName>ECONOMY</CabinTypeName>
+						</CabinType>
+						<FareBasisCode>Z</FareBasisCode>
+						<FareTypeCode>70J</FareTypeCode>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						<PriceClassRefID>PC4</PriceClassRefID>
+					</FareComponent>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">122.34</BaseAmount>
+							<TotalAmount CurCode="EUR">122.34</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+				</FareDetail>
+				<OfferItemID>7b545879-242b-4d71-abc3-26cb1bdf6eda</OfferItemID>
+				<PaymentTimeLimit>
+					<PaymentTimeLimitDuration>
+						<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
+					</PaymentTimeLimitDuration>
+				</PaymentTimeLimit>
+				<Price>
+					<BaseAmount CurCode="EUR">122.34</BaseAmount>
+					<TotalAmount CurCode="EUR">122.34</TotalAmount>
+				</Price>
+				<Service>
+					<OfferServiceAssociation>
+						<PaxJourneyRef>
+							<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+						</PaxJourneyRef>
+					</OfferServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV41</ServiceID>
+				</Service>
+			</OfferItem>
+			<OfferItem>
+				<FareDetail>
+					<FarePriceType>
+						<Price>
+							<BaseAmount CurCode="EUR">0.00</BaseAmount>
+							<TotalAmount CurCode="EUR">0.00</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+				</FareDetail>
+				<OfferItemID>08297d09-b668-4fb8-ad1b-1e3cbf3c9cd2</OfferItemID>
+				<PaymentTimeLimit>
+					<PaymentTimeLimitDuration>
+						<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
+					</PaymentTimeLimitDuration>
+				</PaymentTimeLimit>
+				<Price>
+					<BaseAmount CurCode="EUR">0.00</BaseAmount>
+					<TotalAmount CurCode="EUR">0.00</TotalAmount>
+				</Price>
+				<Service>
+					<OfferServiceAssociation>
+						<SeatAssignment>
+							<Seat>
+								<ColumnID>C</ColumnID>
+								<RowNumber>2</RowNumber>
+							</Seat>
+							<SeatAssignmentAssociations>
+								<DatedOperatingLegRef>
+									<DatedOperatingLegRefID>DOL6</DatedOperatingLegRefID>
+								</DatedOperatingLegRef>
+							</SeatAssignmentAssociations>
+						</SeatAssignment>
+					</OfferServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV42</ServiceID>
+				</Service>
+			</OfferItem>
+			<OfferItem>
+				<FareDetail>
+					<FareComponent>
+						<CabinType>
+							<CabinTypeCode>Z</CabinTypeCode>
+							<CabinTypeName>ECONOMY</CabinTypeName>
+						</CabinType>
+						<FareBasisCode>Z</FareBasisCode>
+						<FareTypeCode>70J</FareTypeCode>
+						<PaxSegmentRefID>SEG1</PaxSegmentRefID>
+						<PriceClassRefID>PC4</PriceClassRefID>
+					</FareComponent>
+					<FarePriceType>
+						<Price>
+							<BaseAmount>0</BaseAmount>
+							<Fee>
+								<Amount CurCode="EUR">1.22</Amount>
+								<DescText>Service fees INR India</DescText>
+								<DesigText>No commission</DesigText>
+							</Fee>
+							<TotalAmount CurCode="EUR">1.22</TotalAmount>
+						</Price>
+					</FarePriceType>
+					<PaxRefID>PAX1</PaxRefID>
+				</FareDetail>
+				<OfferItemID>f98da77b-3ae1-4142-acf7-f07ad1bff394</OfferItemID>
+				<PaymentTimeLimit>
+					<PaymentTimeLimitDuration>
+						<PaymentTimeLimitDuration>PT0S</PaymentTimeLimitDuration>
+					</PaymentTimeLimitDuration>
+				</PaymentTimeLimit>
+				<Price>
+					<BaseAmount>0</BaseAmount>
+					<Fee>
+						<Amount CurCode="EUR">1.22</Amount>
+						<DescText>Service fees INR India</DescText>
+						<DesigText>No commission</DesigText>
+					</Fee>
+					<TotalAmount CurCode="EUR">1.22</TotalAmount>
+				</Price>
+				<Service>
+					<OfferServiceAssociation>
+						<PaxJourneyRef>
+							<PaxJourneyRefID>PJ1</PaxJourneyRefID>
+						</PaxJourneyRef>
+					</OfferServiceAssociation>
+					<PaxRefID>PAX1</PaxRefID>
+					<ServiceID>SV43</ServiceID>
+				</Service>
+			</OfferItem>
+			<OwnerCode>W4</OwnerCode>
+			<TotalPrice>
+				<BaseAmount CurCode="EUR">122.34</BaseAmount>
+				<Fee>
+					<Amount CurCode="EUR">1.22</Amount>
+					<DescText>Service fees INR India</DescText>
+					<DesigText>No commission</DesigText>
+				</Fee>
+				<TotalAmount CurCode="EUR">123.56</TotalAmount>
+			</TotalPrice>
+		</PricedOffer>
+	</ns2:Response>
+	<ns2:PayloadAttributes>
+		<CorrelationID>e0511f74-7d4b-3763-b80c-08b1ec1803d2</CorrelationID>
+		<Timestamp>2026-07-31T12:21:02.306+02:00</Timestamp>
+		<VersionNumber>21.3</VersionNumber>
+	</ns2:PayloadAttributes>
 </ns2:IATA_OfferPriceRS>
 {% endhighlight %}
 
